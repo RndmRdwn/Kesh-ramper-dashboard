@@ -4,8 +4,8 @@
 import React from 'react'
 import { Breadcrumb, BreadcrumbList, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbItem, BreadcrumbPage } from "@/components/shadcn/ui/breadcrumb";
 import { SidebarTrigger } from "@/components/shadcn/ui/sidebar";
-import { Separator } from './shadcn/ui/separator';
 import { usePathname } from 'next/navigation';
+import { Separator } from './shadcn/ui/separator';
 
 const Header = () => {
 

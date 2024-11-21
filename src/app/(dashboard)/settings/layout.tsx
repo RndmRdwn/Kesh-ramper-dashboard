@@ -17,12 +17,10 @@ interface SettingsLayoutProps {
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
   return (
     <>
-      <div className=" space-y-6  lg:p-4 ">
-        <div className="space-y-0.5">
-          <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
-          <p className="text-muted-foreground text-sm">
-            Manage your account settings and set e-mail preferences.
-          </p>
+      <div className=" flex-1 space-y-4 p-2 lg:w-11/12 lg:mx-auto">
+        <div className="">
+          <h2 className='font-medium'>Settings</h2>
+          <p className='text-sm text-muted-foreground'>Manage your account settings and set e-mail preferences.</p>
         </div>
         <Separator className="my-6" />
         <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
