@@ -1,15 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+// import { useRouter } from 'next/navigation'; // Use the router for redirection
 import { Label } from '@/components/shadcn/ui/label';
 import { Input } from '@/components/shadcn/ui/input';
 import { Button } from '@/components/shadcn/ui/button';
 import { LoaderCircle } from 'lucide-react';
 
-type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>;
 
-const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
+const SignUpForm = ({isFinished} : {isFinished: () => void}) => {
+    // const router = useRouter(); // Next.js router for redirection
     const [step, setStep] = React.useState<number>(1);
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
     const [formData, setFormData] = React.useState({
@@ -34,7 +34,7 @@ const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
             setPasswordError("Passwords don't match.");
             return;
         }
-        if (step < 4) setStep((prev) => prev + 1);
+        if (step < 3) setStep((prev) => prev + 1);
     };
 
     const handleBack = () => {
@@ -44,21 +44,27 @@ const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
     const handleSubmit = async (event: React.SyntheticEvent) => {
         event.preventDefault();
         setIsLoading(true);
+        try {
+            // Simulate API request for account creation
+            await new Promise((resolve) => setTimeout(resolve, 500));
 
-        // Simulate API request
-        setTimeout(() => {
+            // Redirect to onboarding page
+            // router.push('/on-boarding');
+            isFinished()
+        } catch (error) {
+            console.error('Error during sign-up:', error);
+        } finally {
             setIsLoading(false);
-            alert('Sign-up completed!');
-        }, 3000);
+        }
     };
 
     return (
-        <div className={cn('grid gap-6', className)} {...props}>
+        <div className={`'grid gap-6'`}>
             <form onSubmit={handleSubmit}>
                 <div className="grid gap-2">
                     {/* Step 1: Email */}
                     {step === 1 && (
-                        <div className="grid gap-1 mb-5">
+                        <div className="grid gap-2 ">
                             <Label htmlFor="email">Email</Label>
                             <Input
                                 id="email"
@@ -108,30 +114,12 @@ const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
                         </>
                     )}
 
-                    {/* Step 3: Personal Information */}
+                    {/* Step 3: Confirmation */}
                     {step === 3 && (
-                        <div className="grid gap-1 mb-5">
-                            <Label htmlFor="fullName">Full Name</Label>
-                            <Input
-                                id="fullName"
-                                placeholder="John Doe"
-                                type="text"
-                                className="h-10"
-                                disabled={isLoading}
-                                value={formData.fullName}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    )}
-
-                    {/* Step 4: Onboarding */}
-                    {step === 4 && (
                         <div className="text-center">
-                            <h2 className="text-lg font-bold">
-                                Welcome, {formData.fullName || 'User'}!
-                            </h2>
+                            <h2 className="text-lg font-bold">Almost there!</h2>
                             <p className="text-sm text-muted-foreground">
-                                Your account is being set up. Please wait.
+                                Click <strong>Finish</strong> to complete your sign-up process.
                             </p>
                         </div>
                     )}
@@ -139,19 +127,21 @@ const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
                     {/* Navigation Buttons */}
                     <div className="grid place-items-center gap-2 mt-4">
                         {/* Next or Finish Button */}
-                        {step < 4 && (
+                        {step < 3 && (
                             <Button
                                 type="button"
-                                disabled={isLoading || !formData[step === 1 ? 'email' : step === 2 ? 'password' : 'fullName']}
+                                size='lg'
+                                disabled={isLoading || !formData[step === 1 ? 'email' : 'password']}
                                 onClick={handleNext}
                                 className="w-full px-24"
                             >
-                                Next
+                                Continue
                             </Button>
                         )}
-                        {step === 4 && (
+                        {step === 3 && (
                             <Button
                                 type="submit"
+                                size='lg'
                                 disabled={isLoading}
                                 className="w-full px-24"
                             >
@@ -161,12 +151,12 @@ const SignUpForm = ({ className, ...props }: UserAuthFormProps) => {
                                 Finish
                             </Button>
                         )}
-
                         {/* Back Button */}
                         {step > 1 && (
                             <Button
                                 variant="outline"
                                 type="button"
+                                size='lg'
                                 disabled={isLoading}
                                 onClick={handleBack}
                                 className="w-full px-24"
