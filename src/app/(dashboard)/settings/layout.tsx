@@ -17,7 +17,7 @@ interface SettingsLayoutProps {
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
   return (
     <>
-      <div className=" flex-1 space-y-4 p-2 lg:w-11/12 lg:mx-auto">
+      <div className=" flex-1 space-y-4 p-2 ">
         <div className="">
           <h2 className='font-medium'>Settings</h2>
           <p className='text-sm text-muted-foreground'>Manage your account settings and preferences.</p>

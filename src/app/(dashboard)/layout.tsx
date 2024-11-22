@@ -1,8 +1,11 @@
+import Navbar from "@/components/menu/navbar";
+import { Separator } from "@/components/shadcn/ui/separator";
 import type { Metadata } from "next";
-import { SidebarInset, SidebarProvider } from "@/components/shadcn/ui/sidebar";
-import { Toaster } from "@/components/shadcn/ui/sonner";
-import { AppSidebar } from "@/components/app-sidebar";
-import Header from "@/components/header";
+
+// import TeamSwitcher from "./overview/components/team-switcher";
+// import { MainNav } from "./overview/components/main-nav";
+// import { Search } from "./overview/components/search";
+// import { UserNav } from "./overview/components/user-nav";
 
 
 export const metadata: Metadata = {
@@ -16,18 +19,23 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-        <SidebarProvider>
-        <Toaster position='top-center'/>
-            <AppSidebar />
-            <SidebarInset>
-            <Header />
-                <main className="px-4">
-                    {children}
-                </main>
+    <div className="">
+        {/* <div className="flex h-16 items-center px-4">
+          <TeamSwitcher />
+          <MainNav className="mx-6" />
+          <div className="ml-auto flex items-center space-x-4">
+            <Search />
+            <UserNav />
+          </div>
+        </div> */}
 
-            </SidebarInset>
-        </SidebarProvider>
+        <div className="lg:w-8/12 lg:mx-auto py-3">
+          <Navbar />
+        </div>
+        <Separator />
+        <main className="py-4 lg:w-8/12 lg:mx-auto ">
+            {children}
+        </main>
     </div>
   );
 }
