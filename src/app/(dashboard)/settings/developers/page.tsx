@@ -13,7 +13,6 @@ const DevelopersPage = () => {
       </div>
       <Separator />
 
-      <h2>Settings Profile</h2>
 
     </div>
   )

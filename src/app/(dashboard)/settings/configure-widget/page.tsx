@@ -15,10 +15,13 @@ const ConfigureWidgetPage = () => {
         </p>
       </div>
       <Separator />
-      <div className='flex gap-3 py-4 w-full justify-end'>
-        <PreviewWidget />
-        <PayWidget />
-      </div>
+        <div className='flex gap-3 py-4 w-full justify-between'>
+        Preview
+        <div className='flex gap-3'>
+          <PreviewWidget />
+          <PayWidget />
+        </div>
+        </div>
       <AppearanceForm />
      
     </div>

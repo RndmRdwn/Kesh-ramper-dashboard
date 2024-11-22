@@ -53,7 +53,7 @@ export const PreviewWidget = () => {
     <>
       <Dialog open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
         <DialogTrigger asChild>
-          <Button onClick={() => setIsOpen(!isOpen)} variant="outline">Preview Widget Auth</Button>
+          <Button onClick={() => setIsOpen(!isOpen)} variant="outline">Preview widget auth</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[525px]">
           <DialogHeader className="w-full flex items-center">
