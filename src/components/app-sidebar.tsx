@@ -33,9 +33,9 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Kesh Ramper",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: "Dashboard",
     },
     {
       name: "Acme Corp.",

@@ -17,23 +17,29 @@ import BoardingStairs from '@/app/on-boarding/boarding-stairs';
 
 const SignUpPage = () => {
 
-    const [onBoarding, setOnBoarding] = useState(true)
+    const [onBoarding, setOnBoarding] = useState(false)
 
     return (
         <>
-            <div className="container relative hidden h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+            <div className={` relative lg:px-0 h-screen grid items-center justify-center 
+                    transition-all duration-500 w-full gap-5 ${
+                    onBoarding ? 'lg:grid-cols-[1fr_3fr]' : 'lg:grid-cols-[1fr_1fr]'
+                    }`}
+                >
                 {!onBoarding && (
                     <Link
-                        href="/auth/sign-in"
-                        className={cn(
-                            buttonVariants({ variant: 'ghost' }),
-                            'absolute left-4 top-4 md:left-8  md:top-8'
-                        )}
+                    href="/auth/sign-in"
+                    className={cn(
+                        buttonVariants({ variant: 'ghost' }),
+                        'absolute right-4 top-4 md:right-8  md:top-8'
+                    )}
                     >
-                        Sign in
+                    Sign in
                     </Link>
                 )}
-                <div className="lg:p-8 h-full">
+                <RightSide/>
+
+                <div className={`transition-all duration-500 ${onBoarding ? 'col-span-1' : 'col-span-1'}`}>
                     {!onBoarding ? (
                         <div className="mx-auto flex w-full flex-col h-full justify-center space-y-6 sm:w-[450px]">
                             <div className="flex flex-col space-y-2 text-center">
@@ -52,7 +58,6 @@ const SignUpPage = () => {
                     )}
 
                 </div>
-                <RightSide />
             </div>
         </>
     );

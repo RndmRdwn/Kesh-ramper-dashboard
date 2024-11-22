@@ -5,14 +5,14 @@ import React from 'react'
 
 const PersonalInfo = () => {
   return (
-    <div className='w-full grid grid-cols-6 gap-3'>
+    <div className='w-full grid lg:grid-cols-5 md:grid-cols-5 gap-3'>
         <div className='w-full col-span-2'>
             <h2 className=' font-medium'>Personal Infomation</h2>
             <h2 className='text-muted-foreground text-sm'>Provide your Personal Info</h2>
             
         </div>
-        <div className='w-full col-span-3 grid gap-4 max-w-3xl'>
-            <div className=' grid grid-cols-2 gap-3 w-full'>
+        <div className='w-full col-span-3 grid gap-4 max-w-4xl'>
+            <div className=' grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-3 w-full'>
                 <CustomInput label='First Name'  value='' />
                 <CustomInput label='Last Name'  value='' />
             </div>

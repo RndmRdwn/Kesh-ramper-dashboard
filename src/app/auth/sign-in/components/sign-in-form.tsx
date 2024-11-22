@@ -6,11 +6,13 @@ import { Label } from '@/components/shadcn/ui/label';
 import { Input } from '@/components/shadcn/ui/input';
 import { Button } from '@/components/shadcn/ui/button';
 import { LoaderCircle } from 'lucide-react';
+// import { useRouter } from 'next/navigation';
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement> & {};
 
 const SignInForm = ({ className, ...props }: UserAuthFormProps) => {
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
+    // const router = useRouter();
 
     async function onSubmit(event: React.SyntheticEvent) {
         event.preventDefault();
@@ -18,7 +20,9 @@ const SignInForm = ({ className, ...props }: UserAuthFormProps) => {
 
         setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+        }, 1000);
+
+        // router.push('/overview')
     }
 
     return (
