@@ -1,8 +1,6 @@
 import { Separator } from '@/components/shadcn/ui/separator'
 import React from 'react'
-import { AppearanceForm } from './displayForm'
-import { PreviewWidget } from '@/components/widget/preview-widget'
-import PayWidget from '@/components/widget/pay-widget'
+import Customization from './customization'
 
 
 const ConfigureWidgetPage = () => {
@@ -15,14 +13,7 @@ const ConfigureWidgetPage = () => {
         </p>
       </div>
       <Separator />
-        <div className='flex gap-3 py-4 w-full justify-between'>
-        Preview
-        <div className='flex gap-3'>
-          <PreviewWidget />
-          <PayWidget />
-        </div>
-        </div>
-      <AppearanceForm />
+      <Customization />
      
     </div>
   )
