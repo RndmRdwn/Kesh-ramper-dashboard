@@ -2,6 +2,7 @@ import { Separator } from "@/components/shadcn/ui/separator"
 import { Metadata } from "next"
 import { SidebarNav } from "./tabs-sidebar"
 import { settingTabs } from "@/lib/tab-list"
+import { Toaster } from "sonner"
 
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
   return (
     <>
       <div className=" flex-1 space-y-4 p-2 ">
+        <Toaster  position="top-center"/>
         <div className="">
           <h2 className='font-medium'>Settings</h2>
           <p className='text-sm text-muted-foreground'>Manage your account settings and preferences.</p>

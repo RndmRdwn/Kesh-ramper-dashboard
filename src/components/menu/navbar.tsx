@@ -15,6 +15,7 @@ import {
 import { AppIcon } from '@/constant/icons'
 import { navItems } from '.'
 import TeamSwitcher from '@/app/(dashboard)/overview/components/team-switcher'
+import LogoBox from '../logo-box'
 
 // type Props = {}
 
@@ -28,28 +29,37 @@ const Navbar = () => {
   return (
     <div>
         <div className='w-full lg:flex xl:flex md:flex gap-1 hidden '>
-            <TeamSwitcher />
-            <div className='flex gap-0  items-center'>
-                {navItems.map( item => (
-                    <Link href={item.path} key={item.name} 
-                        className={`text-sm font-medium  p-1  px-4 
-                            border-b  transition-colors hover:text-primary
-                            ${pathname == item.path ? 'border-primary' : 'border-transparent text-muted-foreground/70'}`}>
-                        {item.name}
-                    </Link>
-                ))}
+            <div className='flex justify-between items-center w-full'>
+            
+            <div className='w-fit flex gap-8 items-center'>
+                {/* <TeamSwitcher /> */}
+                <LogoBox />
+                <div className='flex gap-0  items-center'>
+                    {navItems.map( item => (
+                        <Link href={item.path} key={item.name} 
+                            className={`text-sm font-medium  p-1  px-4 
+                                border-b  transition-colors hover:text-primary
+                                ${pathname == item.path ? 'border-primary' : 'border-transparent text-muted-foreground/70'}`}>
+                            {item.name}
+                        </Link>
+                    ))}
+                
+                </div>
+            </div>
+            <div className='border'>
+                asd
+            </div>
             </div>
         </div>
-        <div className='w-full  lg:hidden xl:hidden md:hidden flex p-4'>
-
-                <SheetDemo currentNav={pathname}/>
+        <div className='w-full  lg:hidden xl:hidden md:hidden flex px-2'>
+            <NavbarSheet currentNav={pathname}/>
         </div>
     </div>
   )
 }
 
 
-export function SheetDemo({currentNav} : {currentNav : string}) {
+export function NavbarSheet({currentNav} : {currentNav : string}) {
     return (
       <Sheet >
          <SheetTrigger asChild>

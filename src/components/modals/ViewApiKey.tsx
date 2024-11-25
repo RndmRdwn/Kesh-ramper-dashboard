@@ -4,15 +4,24 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '
 import { Button } from '../shadcn/ui/button'
 import CustomTextField from '../shared/Custom-TextField'
 import { ApiKey } from '@/app/(dashboard)/settings/developers/page'
+import { Label } from '../shadcn/ui/label'
+import { Checkbox } from '../shadcn/ui/checkbox'
+import { RadioGroup, RadioGroupItem } from '../shadcn/ui/radio-group'
 
 type props = {
     open: boolean,
     onClose: (val: boolean) => void,
     apiKey: ApiKey
+    selected: string
+    fetchPermissions: (value: string) => void
 }
-const ViewApiKey = ({ open, onClose, apiKey } : props) => {
+const ViewApiKey = ({ open, onClose, apiKey, selected, fetchPermissions } : props) => {
     const [apiKeyName, setApiKeyName] = useState('')
+    const [selectedPermission, setSelectedPermission] = useState(selected)
   
+    const handlePermissionChange = (value: string) => {
+          setSelectedPermission(value);
+        };
     // Handle input change
     const handleChange = (e: string) => {
       setApiKeyName(e)
@@ -62,6 +71,24 @@ const ViewApiKey = ({ open, onClose, apiKey } : props) => {
                 value={apiKey.key} 
                 onChange={handleChange} 
             />
+            <div>
+              <Label>Permissions</Label>
+              <RadioGroup  value={selectedPermission}
+              onValueChange={handlePermissionChange} className='flex gap-2 pt-2'>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="default" id="r1" />
+                <Label className='text-xs font-normal' htmlFor="r1">Default</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="full-access" id="r2" />
+                <Label className='text-xs font-normal' htmlFor="r2">Full Access</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="custom" id="r3" />
+                <Label className='text-xs font-normal' htmlFor="r3">Custom</Label>
+              </div>
+            </RadioGroup>
+            </div>
         </div>
 
         <DialogFooter>

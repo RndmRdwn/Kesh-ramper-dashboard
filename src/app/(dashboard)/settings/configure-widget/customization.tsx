@@ -4,6 +4,7 @@ import { DefaultSelectType } from "@/constant/types/common"
 import { useState } from "react"
 import CustomTools from "./custom-tools"
 import { Label } from "@/components/shadcn/ui/label"
+import CustomWidget from "./custom-widget"
 
 
 const Customization = () => {
@@ -31,14 +32,14 @@ const Customization = () => {
  }
   return (
     <div>
-        <div className='w-full grid grid-cols-2 gap-3'>
-            <div className='w-full '>
+        <div className='w-full flex lg:flex-row h-full gap-3'>
+            <div className='w-[50%] '>
                 <Label>Appearance</Label>
                <CustomTools data={formData} handleChange={handleChange} sample={sampleData} />
             </div>
-            <div className='w-full border'>
-                Widget
-                <div>
+            <div className='w-[50%] '>
+                <CustomWidget />
+                {/* <div>
                     <div className="w-full border p-4"
                         style={{
                             backgroundColor: formData.bg_color,
@@ -62,7 +63,7 @@ const Customization = () => {
                         Sample Button
                     </button>
                 </div>
-                </div>
+                </div> */}
             </div>
         </div>
     </div>

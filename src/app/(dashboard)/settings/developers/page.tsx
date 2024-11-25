@@ -7,7 +7,8 @@ import { Button } from '@/components/shadcn/ui/button';
 import { Input } from '@/components/shadcn/ui/input';
 import { Label } from '@/components/shadcn/ui/label';
 import { Separator } from '@/components/shadcn/ui/separator';
-import { CircleAlert, Key, Pencil, Trash2, Eye, EyeOff } from 'lucide-react';
+import { handleClipboard } from '@/lib/clipboardText';
+import { CircleAlert, Key, Pencil, Trash2, Eye, EyeOff, Copy } from 'lucide-react';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -20,6 +21,7 @@ export interface ApiKey {
 const DevelopersPage = () => {
   const [isOpen, setIsOpen] = useState(false); // For GenerateApiKey Modal
   const [apiKeys, setApiKeys] = useState<ApiKey[]>([]); // List of API keys
+  const [permissions, setPermissions] = useState(''); // List of API keys
   const [viewApiKey, setViewApiKey] = useState<ApiKey | null>(null); // To store the key being viewed
   const [selectedKey, setSelectedKey] = useState<ApiKey | null>(null); // Selected API key for deletion
   const [isDeleteOpen, setIsDeleteOpen] = useState(false); // For DeleteApiKey Modal
@@ -94,6 +96,7 @@ const DevelopersPage = () => {
             onClose={(va) => setIsOpen(va)}
             fetchApiName={handleApiName}
             fetchApiKey={handleApiKey}
+            fetchPermissions={(value : string) => setPermissions(value)}
           />
         </div>
 
@@ -113,14 +116,20 @@ const DevelopersPage = () => {
                   className="p-3 px-4 border rounded-md flex justify-between items-center"
                 >
                   <div className="flex gap-2">
-                    <div className="p-2 border rounded-md">
+                    <div className="p-2 flex items-center border rounded-md">
                       <Key />
                     </div>
                     <div>
                       <h4 className="font-medium">{api.name}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {api.isVisible ? api.key : maskKey(api.key)}
-                      </p>
+                      <div className='flex gap-2 items-center'>
+                        <p className="text-sm text-muted-foreground">
+                          {api.isVisible ? api.key : maskKey(api.key)}
+                        </p>
+                        <Button size='sm' className='p-0 px-2' variant='outline' 
+                          onClick={() => handleClipboard(api.key)}>
+                          <Copy />
+                        </Button>
+                      </div>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -160,6 +169,8 @@ const DevelopersPage = () => {
       {/* ViewApiKey Dialog */}
       {viewApiKey && (
         <ViewApiKey
+          selected={permissions}
+          fetchPermissions={(value : string) => setPermissions(value)}
           apiKey={viewApiKey} // Pass the selected key to the modal
           open={true}
           onClose={closeViewApiKey} // Close the modal

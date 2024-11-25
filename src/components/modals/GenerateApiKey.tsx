@@ -3,20 +3,28 @@ import React, { useState } from 'react'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../shadcn/ui/dialog'
 import { Button } from '../shadcn/ui/button'
 import CustomTextField from '../shared/Custom-TextField'
+import { Label } from '../shadcn/ui/label'
+import { Checkbox } from '../shadcn/ui/checkbox'
+import { RadioGroup, RadioGroupItem } from '../shadcn/ui/radio-group'
 
 type props = {
     open: boolean,
     onClose: (val: boolean) => void,
+    fetchPermissions: (value: string) => void
     fetchApiName: (api: string) => void
     fetchApiKey: (fullKey: string, maskedKey: string) => void
 }
-const GenerateApiKey = ({ open, onClose, fetchApiName, fetchApiKey } : props) => {
+const GenerateApiKey = ({ open, onClose, fetchApiName, fetchPermissions, fetchApiKey } : props) => {
     const [apiKeyName, setApiKeyName] = useState('')
+    const [selectedPermission, setSelectedPermission] = useState('default')
   
     // Handle input change
     const handleChange = (e: string) => {
       setApiKeyName(e)
     }
+    const handlePermissionChange = (value: string) => {
+      setSelectedPermission(value);
+    };
     // Generate a full API key
     const generateFullKey = (): string => {
         const prefix = 'API_'
@@ -39,6 +47,7 @@ const GenerateApiKey = ({ open, onClose, fetchApiName, fetchApiKey } : props) =>
         const maskedKey = generateMaskedKey(fullKey) // Generate the masked API key
     
       fetchApiName(apiKeyName)
+      fetchPermissions(selectedPermission);
       fetchApiKey(fullKey, maskedKey) // Pass the generated key to the parent
       onClose(!open) // Close the dialog
     }
@@ -64,9 +73,27 @@ const GenerateApiKey = ({ open, onClose, fetchApiName, fetchApiKey } : props) =>
             />
         </div>
 
+        <div>
+          <Label>Permissions</Label>
+          <RadioGroup  value={selectedPermission}
+              onValueChange={handlePermissionChange} className='flex gap-2 pt-2'>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="default" id="r1" />
+                <Label className='text-xs font-normal' htmlFor="r1">Default</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="full-access" id="r2" />
+                <Label className='text-xs font-normal' htmlFor="r2">Full Access</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="custom" id="r3" />
+                <Label className='text-xs font-normal' htmlFor="r3">Custom</Label>
+              </div>
+            </RadioGroup>
+        </div>
         <DialogFooter>
-        <Button variant='outline' onClick={() => onClose(false)}>Cancel</Button>
-        <Button onClick={handleSubmit}>Create</Button>
+          <Button variant='outline' onClick={() => onClose(false)}>Cancel</Button>
+          <Button onClick={handleSubmit}>Create</Button>
         </DialogFooter>
         </DialogContent>
     </Dialog>

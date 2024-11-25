@@ -19,9 +19,9 @@ const PayWidget = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
-        <DialogTrigger asChild>
-          <Button onClick={() => setIsOpen(!isOpen)} variant="default">Preview Widget</Button>
-        </DialogTrigger>
+      <DialogTrigger asChild>
+        <Button onClick={() => setIsOpen(!isOpen)} variant="default">Preview Widget</Button>
+      </DialogTrigger>
       <DialogContent className="sm:max-w-[625px] flex flex-col h-[600px]">
         <DialogHeader className="w-full flex flex-row gap-4 h-fit  items-end">
             <div className='border p-2 border-[#6600CC]/30 shadow-md  rounded-md'>

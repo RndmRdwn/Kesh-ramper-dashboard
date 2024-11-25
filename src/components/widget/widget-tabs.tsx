@@ -1,0 +1,40 @@
+import { WidgetTypeProps } from "@/app/(dashboard)/settings/configure-widget/custom-widget";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/shadcn/ui/tabs";
+
+export function WidgetTabs({
+  data,
+  selectedTab,
+  onTabChange,
+}: {
+  data: WidgetTypeProps[];
+  selectedTab: string;
+  onTabChange: (value: string) => void;
+}) {
+  return (
+    <Tabs
+      defaultValue={data[0].value}
+      value={selectedTab} // Bind to selectedTab state
+      onValueChange={onTabChange} // Update selectedTab state
+      className="w-full"
+    >
+      <TabsList className="grid w-full grid-cols-2 bg-transparent gap-2">
+        {data.map((item) => (
+          <TabsTrigger key={item.id} className={`${selectedTab == item.value ? ' border-primary ' : 'border-transparent'} rounded-none border-t-0 border-b-4  outline-none `} value={item.value}>
+            {item.name}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+
+      {data.map((item) => (
+        <TabsContent key={item.id} value={item.value} className="pt-4">
+          {item.content}
+        </TabsContent>
+      ))}
+    </Tabs>
+  );
+}
