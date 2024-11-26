@@ -5,6 +5,7 @@ import { useState } from "react"
 import CustomTools from "./custom-tools"
 import { Label } from "@/components/shadcn/ui/label"
 import CustomWidget from "./custom-widget"
+import Branding from "./branding"
 
 
 const Customization = () => {
@@ -32,38 +33,28 @@ const Customization = () => {
  }
   return (
     <div>
-        <div className='w-full flex lg:flex-row h-full gap-3'>
-            <div className='w-[50%] '>
-                <Label>Appearance</Label>
-               <CustomTools data={formData} handleChange={handleChange} sample={sampleData} />
+        <div className='w-full grid grid-cols-7 h-full gap-1'>
+            <div className=' col-span-4'>
+                    <Label className="text-lg ">Appearance</Label>
+               <div className="grid  py-2 gap-3">
+                    <div className="grid">
+                            <Label className="">Color</Label>
+                            <CustomTools data={formData} handleChange={handleChange} sample={sampleData} />
+                    </div>
+                    <div className="grid gap-0">
+                            <Label>Branding</Label>
+                            <Branding title="Branding"  />
+                            <Label>Branding</Label>
+                    </div>
+               </div>
+               <div className="grid py-2 ">
+                    <Label>Behavior Settings </Label>
+                    <h2>asdas</h2>
+               </div>
+
             </div>
-            <div className='w-[50%] '>
+            <div className='col-span-3'>
                 <CustomWidget />
-                {/* <div>
-                    <div className="w-full border p-4"
-                        style={{
-                            backgroundColor: formData.bg_color,
-                            borderColor: formData.border_color,
-                            color: formData.text_color,
-                        }}
-                    >
-                    <h2 style={{ color: formData.text_color }}>Widget Preview</h2>
-                    <button
-                        style={{
-                            backgroundColor: formData.button_color,
-                            color: formData.button_text_color,
-                            outlineColor: formData.focus_outline_color,
-                            outlineWidth: '2px',
-                            outlineStyle: 'solid',
-                            padding: '10px',
-                            border: `1px solid ${formData.border_color}`,
-                            borderRadius: '4px',
-                        }}
-                    >
-                        Sample Button
-                    </button>
-                </div>
-                </div> */}
             </div>
         </div>
     </div>
