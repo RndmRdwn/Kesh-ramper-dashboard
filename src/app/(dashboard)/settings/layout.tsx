@@ -26,10 +26,10 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
         </div>
         <Separator className="my-6" />
         <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-          <aside className="-mx-4 lg:w-1/5 px-4">
+          <aside className="-mx-4 lg:w-2/12 px-4">
             <SidebarNav items={settingTabs} />
           </aside>
-          <div className="flex-1 lg:max-w-6xl">{children}</div>
+          <div className="flex-1 w-full">{children}</div>
         </div>
       </div>
     </>

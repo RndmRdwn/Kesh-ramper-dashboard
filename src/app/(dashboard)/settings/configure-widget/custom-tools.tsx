@@ -19,6 +19,15 @@ const CustomTools = ({data, sample, handleChange}: Props) => {
   return (
     <div>
          <div className="py-2 grid grid-cols-2 gap-2">
+            
+            <CustomSelect
+                value={data.border_color}
+                data={sample}
+                label="Primary Color"
+                isEditable={true}
+                placeholder={'Select Primary color'}
+                onChange={(value) => handleChange('border_color', value)}
+            />  
             <CustomSelect
                 value={data.bg_color}
                 data={sample}
@@ -26,23 +35,7 @@ const CustomTools = ({data, sample, handleChange}: Props) => {
                 isEditable={true}
                 placeholder={'Select background color'}
                 onChange={(value) => handleChange('bg_color', value)}
-            />
-            <CustomSelect
-                value={data.border_color}
-                data={sample}
-                label="Border Color"
-                isEditable={true}
-                placeholder={'Select border color'}
-                onChange={(value) => handleChange('border_color', value)}
-            />  
-            <CustomSelect
-                value={data.button_color}
-                data={sample}
-                label="Button Color"
-                isEditable={true}
-                placeholder={'Select button color'}
-                onChange={(value) => handleChange('button_color', value)}
-            />  
+            /> 
             <CustomSelect
                 value={data.text_color}
                 data={sample}
@@ -58,14 +51,6 @@ const CustomTools = ({data, sample, handleChange}: Props) => {
                 isEditable={true}
                 placeholder={'Select border color'}
                 onChange={(value) => handleChange('border_color', value)}
-            />  
-            <CustomSelect
-                value={data.focus_outline_color}
-                data={sample}
-                label="Outline Color"
-                isEditable={true}
-                placeholder={'Select outline color'}
-                onChange={(value) => handleChange('focus_outline_color', value)}
             />  
         </div>
     </div>
