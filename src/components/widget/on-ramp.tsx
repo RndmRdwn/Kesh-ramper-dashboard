@@ -9,7 +9,11 @@ import Procced from './On Ramp/Procced';
 import Wallet from './On Ramp/wallet';
 import KycProof from './On Ramp/kycProof';
 
-const OnRamp = () => {
+type RampProps = {
+  primary : string
+}
+
+const OnRamp = ({ primary } : RampProps) => {
   // const currencies: DefaultSelectType[] = [
   //   { id: 1, name: 'KES', value: 'kes' },
   //   { id: 2, name: 'BTC', value: 'btc' },
@@ -79,9 +83,9 @@ const OnRamp = () => {
       {/* Step 1: Select "You Pay" and "You Get" */}
       {step === 1 && (
         <div className="grid gap-3">
-          <div className="w-full border rounded-md p-2 grid gap-2">
+          <div className="w-full border rounded-md p-2 grid gap-2 shadow-sm">
             <div className="flex w-full justify-between items-center">
-              <h2 className="text-sm text-muted-foreground">You Pay</h2>
+              <h2 className="text-xs text-muted-foreground">You Pay</h2>
               <CustomSelect
                 value={formData.payCurrency}
                 data={fiatCurrencies}
@@ -95,13 +99,13 @@ const OnRamp = () => {
                 placeholder="0.00"
                 value={formData.payAmount}
                 onChange={(e) => handleChange('payAmount', e.target.value)}
-                className="text-[24px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
+                className="text-[20px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
               />
             </div>
           </div>
-          <div className="w-full border rounded-md p-2 grid gap-2">
+          <div className="w-full border rounded-md p-2 grid gap-2 shadow-sm">
             <div className="flex w-full justify-between items-center">
-              <h2 className="text-sm text-muted-foreground">You Get</h2>
+              <h2 className="text-xs text-muted-foreground">You Get</h2>
               <CustomSelect
                 value={formData.getCurrency}
                 data={cryptoCurrencies}
@@ -115,7 +119,7 @@ const OnRamp = () => {
                 placeholder="0.00"
                 value={formData.getAmount}
                 onChange={(e) => handleChange('getAmount', e.target.value)}
-                className="text-[24px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
+                className="text-[20px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
               />
             </div>
           </div>
@@ -193,7 +197,10 @@ const OnRamp = () => {
         </Button>
       )}
         {step < 6 ? (
-          <Button className={`w-full`} onClick={nextStep}>Continue</Button>
+          <Button className={`w-full  `} onClick={nextStep}
+             style={{ backgroundColor: primary }}>
+            Continue
+          </Button>
         ) : (
           <Button className='w-full'>Procced To Buy </Button>
         )}

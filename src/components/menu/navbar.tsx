@@ -14,7 +14,6 @@ import {
 } from "@/components/shadcn/ui/sheet"
 import { AppIcon } from '@/constant/icons'
 import { navItems } from '.'
-import TeamSwitcher from '@/app/(dashboard)/overview/components/team-switcher'
 import LogoBox from '../logo-box'
 
 // type Props = {}
@@ -46,8 +45,8 @@ const Navbar = () => {
                 
                 </div>
             </div>
-            <div className='border'>
-                asd
+            <div className=''>
+                User
             </div>
             </div>
         </div>

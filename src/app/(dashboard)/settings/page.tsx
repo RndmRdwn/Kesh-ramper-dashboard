@@ -31,7 +31,7 @@ export default function SettingsProfilePage() {
         <div className="py-2 grid ">
             <Label className="text-sm">Company Logo</Label>
             <div className="flex gap-3">
-            <div className="p-6 rounded-full border bg-gradient-to-br from-primary/40 shadow-md "/>
+            <div className="p-6 rounded-full border border-primary shadow-md "/>
               
               <div className="w-full border rounded-lg flex justify-center items-center">
                 <h2 className="text-sm text-muted-foreground cursor-pointer">Upload Image</h2>

@@ -10,10 +10,12 @@ export function WidgetTabs({
   data,
   selectedTab,
   onTabChange,
+  primary
 }: {
   data: WidgetTypeProps[];
   selectedTab: string;
   onTabChange: (value: string) => void;
+  primary: string
 }) {
   return (
     <Tabs
@@ -24,7 +26,7 @@ export function WidgetTabs({
     >
       <TabsList className="grid w-full grid-cols-2 bg-transparent gap-2">
         {data.map((item) => (
-          <TabsTrigger key={item.id} className={`${selectedTab == item.value ? ' border-primary ' : 'border-transparent'} rounded-none border-t-0 border-b-4  outline-none `} value={item.value}>
+          <TabsTrigger key={item.id} className={`${selectedTab == item.value ? ' border-b-primary ' : 'border-transparent'} rounded-none border-t-0 border-b-4  outline-none `} value={item.value}>
             {item.name}
           </TabsTrigger>
         ))}

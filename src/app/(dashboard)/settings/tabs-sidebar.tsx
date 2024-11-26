@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/shadcn/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/shadcn/ui/select"
+import { Separator } from "@/components/shadcn/ui/separator"
 
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: TabItems[]
@@ -44,7 +45,7 @@ interface SubItemType {
 // DesktopMode Component
 const DesktopMode = ({ currentItem, items }: SubItemType) => {
   return (
-    <div className="space-x-2 lg:flex-col flex-wrap lg:flex md:flex lg:space-x-0 lg:space-y-1">
+    <div className=" flex-wrap lg:flex md:flex  ">
       {items.map((item) => (
         <Link
           key={item.id}
@@ -52,14 +53,15 @@ const DesktopMode = ({ currentItem, items }: SubItemType) => {
           className={cn(
             buttonVariants({ variant: "ghost" }),
             currentItem?.path === item.path
-              ? "bg-muted hover:bg-muted"
-              : "hover:bg-transparent hover:underline",
-            "justify-start  font-medium"
+              ? " border-b-2 border-primary"
+              : "hover:bg-transparent ",
+            "justify-start rounded-none font-medium"
           )}
         > 
           {item.name}
         </Link>
       ))}
+      <Separator />
     </div>
   )
 }

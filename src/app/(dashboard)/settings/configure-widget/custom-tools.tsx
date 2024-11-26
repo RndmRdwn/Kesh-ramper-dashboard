@@ -1,5 +1,4 @@
-import { CustomSelect } from '@/components/shared/CustomSelect'
-import { DefaultSelectType } from "@/constant/types/common"
+import { CustomColorSelect } from '@/components/shared/CustomColorSelect'
 import React from 'react'
 
 type Props = {
@@ -8,50 +7,37 @@ type Props = {
         button_color : string
         text_color : string
         button_text_color : string
-        focus_outline_color : string
+        primary_color : string
         border_color : string
     },
-    sample : DefaultSelectType[]
+    setSelectedPrimary: (val: string) => void
     handleChange: (name: string, value: string) => void
 }
 
-const CustomTools = ({data, sample, handleChange}: Props) => {
+const CustomTools = ({data, handleChange, setSelectedPrimary}: Props) => {
+
+    const handleSelectColor = (value : string) => {
+        handleChange('primary_color', value)
+        setSelectedPrimary(value)
+    }
   return (
     <div>
-         <div className="py-2 grid grid-cols-2 gap-2">
+         <div className="py-2 grid  gap-4">
             
-            <CustomSelect
-                value={data.border_color}
-                data={sample}
-                label="Primary Color"
+            <CustomColorSelect
+                value={data.primary_color}
+                label="Brand Color"
                 isEditable={true}
                 placeholder={'Select Primary color'}
-                onChange={(value) => handleChange('border_color', value)}
+                onChange={(value) => handleSelectColor(value)}
             />  
-            <CustomSelect
+            <CustomColorSelect
                 value={data.bg_color}
-                data={sample}
-                label="Background Color"
+                label="Accent Color"
                 isEditable={true}
                 placeholder={'Select background color'}
                 onChange={(value) => handleChange('bg_color', value)}
-            /> 
-            <CustomSelect
-                value={data.text_color}
-                data={sample}
-                label="Text Color"
-                isEditable={true}
-                placeholder={'Select text color'}
-                onChange={(value) => handleChange('text_color', value)}
-            />  
-            <CustomSelect
-                value={data.border_color}
-                data={sample}
-                label="Border Color"
-                isEditable={true}
-                placeholder={'Select border color'}
-                onChange={(value) => handleChange('border_color', value)}
-            />  
+            />   
         </div>
     </div>
   )

@@ -1,118 +1,79 @@
 "use client";
 
-import { Input } from "@/components/shadcn/ui/input";
 import { Label } from "@/components/shadcn/ui/label";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { Plus, X } from "lucide-react"; // Icon from lucide-react
 
-type Props = {
-    title: string;
-};
+const Branding = () => {
+  const [logo, setLogo] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-const Branding = ({ title }: Props) => {
-    const [logo, setLogo] = useState<File | null>(null);
-    const [headerText, setHeaderText] = useState("");
-    const [footerText, setFooterText] = useState("");
+  // Handle logo upload
+  const handleLogoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setLogo(event.target.files[0]);
+    }
+  };
 
-    // Handle logo upload
-    const handleLogoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (event.target.files && event.target.files[0]) {
-            setLogo(event.target.files[0]);
-        }
-    };
+  // Trigger file input click
+  const handleButtonClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
-    return (
-        <div className="grid grid-cols-2 gap-3">
-            {/* Logo Upload */}
+  // Remove logo
+  const handleRemoveLogo = () => {
+    setLogo(null);
+  };
 
-            {/* <div className="w-full flex items-center col-span-2 ">
-        <Label className="w-full " htmlFor="logo-upload">
+  return (
+    <div className="flex w-full gap-3">
+      {/* Logo Upload */}
+      <div className="w-full flex justify-between items-center col-span-2 py-2">
+        <Label className="font-normal text-muted-foreground" htmlFor="logo-upload">
           Upload Logo
         </Label>
-
-        {logo ? (
-          <div className="">
-            <Image
-              src={URL.createObjectURL(logo)}
-              alt="Uploaded Logo"
-              width={100}
-              height={100}
-              className="w-16 h-16 object-cover rounded-full border"
-            />
-          </div>
-        ) : (
-          <div className="w-16 h-16 object-cover rounded-full bg-primary/10 border">
-        </div>
-        )}
-        <input
-          type="file"
-          id="logo-upload"
-          accept="image/*"
-          onChange={handleLogoChange}
-          className="block w-full text-sm text-gray-600 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-blue-50 file:text-blue-700 file:cursor-pointer hover:file:bg-blue-100"
-        />
-       
-      </div> */}
-
-            <div className="grid grid-cols-6 col-span-2">
-              <div className="col-span-2 py-2 w-full ">
-                Logo
-              </div>
-              <div className="col-span-4 w-full ">
-                asd
-              </div>
-              
+        <div className="relative w-fit flex gap-3">
+          {logo ? (
+            <div className="relative w-14 h-14">
+              <Image
+                src={URL.createObjectURL(logo)}
+                alt="Preview Logo"
+                width={100}
+                height={100}
+                className="w-full h-full object-cover rounded-md border"
+              />
+              {/* X Icon for removing the image */}
+              <button
+                onClick={handleRemoveLogo}
+                className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-md hover:bg-red-600"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
-
-            {/* Header Text */}
-            <div className=" py-2 grid gap-1">
-                <Label className="font-normal text-muted-foreground" htmlFor="header-text">
-                    Header Text
-                </Label>
-                <Input
-                    type="text"
-                    id="header-text"
-                    value={headerText}
-                    onChange={(e) => setHeaderText(e.target.value)}
-                    className="w-full "
-                    placeholder="Enter custom header text"
-                />
-            </div>
-
-            {/* Footer Text */}
-            <div className="">
-                <Label className="" htmlFor="footer-text">
-                    Footer Text
-                </Label>
-                <Input
-                    type="text"
-                    id="footer-text"
-                    value={footerText}
-                    onChange={(e) => setFooterText(e.target.value)}
-                    className="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-                    placeholder="Enter custom footer text"
-                />
-            </div>
-
-            {/* Preview */}
-            {/* <div className="border-t pt-4 mt-4">
-        <h3 className="text-md font-semibold mb-2">Preview:</h3>
-        <div className="flex items-center gap-2">
-          {logo && (
-            <Image
-              src={URL.createObjectURL(logo)}
-              alt="Preview Logo"
-              width={400}
-              height={400}
-              className="w-8 h-8 object-cover rounded-full border"
-            />
+          ) : (
+            <button
+              onClick={handleButtonClick}
+              className="w-14 h-14 flex items-center  justify-center rounded-md border border-dashed border-muted-foreground hover:bg-muted/20"
+            >
+              <Plus className="w-6 h-6 text-muted-foreground" />
+            </button>
           )}
-          <span className="text-md font-semibold">{headerText || 'Header Text'}</span>
+          {/* Hidden File Input */}
+          <input
+            type="file"
+            ref={fileInputRef}
+            id="logo-upload"
+            accept="image/*"
+            onChange={handleLogoChange}
+            className="hidden"
+          />
         </div>
-        <p className="text-sm text-gray-600 mt-2">{footerText || 'Footer Text'}</p>
-      </div> */}
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Branding;

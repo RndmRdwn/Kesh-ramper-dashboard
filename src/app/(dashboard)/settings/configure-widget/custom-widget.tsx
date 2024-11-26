@@ -10,10 +10,13 @@ export type WidgetTypeProps = {
   value: string;
   content: React.ReactNode;
 };
+export type pageWidgetTypeProps = {
+  primary: string;
+};
 
-const CustomWidget = () => {
+const CustomWidget = ({ primary } : pageWidgetTypeProps) => {
   const rampData: WidgetTypeProps[] = [
-    { id: 1, name: 'Buy', value: 'on-ramp', content: <OnRamp /> },
+    { id: 1, name: 'Buy', value: 'on-ramp', content: <OnRamp primary={primary}/> },
     { id: 2, name: 'Sell', value: 'off-ramp', content: <OffRamp /> },
   ];
 
@@ -21,9 +24,9 @@ const CustomWidget = () => {
 
   return (
     <div className="w-full h-full ">
-      <div className="w-full h-full border grid gap-2 p-4 rounded-lg shadow-md py-6">
+      <div className="w-full h-full border bg-white grid gap-2 p-4 rounded-3xl shadow-md py-6">
         
-        <WidgetTabs
+        <WidgetTabs primary={primary}
           data={rampData}
           selectedTab={selectedTab}
           onTabChange={setSelectedTab}

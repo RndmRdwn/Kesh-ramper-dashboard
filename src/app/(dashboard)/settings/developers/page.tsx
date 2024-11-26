@@ -78,7 +78,7 @@ const DevelopersPage = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-3xl mx-auto">
       <div>
         <h3 className="text-lg font-medium">Developer Tools</h3>
         <p className="text-sm text-muted-foreground">
