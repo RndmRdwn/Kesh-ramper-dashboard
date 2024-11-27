@@ -81,7 +81,7 @@ export function DataTableToolbar<TData>({
       case "Access":
         return "code";
       default:
-        return "defaultColumn"; // fallback column if needed
+        return "name"; // fallback column if needed
     }
   };
 

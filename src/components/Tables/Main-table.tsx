@@ -18,7 +18,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { DataTablePagination } from "./Pagination";
 import { DataTableToolbar } from "./Toolbar";
 import ViewTransaction from "../modals/ViewTransaction";
-import { TransactionType } from "@/constant/types/models";
+import { TeamsType, TransactionType } from "@/constant/types/models";
+import ViewTeamMember from "../modals/ViewTeamMember";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -31,7 +32,7 @@ interface DataTableProps<TData, TValue> {
 
 interface ModalState<TData> {
     open: boolean;
-    type: "customers" | "kyc" | "notifications" | "transactions" | 'users' |  null;
+    type: "customers" | "kyc" | "notifications" | "transactions" | 'users' | 'teams' | null;
     rowData: TData | null;
 }
 
@@ -146,6 +147,13 @@ export function DataTable<TData, TValue>({ columns, data, title, searchTitle, se
                             onClose={closeModal}
                             open={modalState.open}
                             data={modalState.rowData as TransactionType}
+                        />
+                    )}
+                    {modalState.type === "teams" && (
+                        <ViewTeamMember
+                            onClose={closeModal}
+                            open={modalState.open}
+                            data={modalState.rowData as TeamsType}
                         />
                     )}
                 </>

@@ -3,7 +3,6 @@ import { Checkbox } from "@/components/shadcn/ui/checkbox";
 import { DataTableColumnHeader } from "./column-header";
 import { TransactionType } from "@/constant/types/models";
 import { TransactionStatus, TransactionTypes } from "../data";
-import { amountFormat } from "@/utils/format";
 
 export const transactionColumn: ColumnDef<TransactionType>[] = [
     {

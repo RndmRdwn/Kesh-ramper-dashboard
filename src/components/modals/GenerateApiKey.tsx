@@ -4,7 +4,6 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Button } from '../shadcn/ui/button'
 import CustomTextField from '../shared/Custom-TextField'
 import { Label } from '../shadcn/ui/label'
-import { Checkbox } from '../shadcn/ui/checkbox'
 import { RadioGroup, RadioGroupItem } from '../shadcn/ui/radio-group'
 
 type props = {

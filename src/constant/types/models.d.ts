@@ -40,3 +40,12 @@ interface UserType {
     email : string
     role : string
 }
+
+interface TeamsType {
+    id : string
+    name : string
+    email : string
+    role : string
+    last_login? : string
+    auth : string
+}

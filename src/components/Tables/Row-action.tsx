@@ -1,9 +1,12 @@
+'use client'
+
 import React, { useState } from "react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from "@/components/shadcn/ui/dropdown-menu"
 import { Ellipsis } from "lucide-react"
 import { Button } from "@/components/shadcn/ui/button"
 import ViewTransaction from "../modals/ViewTransaction"
-import { TransactionType } from "@/constant/types/models"
+import { TeamsType, TransactionType } from "@/constant/types/models"
+import ViewTeamMember from "../modals/ViewTeamMember"
 // Import Edit and Delete dialogs similarly
 
 interface DataTableRowActionsProps<TData> {
@@ -15,12 +18,12 @@ export function DataTableRowActions<TData>({
                                                row,
                                                title,
                                            }: DataTableRowActionsProps<TData>) {
+    const [viewOpen, setViewOpen] = useState(false)
     const [editOpen, setEditOpen] = useState(false)
     const [deleteOpen, setDeleteOpen] = useState(false)
 
     const closeEditModal = () => {
         setEditOpen(false);
-        // Ensure this only affects the UpdateCurrency modal and nothing else.
     };
 
     return (
@@ -33,6 +36,15 @@ export function DataTableRowActions<TData>({
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-[100px]">
+                    <DropdownMenuItem
+                        onClick={(e) => {
+                            e.stopPropagation(); // Correct stopPropagation usage
+                            setViewOpen(true); // Only trigger edit modal
+                        }}
+                        className="cursor-pointer"
+                    >
+                        View
+                    </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={(e) => {
                             e.stopPropagation(); // Correct stopPropagation usage
@@ -64,6 +76,12 @@ export function DataTableRowActions<TData>({
                             onClose={closeEditModal} // Explicitly manage close logic to ensure no other modals trigger
                             data={row as TransactionType}
                         />
+                   : title === 'teams' ? 
+                        <ViewTeamMember 
+                            open={editOpen}
+                            onClose={closeEditModal} // Explicitly manage close logic to ensure no other modals trigger
+                            data={row as TeamsType}
+                        />
                    : <></>
                     }
                 </>
@@ -71,6 +89,17 @@ export function DataTableRowActions<TData>({
 
             {deleteOpen &&  (
                 <></>
+            )}
+
+            {viewOpen &&  (
+                <>
+                    <ViewTeamMember 
+                        editable={false}
+                        open={viewOpen}
+                        onClose={() => setViewOpen(!viewOpen)} // Explicitly manage close logic to ensure no other modals trigger
+                        data={row as TeamsType}
+                    />
+                </>
             )}
 
         </>
