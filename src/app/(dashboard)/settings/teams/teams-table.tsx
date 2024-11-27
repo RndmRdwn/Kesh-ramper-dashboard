@@ -5,9 +5,7 @@ import { DataTable } from '@/components/Tables/Main-table'
 import React from 'react'
 import { TeamsData } from './data'
 
-type Props = {}
-
-const TeamsTable = (props: Props) => {
+const TeamsTable = () => {
 
   return (
     <div className='w-full grid'>

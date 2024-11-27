@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../shadcn/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../shadcn/ui/dialog'
 import { Button } from '../shadcn/ui/button'
 import { Plus } from 'lucide-react'
 import { useState } from 'react'
@@ -28,14 +28,8 @@ const NewMember = ({open, onClose }: Props) => {
         {id: 3, name: 'Editor' , value : 'editor'},
         {id: 4, name: 'Viewer' , value : 'viewer'},
         {id: 5, name: 'Moderator' , value : 'moderator'},
-        
-        
-        
-        
-        
-
     ]
-    const [isEditable, setIsEditable] = useState(false)
+
     // Handle input change
     const handleChange = (field: string, value: string) => {
      setFormData((prev) => ({

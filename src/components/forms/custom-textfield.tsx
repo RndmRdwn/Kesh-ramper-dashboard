@@ -14,7 +14,7 @@ type Props = {
 const CustomTextField = ({ label, value, isEditable, placeholder, type, onChange }: Props) => {
   return (
     <div className='grid gap-1'>
-        <div className='text-sm font-medium'>{label}</div>
+        <div className='text-sm font-medium text-muted-foreground'>{label}</div>
         {isEditable ?
             <Input
             type={type}
