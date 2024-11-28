@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import React from 'react'
+import CustomersTable from './customers-table';
 
 // type Props = {}
 export const metadata: Metadata = {
@@ -8,12 +9,14 @@ export const metadata: Metadata = {
 }; 
 
 const CustomersPage = () => {
+
   return (
     <div className='flex-1 space-y-4 p-2'>
       <div className='w-full h-full py-2'>
         <h2 className='font-medium'>Customers</h2>
         <p className='text-sm text-muted-foreground'>Manage all customers from here</p>
       </div>
+      <CustomersTable />
     </div>
   )
 }

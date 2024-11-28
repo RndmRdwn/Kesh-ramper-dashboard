@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "role_id": 1,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "phone": "+1234567890",
+        "password": "password123",
+        "status": "active"
+    },
+    {
+        "id": 2,
+        "role_id": 2,
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "phone": "+1987654321",
+        "password": "securePass1!",
+        "status": "inactive"
+    },
+    {
+        "id": 3,
+        "role_id": 3,
+        "name": "Alice Brown",
+        "email": "alice.brown@example.com",
+        "phone": "+1122334455",
+        "password": "alice2024",
+        "status": "active"
+    },
+    {
+        "id": 4,
+        "role_id": 2,
+        "name": "Bob Johnson",
+        "email": "bob.johnson@example.com",
+        "phone": "+2233445566",
+        "password": "bobSecurePass",
+        "status": "pending"
+    },
+    {
+        "id": 5,
+        "role_id": 1,
+        "name": "Chris Lee",
+        "email": "chris.lee@example.com",
+        "phone": "+3344556677",
+        "password": "adminChris",
+        "status": "active"
+    },
+    {
+        "id": 6,
+        "role_id": 3,
+        "name": "Emily Davis",
+        "email": "emily.davis@example.com",
+        "phone": "+4455667788",
+        "password": "emilyPass2024",
+        "status": "inactive"
+    },
+    {
+        "id": 7,
+        "role_id": 2,
+        "name": "Frank Miller",
+        "email": "frank.miller@example.com",
+        "phone": "+5566778899",
+        "password": "frankManager",
+        "status": "active"
+    },
+    {
+        "id": 8,
+        "role_id": 3,
+        "name": "Grace Wilson",
+        "email": "grace.wilson@example.com",
+        "phone": "+6677889900",
+        "password": "graceStaffPass",
+        "status": "pending"
+    },
+    {
+        "id": 9,
+        "role_id": 1,
+        "name": "Henry White",
+        "email": "henry.white@example.com",
+        "phone": "+7788990011",
+        "password": "henryAdminPass",
+        "status": "active"
+    },
+    {
+        "id": 10,
+        "role_id": 2,
+        "name": "Ivy Green",
+        "email": "ivy.green@example.com",
+        "phone": "+8899001122",
+        "password": "ivyManagerPass",
+        "status": "inactive"
+    }
+]

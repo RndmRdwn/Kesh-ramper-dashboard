@@ -48,20 +48,20 @@ const EmbeddedCode = () => {
   return (
     <div>
        <div style={{  margin: "auto", padding: "0px" }}>
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center py-2'>
           <Label>Embedded Widget Code</Label>
           <Button size='icon' variant='secondary' onClick={copyToClipboard}> 
             <Copy />
           </Button>
         </div>
         <CodeEditor height={'270px'} width={'800px'} value={widgetCode}  onChange={() => {}} />
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center py-2'>
           <Label>Iframe Embed Code:</Label>
           <Button size='icon' variant='secondary' onClick={copyToClipboard2}> 
             <Copy />
           </Button>
         </div>
-        <CodeEditor height={'100px'} width={'800px'} value={iframeCode}  onChange={() => {}} />
+        <CodeEditor height={'150px'} width={'800px'} value={iframeCode}  onChange={() => {}} />
         
       </div>
     </div>

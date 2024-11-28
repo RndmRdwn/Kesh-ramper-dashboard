@@ -85,7 +85,7 @@ const OffRamp = ({ primary } : RampProps) => {
         <div className="grid gap-3">
           <div className="w-full border rounded-md p-2 grid gap-2 shadow-sm">
             <div className="flex w-full justify-between items-center">
-              <h2 className="text-sm text-muted-foreground">You Pay</h2>
+              <h2 className="text-xs text-muted-foreground">You Pay</h2>
               <CustomSelect
                 value={formData.payCurrency}
                 data={fiatCurrencies}
@@ -99,13 +99,13 @@ const OffRamp = ({ primary } : RampProps) => {
                 placeholder="0.00"
                 value={formData.payAmount}
                 onChange={(e) => handleChange('payAmount', e.target.value)}
-                className="text-[24px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
+                className="text-[20px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
               />
             </div>
           </div>
           <div className="w-full border rounded-md p-2 grid gap-2 shadow-sm">
             <div className="flex w-full justify-between items-center">
-              <h2 className="text-sm text-muted-foreground">You Get</h2>
+              <h2 className="text-xs text-muted-foreground">You Get</h2>
               <CustomSelect
                 value={formData.getCurrency}
                 data={cryptoCurrencies}
@@ -119,7 +119,7 @@ const OffRamp = ({ primary } : RampProps) => {
                 placeholder="0.00"
                 value={formData.getAmount}
                 onChange={(e) => handleChange('getAmount', e.target.value)}
-                className="text-[24px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
+                className="text-[20px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
               />
             </div>
           </div>

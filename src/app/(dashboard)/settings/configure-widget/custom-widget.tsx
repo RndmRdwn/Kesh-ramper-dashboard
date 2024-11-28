@@ -12,12 +12,13 @@ export type WidgetTypeProps = {
 };
 export type pageWidgetTypeProps = {
   primary: string;
+  footer: boolean;
 };
 
-const CustomWidget = ({ primary } : pageWidgetTypeProps) => {
+const CustomWidget = ({ primary, footer } : pageWidgetTypeProps) => {
   const rampData: WidgetTypeProps[] = [
-    { id: 1, name: 'Buy', value: 'on-ramp', content: <OnRamp primary={primary}/> },
-    { id: 2, name: 'Sell', value: 'off-ramp', content: <OffRamp /> },
+    { id: 1, name: 'Buy', value: 'on-ramp', content: <OnRamp primary={primary} /> },
+    { id: 2, name: 'Sell', value: 'off-ramp', content: <OffRamp primary={primary} /> },
   ];
 
   const [selectedTab, setSelectedTab] = useState<string>(rampData[0].value); // Default to the first tab
@@ -32,11 +33,12 @@ const CustomWidget = ({ primary } : pageWidgetTypeProps) => {
           onTabChange={setSelectedTab}
         />
         <div className='w-full py-2'>
-          <p className='text-xs text-muted-foreground justify-center flex w-full '>Powered By 
-            <AppIcon className="h-4 w-4 mx-2" />
-            <span className='font-medium text-black'>Keshflip</span>
-          </p>
-
+          {footer && 
+            <p className='text-xs text-muted-foreground justify-center flex w-full '>Powered By 
+              <AppIcon className="h-4 w-4 mx-2" />
+              <span className='font-medium text-black'>Keshflip</span>
+            </p>
+           }
         </div>
       </div>
     </div>

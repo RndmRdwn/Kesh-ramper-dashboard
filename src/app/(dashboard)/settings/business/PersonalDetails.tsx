@@ -1,22 +1,21 @@
 'use client'
 
-import CustomTextArea from '@/components/forms/Custom-TextArea'
 import CustomTextField from '@/components/forms/custom-textfield'
+import { CustomCommandWithIcon } from '@/components/shared/custom-command-icon'
+import { countries } from '@/lib/country-data'
 import React, { useState } from 'react'
+import VerifyPhone from './VerifyPhone'
+import { Separator } from '@/components/shadcn/ui/separator'
 
-type Props = {
-    isEditable: boolean
-}
 
-const PersonalDetails = ({isEditable}: Props) => {
+
+const PersonalDetails = () => {
 
     const [formData, setFormData] = useState({
         name: '',
-        description: '',
-        industry: '',
-        website: '',
-        type: '',
-        location: '',
+        account_id: '',
+        country: '',
+        verifyPhone: '',
     })
        // Handle input change
        const handleChange = (field: string, value: string) => {
@@ -25,20 +24,30 @@ const PersonalDetails = ({isEditable}: Props) => {
         [field]: value,
         }))
     }
+
+    const CountryOptions=countries.map((country)=>({
+      value:country.name,
+          flag:country.flag,
+          label:country.name
+  }))
     
   return (
-    <div className='grid gap-4'>
-            <h2>Business Details</h2>
-            <CustomTextField isEditable={isEditable} label="Business Name"  placeholder='Enter your Business Name'
-                       value={formData.name} onChange={(e) => handleChange('name', e.target.value)}/>
-            <CustomTextField isEditable={isEditable} label="Industry"  placeholder='Please Select your Industry'
-                       value={formData.industry} onChange={(e) => handleChange('industry', e.target.value)}/>
-            <CustomTextField isEditable={isEditable} label="Business Webiste"  placeholder='www.example.com'
-                       value={formData.website} onChange={(e) => handleChange('website', e.target.value)}/>
-            <CustomTextArea isEditable={isEditable} label="Product Description" value={formData.description} 
-                       placeholder='Example: I sell shoes and socks. I sell these items through my website and on social media.'
-                       onChange={(e) => handleChange('description', e.target.value)}/>
+    <>
+    <div className='flex flex-col'>
+      <h2>Account Details</h2>
+      <Separator />
     </div>
+
+      <div className='flex flex-col gap-5'>
+        <CustomTextField isEditable={true} label="Account Name"  placeholder='Your Account Name'
+            value={formData.name} onChange={(e) => handleChange('name', e.target.value)}/>
+        <CustomTextField isEditable={true} label="Account ID"  placeholder='Your Accounnt ID'
+            value={formData.account_id} onChange={(e) => handleChange('account_id', e.target.value)}/>
+        <VerifyPhone value={formData.verifyPhone} onChange={(value) => handleChange('verify_phone', value)}/>
+        <CustomCommandWithIcon data={CountryOptions}  placeholder='www.example.com'
+            onChange={(value) => handleChange('Country', value)}/>
+      </div>
+    </>
   )
 }
 

@@ -6,6 +6,7 @@ import { useState } from 'react'
 import CustomTextField from '../forms/custom-textfield'
 import { CustomSelect } from '../forms/CustomSelect'
 import { DefaultSelectType } from '@/constant/types/common'
+import { toast } from 'sonner'
 
 
 type Props = {
@@ -37,6 +38,12 @@ const NewMember = ({open, onClose }: Props) => {
      [field]: value,
      }))
      }
+
+     const handleClose = () => {
+        onClose(true)
+        toast.success('New Member has been created')
+     }
+
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogTrigger asChild>
@@ -73,7 +80,7 @@ const NewMember = ({open, onClose }: Props) => {
                 />
             </div>
             <div className='w-full '>
-                <Button className='w-full'>Create</Button>
+                <Button onClick={handleClose} className='w-full'>Create</Button>
             </div>
 
         </DialogContent>

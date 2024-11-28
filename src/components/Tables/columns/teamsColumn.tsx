@@ -2,6 +2,7 @@ import {ColumnDef} from "@tanstack/react-table";
 import { DataTableColumnHeader } from "./column-header";
 import { TeamsType } from "@/constant/types/models";
 import { User } from "lucide-react";
+import CustomAction from "../customAction";
 
 
 export const teamsColumn: ColumnDef<TeamsType>[] = [
@@ -75,6 +76,10 @@ export const teamsColumn: ColumnDef<TeamsType>[] = [
                 </div>
             );
         },
+    },
+    {
+        id: "actions",
+        cell: ({ row }) => <CustomAction title="Teams" data={row.original} />,
     },
 ]
 

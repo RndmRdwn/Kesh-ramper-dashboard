@@ -18,8 +18,9 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { DataTablePagination } from "./Pagination";
 import { DataTableToolbar } from "./Toolbar";
 import ViewTransaction from "../modals/ViewTransaction";
-import { TeamsType, TransactionType } from "@/constant/types/models";
+import { CustomersType, TeamsType, TransactionType } from "@/constant/types/models";
 import ViewTeamMember from "../modals/ViewTeamMember";
+import ViewCustomers from "../modals/ViewCustomers";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -139,25 +140,6 @@ export function DataTable<TData, TValue>({ columns, data, title, searchTitle, se
             </div>
             <DataTablePagination table={table} />
 
-
-            {modalState.open && (
-                <>
-                    {modalState.type === "transactions" && (
-                        <ViewTransaction
-                            onClose={closeModal}
-                            open={modalState.open}
-                            data={modalState.rowData as TransactionType}
-                        />
-                    )}
-                    {modalState.type === "teams" && (
-                        <ViewTeamMember
-                            onClose={closeModal}
-                            open={modalState.open}
-                            data={modalState.rowData as TeamsType}
-                        />
-                    )}
-                </>
-            )}
         </div>
     );
 }

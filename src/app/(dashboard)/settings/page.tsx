@@ -4,6 +4,7 @@ import { Button } from "@/components/shadcn/ui/button";
 import { Separator } from "@/components/shadcn/ui/separator";
 import BusinessDetails from "./business/BusinessDetails";
 import { useState } from "react";
+import PersonalDetails from "./business/PersonalDetails";
 
 export default function SettingsProfilePage() {
   const [isEditable, setIsEditable] = useState(false)
@@ -22,16 +23,14 @@ export default function SettingsProfilePage() {
         </Button>
       </div>
       <Separator />
-      <div className="w-full grid grid-cols-2 gap-4 ">
+      <div className="w-full grid lg:grid-cols-5 gap-8 ">
 
-      {/* <div className="border p-4">
-        <PersonalDetails isEditable={isEditable} />
-      </div> */}
-      <div className="border p-4">
-        <BusinessDetails isEditable={isEditable}/>
-      </div>
-      <div className="border p-4">
-      </div>
+        <div className=" p-4 col-span-2 grid gap-4">
+          <PersonalDetails />
+        </div>
+        <div className=" p-4 lg:border-l lg:border-t-0 md:border-t col-span-3 grid gap-4">
+          <BusinessDetails />
+        </div>
       </div>
 
       <Separator />

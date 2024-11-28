@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dialog, DialogContent, DialogHeader } from '@/components/shadcn/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/shadcn/ui/dialog';
 import { Button } from '@/components/shadcn/ui/button';
 import { Trash2 } from 'lucide-react';
 import { Input } from '@/components/shadcn/ui/input';
@@ -37,6 +37,7 @@ const DeleteMember = ({ open, onClose, data}: Props) => {
   return (
     <Dialog open={open} onOpenChange={onClose}>
         <DialogContent className=''>
+            <DialogTitle className="hidden" />
             <DialogHeader>
                 <h2 className='font-semibold text-xl'>Confirmation</h2>
             </DialogHeader>
@@ -46,14 +47,13 @@ const DeleteMember = ({ open, onClose, data}: Props) => {
                     </span>?
                 </p>
                 <div className="flex gap-2 items-end w-full justify-end">
-                    <Button onClick={handleNextStep} variant="destructive">
+                    <Button onClick={onClose} variant="destructive">
                         Yes, proceed
                     </Button>
                     <Button onClick={handleCancel} variant="secondary">
                         Cancel
                     </Button>
                 </div>
-              
         </DialogContent>
     </Dialog>
   )

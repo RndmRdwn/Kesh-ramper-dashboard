@@ -1,6 +1,6 @@
 'use client'
 
-import DeleteApiKey from '@/components/modals/ConfirmDelete';
+import DeleteApiKey from '@/components/modals/ConfirmDeleteApi';
 import GenerateApiKey from '@/components/modals/GenerateApiKey';
 import ViewApiKey from '@/components/modals/ViewApiKey';
 import { Button } from '@/components/shadcn/ui/button';
@@ -78,114 +78,120 @@ const DevelopersPage = () => {
   };
 
   return (
-    <div className="space-y-6 max-w-3xl mx-auto">
+    <div className="space-y-6 max-w-4xl mx-auto">
       <div>
-        <h3 className="text-lg font-medium">Developer Tools</h3>
+        <h3 className="text- font-medium">Developer Tools</h3>
         <p className="text-sm text-muted-foreground">
           Access developer tools, API settings, and configuration for custom development and technical setup.
         </p>
       </div>
       <Separator />
 
-      <div className="grid gap-2">
-        <Label>Generate API Keys</Label>
-        <div className="flex gap-3">
-          <Input placeholder="Search API Keys..." />
-          <GenerateApiKey
-            open={isOpen}
-            onClose={(va) => setIsOpen(va)}
-            fetchApiName={handleApiName}
-            fetchApiKey={handleApiKey}
-            fetchPermissions={(value : string) => setPermissions(value)}
-          />
-        </div>
+        <div className=''>
 
-        <div className="grid py-4">
-          {apiKeys.length === 0 ? (
-            <div className="p-3 px-4 border rounded-md flex gap-3">
-              <CircleAlert size={20} />
-              <h2 className="text-sm text-muted-foreground">
-                No User API Keys have been created
-              </h2>
-            </div>
-          ) : (
-            <div className="space-y-3">
-              {apiKeys.map((api, index) => (
-                <div
-                  key={index}
-                  className="p-3 px-4 border rounded-md flex justify-between items-center"
-                >
-                  <div className="flex gap-2">
-                    <div className="p-2 flex items-center border rounded-md">
-                      <Key />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">{api.name}</h4>
-                      <div className='flex gap-2 items-center'>
-                        <p className="text-sm text-muted-foreground">
-                          {api.isVisible ? api.key : maskKey(api.key)}
-                        </p>
-                        <Button size='sm' className='p-0 px-2' variant='outline' 
-                          onClick={() => handleClipboard(api.key)}>
-                          <Copy />
-                        </Button>
+        </div>
+      <div className='w-full'>
+        <div className="grid gap-2">
+          <Label className=''>Generate API Keys</Label>
+          <div className="flex gap-3">
+            <Input placeholder="Search API Keys..." />
+            <GenerateApiKey
+              open={isOpen}
+              onClose={(va) => setIsOpen(va)}
+              fetchApiName={handleApiName}
+              fetchApiKey={handleApiKey}
+              fetchPermissions={(value : string) => setPermissions(value)}
+            />
+          </div>
+
+          <div className="grid py-4">
+            {apiKeys.length === 0 ? (
+              <div className="p-3 px-4 border rounded-md flex gap-3">
+                <CircleAlert size={20} />
+                <h2 className="text-sm text-muted-foreground">
+                  No User API Keys have been created
+                </h2>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {apiKeys.map((api, index) => (
+                  <div
+                    key={index}
+                    className="p-3 px-4 border rounded-md flex justify-between items-center"
+                  >
+                    <div className="flex gap-2">
+                      <div className="p-2 flex items-center border rounded-md">
+                        <Key />
+                      </div>
+                      <div>
+                        <h4 className="font-medium">{api.name}</h4>
+                        <div className='flex gap-2 items-center'>
+                          <p className="text-sm text-muted-foreground">
+                            {api.isVisible ? api.key : maskKey(api.key)}
+                          </p>
+                          <Button size='sm' className='p-0 px-2' variant='outline' 
+                            onClick={() => handleClipboard(api.key)}>
+                            <Copy />
+                          </Button>
+                        </div>
                       </div>
                     </div>
+                    <div className="flex gap-2">
+                      <Button className="px-2" variant="outline" onClick={() => toggleKeyVisibility(index)}>
+                        {api.isVisible ? <EyeOff /> : <Eye />}
+                      </Button>
+                      <Button
+                        className="px-2"
+                        variant="outline"
+                        onClick={() => handleEditKey(api)} // Open the modal and pass the selected API key
+                      >
+                        <Pencil />
+                      </Button>
+                      <Button
+                        className="px-2"
+                        variant="outline"
+                        onClick={() => handleDeleteKey(index)} // Open the delete confirmation dialog
+                      >
+                        <Trash2 />
+                      </Button>
+                    </div>
                   </div>
-                  <div className="flex gap-2">
-                    <Button className="px-2" variant="outline" onClick={() => toggleKeyVisibility(index)}>
-                      {api.isVisible ? <EyeOff /> : <Eye />}
-                    </Button>
-                    <Button
-                      className="px-2"
-                      variant="outline"
-                      onClick={() => handleEditKey(api)} // Open the modal and pass the selected API key
-                    >
-                      <Pencil />
-                    </Button>
-                    <Button
-                      className="px-2"
-                      variant="outline"
-                      onClick={() => handleDeleteKey(index)} // Open the delete confirmation dialog
-                    >
-                      <Trash2 />
-                    </Button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            )}
+            <div className="p-2 text-sm text-muted-foreground">
+              An API key allows you to authenticate with our API and access its functionalities programmatically.
+              You can create multiple API keys with different permissions.
+              For more information, please refer to the{' '}
+              <Link href="/" className="text-primary underline">
+                API documentation.
+              </Link>
             </div>
-          )}
-          <div className="p-2 text-sm text-muted-foreground">
-            An API key allows you to authenticate with our API and access its functionalities programmatically.
-            You can create multiple API keys with different permissions.
-            For more information, please refer to the{' '}
-            <Link href="/" className="text-primary underline">
-              API documentation.
-            </Link>
           </div>
         </div>
+
+        {/* ViewApiKey Dialog */}
+        {viewApiKey && (
+          <ViewApiKey
+            selected={permissions}
+            fetchPermissions={(value : string) => setPermissions(value)}
+            apiKey={viewApiKey} // Pass the selected key to the modal
+            open={true}
+            onClose={closeViewApiKey} // Close the modal
+          />
+        )}
+
+        {/* DeleteApiKey Dialog */}
+        {isDeleteOpen && selectedKey && (
+          <DeleteApiKey
+            data={selectedKey} // Pass the selected key to the modal
+            open={isDeleteOpen}
+            onDelete={confirmDelete}
+            onClose={() => setIsDeleteOpen(false)} // Close the delete dialog
+          />
+        )}
       </div>
 
-      {/* ViewApiKey Dialog */}
-      {viewApiKey && (
-        <ViewApiKey
-          selected={permissions}
-          fetchPermissions={(value : string) => setPermissions(value)}
-          apiKey={viewApiKey} // Pass the selected key to the modal
-          open={true}
-          onClose={closeViewApiKey} // Close the modal
-        />
-      )}
-
-      {/* DeleteApiKey Dialog */}
-      {isDeleteOpen && selectedKey && (
-        <DeleteApiKey
-          data={selectedKey} // Pass the selected key to the modal
-          open={isDeleteOpen}
-          onDelete={confirmDelete}
-          onClose={() => setIsDeleteOpen(false)} // Close the delete dialog
-        />
-      )}
     </div>
   );
 };

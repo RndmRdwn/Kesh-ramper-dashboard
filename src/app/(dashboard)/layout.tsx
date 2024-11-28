@@ -18,7 +18,7 @@ export default function Layout({
           <Navbar />
         </div>
         <Separator />
-        <main className="py-4 lg:w-10/12 lg:mx-auto ">
+        <main className="py-4 lg:w-10/12 lg:mx-auto">
             {children}
         </main>
     </div>

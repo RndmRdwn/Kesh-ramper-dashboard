@@ -49,3 +49,23 @@ interface TeamsType {
     last_login? : string
     auth : string
 }
+
+// Default User Types
+export type CustomersType = {
+    id:number;
+    role_id : number
+    name: string;
+    email: string;
+    phone: string;
+    password?: string;
+    // role: string[];
+    status: string;
+};
+export interface RoleType {
+    id: string;
+    name: string,
+    permissions: number;
+    selected: string;
+    data: string[];
+    access_control :string;
+}
