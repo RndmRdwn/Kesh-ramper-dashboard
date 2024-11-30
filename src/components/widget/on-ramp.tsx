@@ -123,7 +123,7 @@ const OnRamp = ({ primary } : RampProps) => {
               />
             </div>
           </div>
-          <Label className="font-light">
+          <Label className="font-normal w-full text-end text-[11px]">
             {formData.payAmount || '0'}.00 
             <span className='uppercase px-1'>
               {formData.getCurrency || fiatCurrencies[0].name } 

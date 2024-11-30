@@ -9,7 +9,9 @@ import { Separator } from "@/components/shadcn/ui/separator"
 import PreviewModes from "./PreviewModes"
 import EmbeddedCode from "./EmbeddedCode"
 import { Checkbox } from "@/components/shadcn/ui/checkbox"
-
+import { MonitorDot } from "lucide-react"
+import { TbDeviceMobile } from "react-icons/tb";
+import { Button } from "@/components/shadcn/ui/button"
 
 const Customization = () => {
 
@@ -36,6 +38,10 @@ const Customization = () => {
     const handleCheck = () => {
         setHideFooter(!hideFooter)
     }
+
+
+    const [responsive, setResponsive] = useState(1);
+
 
   return (
     <div>
@@ -72,12 +78,26 @@ const Customization = () => {
             <div className=' w-full rounded-lg flex flex-col gap-3 h-[650px] bg-muted/10 p-4'>
                 <div className="w-full flex justify-between items-center">
                     <h2 className="text-xs uppercase font-medium text-muted-foreground">Preview</h2>
-                    <PreviewModes mode={setCurrentMode}/>
+                    <div className="flex gap-2 items-center">
+                        <div className="flex gap-1 items-center ">
+                            <Button onClick={() => setResponsive(1)} variant="outline" className={`p-0 px-2 ${responsive == 1 && 'border-r-0 border-b-0 border-primary bg-primary/5'}`}>
+                                <TbDeviceMobile 
+                                    className={`${responsive == 2 && 'text-primary'}`}
+                                    size={20}/>
+                            </Button>
+                            <Button onClick={() => setResponsive(2)} variant="outline" className={`p-0 px-2 ${responsive == 2 && 'border-l-0 border-t-0 border-primary bg-primary/5'}`}>
+                                <MonitorDot  
+                                    className={`${responsive == 1 && 'text-primary'}`}
+                                    size={20} />
+                            </Button>
+                        </div>
+                        <PreviewModes mode={setCurrentMode}/>
+                    </div>
                 </div>
                 <div className="border h-full border-dashed rounded-lg flex justify-center items-center shadow-md">
                     {currentMode == 1 ? 
-                        <div className="w-[400px]">
-                            <CustomWidget primary={selectedPrimary} footer={hideFooter}/>
+                        <div className={`${responsive == 1 ? 'w-[350px]' : 'w-[700px]'} transition-all duration-500 ease-in-out`}>
+                            <CustomWidget responsive={responsive} primary={selectedPrimary} footer={hideFooter}/>
                         </div>
                         : 
                         <EmbeddedCode />

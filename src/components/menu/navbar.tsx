@@ -15,6 +15,7 @@ import {
 import { AppIcon } from '@/constant/icons'
 import { navItems } from '.'
 import LogoBox from '../logo-box'
+import { UserBox } from './UserBox'
 
 // type Props = {}
 
@@ -46,7 +47,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className=''>
-                User
+                <UserBox />
             </div>
             </div>
         </div>

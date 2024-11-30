@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 type PreviewModesProps = {
-  mode: (val: number) => void
+  mode: (val: number) => void,
 }
 
 const PreviewModes = ({ mode } : PreviewModesProps) => {

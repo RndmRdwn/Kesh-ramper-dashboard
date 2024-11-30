@@ -24,16 +24,16 @@ export function WidgetTabs({
       onValueChange={onTabChange} // Update selectedTab state
       className="w-full"
     >
-      <TabsList className="grid w-full grid-cols-2 bg-transparent gap-2">
+      <TabsList className="grid w-full  grid-cols-2 pt-3 bg-transparent gap-2">
         {data.map((item) => (
-          <TabsTrigger key={item.id} className={`${selectedTab == item.value ? ' border-b-primary ' : 'border-transparent'} rounded-none border-t-0 border-b-4  outline-none `} value={item.value}>
+          <TabsTrigger key={item.id} className={`${selectedTab == item.value ? ' border-b-primary/20 ' : 'border-transparent'} rounded-b-8 border-t-0 border-b-2   outline-none `} value={item.value}>
             {item.name}
           </TabsTrigger>
         ))}
       </TabsList>
 
       {data.map((item) => (
-        <TabsContent key={item.id} value={item.value} className="pt-4">
+        <TabsContent key={item.id} value={item.value} className="pt-2">
           {item.content}
         </TabsContent>
       ))}
