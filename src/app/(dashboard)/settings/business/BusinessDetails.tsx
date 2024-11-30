@@ -2,7 +2,9 @@
 
 import CustomTextArea from '@/components/forms/Custom-TextArea'
 import CustomTextField from '@/components/forms/custom-textfield'
+import { Label } from '@/components/shadcn/ui/label'
 import { Separator } from '@/components/shadcn/ui/separator'
+import { CustomCommand } from '@/components/shared/custom-Command'
 import React, { useState } from 'react'
 
 
@@ -25,6 +27,20 @@ const BusinessDetails = () => {
     }))
 }
 
+const industryOptions = [
+  {value : 'tech_industry', label : 'Tech Industry'},
+  {value : 'finance_industry', label : 'Finance Industry'},
+  {value : 'travel_industry', label : 'Travel Industry'},
+  {value : 'industry_01', label : 'Industry 01'},
+  {value : 'industry_02', label : 'Industry 02'},
+  {value : 'industry_03', label : 'Industry 03'},
+]
+const businessOptions = [
+  {value : 'indiviual', label : 'Indiviual'},
+  {value : 'organization', label : 'Non-profit Organization'},
+  {value : 'company', label : 'Company'},
+]
+
 return (
 <div className='grid gap-4 lg:grid-cols-2 md:grid-cols-2'>
         <div className='lg:col-span-2 md:col-span-2'>
@@ -33,12 +49,20 @@ return (
         </div>
         <CustomTextField isEditable={true} label="Business Name"  placeholder='Enter your Business Name'
                   value={formData.name} onChange={(e) => handleChange('name', e.target.value)}/>
-        <CustomTextField isEditable={true} label="Type of business"  placeholder='Enter your Business Type'
-                  value={formData.type} onChange={(e) => handleChange('type', e.target.value)}/>
+        {/* <CustomTextField isEditable={true} label="Type of business"  placeholder='Enter your Business Type'
+                  value={formData.type} onChange={(e) => handleChange('type', e.target.value)}/> */}
+        <div className='grid gap-2'>
+            <Label>Type of Business</Label>
+            <CustomCommand width='w-full' data={businessOptions} placeholder='a business type' title='Select a Business Type' />
+        </div>
         <CustomTextField isEditable={true} label="Business Location"  placeholder='Enter your Business Location'
                   value={formData.location} onChange={(e) => handleChange('location', e.target.value)}/>
-        <CustomTextField isEditable={true} label="Industry"  placeholder='Please Select your Industry'
-                  value={formData.industry} onChange={(e) => handleChange('industry', e.target.value)}/>
+        {/* <CustomTextField isEditable={true} label="Industry"  placeholder='Please Select your Industry'
+                  value={formData.industry} onChange={(e) => handleChange('industry', e.target.value)}/> */}
+        <div className='grid gap-2'>
+            <Label>Industry</Label>
+            <CustomCommand data={industryOptions} placeholder='an industry' title='Select an industry' />
+        </div>
         <CustomTextField isEditable={true} label="Business Webiste"  placeholder='www.example.com'
                   value={formData.website} onChange={(e) => handleChange('website', e.target.value)}/>
 

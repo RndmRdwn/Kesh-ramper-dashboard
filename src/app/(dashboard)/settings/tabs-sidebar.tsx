@@ -19,6 +19,11 @@ interface TabItems {
   sub?: { path: string; name: string }[]
 }
 
+interface SubItemType {
+  currentItem: TabItems | undefined
+  items: TabItems[]
+}
+
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const pathname = usePathname()
 
@@ -39,13 +44,17 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   )
 }
 
-interface SubItemType {
-  currentItem: TabItems | undefined
-  items: TabItems[]
-}
+// Find the selected item based on the current pathname or its sub-path
+const isActiveItem = (item: TabItems, pathname: string) => {
+  if (item.path === pathname) return true; // Exact match
+  if (item.sub?.some((subItem) => pathname.startsWith(subItem.path))) return true; // Match sub-paths
+  return false;
+};
 
 // DesktopMode Component
-const DesktopMode = ({ currentItem, items }: SubItemType) => {
+const DesktopMode = ({ items }: SubItemType) => {
+  const pathname = usePathname();
+
   return (
     <div className="flex-wrap lg:flex md:flex">
       {items.map((item) => (
@@ -56,6 +65,9 @@ const DesktopMode = ({ currentItem, items }: SubItemType) => {
               <DropdownMenuTrigger
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
+                  isActiveItem(item, pathname)
+                    ? "border-b-2 border-primary"
+                    : "hover:bg-transparent",
                   "justify-start rounded-none font-medium"
                 )}
               >
@@ -75,7 +87,7 @@ const DesktopMode = ({ currentItem, items }: SubItemType) => {
               href={item.path}
               className={cn(
                 buttonVariants({ variant: "ghost" }),
-                currentItem?.path === item.path
+                isActiveItem(item, pathname)
                   ? "border-b-2 border-primary"
                   : "hover:bg-transparent",
                 "justify-start rounded-none font-medium"
@@ -88,11 +100,13 @@ const DesktopMode = ({ currentItem, items }: SubItemType) => {
       ))}
       <Separator />
     </div>
-  )
-}
+  );
+};
 
 // MobileMode Component
 const MobileMode = ({ currentItem, items }: SubItemType) => {
+  const pathname = usePathname();
+
   return (
     <div>
       <DropdownMenu>
@@ -105,7 +119,14 @@ const MobileMode = ({ currentItem, items }: SubItemType) => {
           {items.map((item) =>
             item.sub ? (
               <DropdownMenuSub key={item.id}>
-                <DropdownMenuSubTrigger>
+                <DropdownMenuSubTrigger
+                  className={cn(
+                    isActiveItem(item, pathname)
+                      ? "font-bold text-primary"
+                      : "",
+                    "py-2"
+                  )}
+                >
                   {item.name}
                 </DropdownMenuSubTrigger>
                 <DropdownMenuSubContent>
@@ -117,7 +138,15 @@ const MobileMode = ({ currentItem, items }: SubItemType) => {
                 </DropdownMenuSubContent>
               </DropdownMenuSub>
             ) : (
-              <DropdownMenuItem key={item.id} asChild>
+              <DropdownMenuItem
+                key={item.id}
+                asChild
+                className={cn(
+                  isActiveItem(item, pathname)
+                    ? "font-bold text-primary"
+                    : ""
+                )}
+              >
                 <Link href={item.path}>{item.name}</Link>
               </DropdownMenuItem>
             )
@@ -125,5 +154,5 @@ const MobileMode = ({ currentItem, items }: SubItemType) => {
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  )
-}
+  );
+};
