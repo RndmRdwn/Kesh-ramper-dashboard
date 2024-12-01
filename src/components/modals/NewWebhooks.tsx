@@ -26,7 +26,7 @@ const NewWebhook = ({ open, onClose }: Props) => {
     webhook_url: '',
     event: '',
   });
-
+  const [isTested, setIsTested] = useState(false);
   const eventOptions: DefaultSelectType[] = [
     { id: 1, name: 'When a new transaction created', value: 'transaction_created' },
     { id: 2, name: 'When a transaction is successful', value: 'transaction_successful' },
@@ -50,6 +50,20 @@ const NewWebhook = ({ open, onClose }: Props) => {
     toast.success('New Webhook has been created');
     setFormData({ name: '', webhook_url: '', event: '' }); // Reset form
   };
+
+  const handleTestWebhook = () => { 
+    // Test webhook logic goes here
+    const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Sonner' }), 2000));
+
+    toast.promise(promise, {
+      loading: `Testing ${formData.name} webhook `,
+      success: () => {
+        setIsTested(true)
+        return `${formData.name} Webhook Test has been successfull`;
+      },
+      error: 'Error',
+    });
+  }
 
   return (
     <Dialog open={open} onOpenChange={(isOpen) => onClose(isOpen)}>
@@ -91,7 +105,10 @@ const NewWebhook = ({ open, onClose }: Props) => {
           </div>
         </div>
         <DialogFooter>
-          <Button onClick={handleSave} className="w-full">
+          <Button onClick={handleTestWebhook} variant='outline' className="">
+            Test
+          </Button>
+          <Button onClick={handleSave} className="" disabled={!isTested}>
             Save Webhook
           </Button>
         </DialogFooter>

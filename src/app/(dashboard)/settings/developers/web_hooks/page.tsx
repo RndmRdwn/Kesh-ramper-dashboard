@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import NewWebhook from '@/components/modals/NewWebhooks';
 import { Button } from '@/components/shadcn/ui/button';
 import { Switch } from '@/components/shadcn/ui/switch';
-import { Unplug } from 'lucide-react';
+import { Pencil, TestTube, Trash, Unplug } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/shadcn/ui/tooltip';
+import EditWebhook from '@/components/modals/EditWebhook';
 
 
 export type webhookType = {
@@ -17,9 +19,13 @@ export type webhookType = {
 const WebHooks = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [webhooks, setWebhooks] = useState<webhookType[]>([]); // State for storing webhooks
+  const [currentWebhook, setCurrentWebhook] = useState<webhookType>([]); // State for storing webhooks
 
   const handleAddWebhook = (newWebhook: webhookType) => {
     setWebhooks((prev) => [...prev, newWebhook]); // Add the new webhook to the list
+  };
+  const handleEditWebhook = (newWebhook: webhookType) => {
+    setCurrentWebhook(newWebhook); // Add the new webhook to the list
   };
 
   return (
@@ -74,12 +80,34 @@ const WebHooks = () => {
                   <h2 className="font-medium col-span-2 text-sm">{webhook.event}</h2>
                   <h2 className="font-medium col-span-2 text-sm ">{webhook.webhook_url}</h2>
                   <h2 className="font-medium col-span-2 text-sm">Last Sent</h2>
-                  <h2 className="font-medium col-span-1 text-sm">Action</h2>
+                  <div className="flex gap-2 items-center">
+                      <Tooltip>
+                      <TooltipTrigger>
+                        <Button onClick={() => handleEditWebhook(webhook)} size='icon' variant='outline'>
+                          <Pencil />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent className='bg-background text-foreground border-primary/20 shadow-md border'>
+                        <p>Edit</p>
+                      </TooltipContent>
+                      </Tooltip>
+                      <Tooltip>
+                      <TooltipTrigger>
+                          <Button size='icon' variant='outline'>
+                            <Trash />
+                          </Button>
+                      </TooltipTrigger>
+                      <TooltipContent className='bg-background text-foreground border-primary/20 shadow-md border'>
+                        <p>Delete</p>
+                      </TooltipContent>
+                      </Tooltip>
+                  </div>
               </div>
             ))
           )}
         </div>
       </div>
+      {/* <EditWebhook data={webhooks} onClose={} open={} /> */}
     </div>
   );
 };

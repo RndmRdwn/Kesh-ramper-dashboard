@@ -61,6 +61,7 @@ export type CustomersType = {
     // role: string[];
     status: string;
 };
+
 export interface RoleType {
     id: string;
     name: string,
@@ -68,4 +69,12 @@ export interface RoleType {
     selected: string;
     data: string[];
     access_control :string;
+}
+
+export interface WebhookType {
+    id: string;
+    name: string,
+    trigger: string;
+    event: string; 
+    last_sent: string;
 }

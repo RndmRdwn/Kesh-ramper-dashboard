@@ -8,6 +8,9 @@ const Endpoints = (props: Props) => {
     <div>
       <h2 className='text-xl font-semibold pb-2'>Endpoints</h2>
       <Separator />
+      <div className='p-4'>
+        <h2>ExEndpoints</h2>
+      </div>
     </div>
   )
 }
