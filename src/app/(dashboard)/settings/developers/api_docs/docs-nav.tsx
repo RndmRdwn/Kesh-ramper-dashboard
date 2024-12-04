@@ -11,12 +11,12 @@ export function DocsNav() {
   return (
     <Tabs defaultValue={docsTabs[0]?.value || ""} className="w-full gap-5 h-full  flex">
       {/* Tabs List */}
-      <TabsList className="flex flex-col items-start bg-transparent gap-1 h-full border">
+      <TabsList className="flex flex-col items-start bg-transparent gap-1 h-full ">
         {docsTabs.map((tab) => (
            <TabsTrigger
            key={tab.id}
            className="p-2 flex text-left w-48 items-start rounded-none font-normal transition-all duration-200 ease-in-out
-           aria-selected:border-b-2 aria-selected:border-primary aria-selected:font-semibold"
+            aria-selected:border-primary aria-selected:font-semibold shadow-none"
            value={tab.value}
          >
             <div className="w-full">
