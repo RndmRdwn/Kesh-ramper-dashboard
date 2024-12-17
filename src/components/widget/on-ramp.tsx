@@ -98,6 +98,10 @@ const OnRamp = ({ primary } : RampProps) => {
               <input
                 placeholder="0.00"
                 value={formData.payAmount}
+                onInput={(e) => {
+                  const input = e.target as HTMLInputElement;
+                  input.value = input.value.replace(/[^0-9.]/g, ''); // Optional: Remove unwanted characters.
+                }}
                 onChange={(e) => handleChange('payAmount', e.target.value)}
                 className="text-[20px] w-full focus-visible:ring-0 focus-visible:outline-none border-none"
               />
