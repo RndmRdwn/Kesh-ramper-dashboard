@@ -4,9 +4,8 @@ import { CodeEditor } from '@/components/codeEditor'
 import { Separator } from '@/components/shadcn/ui/separator'
 import React, { useState } from 'react'
 
-type Props = {}
 
-const Endpoints = (props: Props) => {
+const Endpoints = () => {
   
   const [ postTranscationCode ] = useState(`
    curl -X POST https://api.keshflip-pay.com/v1/transactions \ 

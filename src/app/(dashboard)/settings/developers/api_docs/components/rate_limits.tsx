@@ -1,9 +1,8 @@
 import React from 'react'
 import { Separator } from '@/components/shadcn/ui/separator'
 
-type Props = {}
 
-const RateLimits = (props: Props) => {
+const RateLimits = () => {
   return (
     <div>
       <h2 className='text-xl font-semibold pb-2'>Rate Limits</h2>

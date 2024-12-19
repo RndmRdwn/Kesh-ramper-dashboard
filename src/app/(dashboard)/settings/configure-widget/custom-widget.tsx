@@ -42,7 +42,7 @@ const CustomWidget = ({ primary, footer, responsive} : pageWidgetTypeProps) => {
           )}
           {responsive == 1 ? (
               <div className='w-full h-full px-4 rounded-b-2xl pb-2 bg-white'>
-                  <WidgetTabs primary={primary}
+                  <WidgetTabs 
                     data={rampData}
                     selectedTab={selectedTab}
                     onTabChange={setSelectedTab}

@@ -10,12 +10,10 @@ export function WidgetTabs({
   data,
   selectedTab,
   onTabChange,
-  primary
 }: {
   data: WidgetTypeProps[];
   selectedTab: string;
   onTabChange: (value: string) => void;
-  primary: string
 }) {
   return (
     <Tabs

@@ -26,10 +26,9 @@ type commandProps = {
     }[],
     placeholder: string,
     title: string,
-    width?: string | 'w-[300px]'
 }
 
-export function CustomCommand({ data, width, title, placeholder} : commandProps) {
+export function CustomCommand({ data, title, placeholder} : commandProps) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 

@@ -2,9 +2,8 @@
 import React from 'react'
 import { DocsNav } from './docs-nav'
 
-type Props = {}
 
-const ApiDocs = (props: Props) => {
+const ApiDocs = () => {
   return (
 
     <div className=''>

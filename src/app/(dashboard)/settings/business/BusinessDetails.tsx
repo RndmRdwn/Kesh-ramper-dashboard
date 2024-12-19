@@ -53,7 +53,7 @@ return (
                   value={formData.type} onChange={(e) => handleChange('type', e.target.value)}/> */}
         <div className='grid gap-2'>
             <Label>Type of Business</Label>
-            <CustomCommand width='w-full' data={businessOptions} placeholder='a business type' title='Select a Business Type' />
+            <CustomCommand  data={businessOptions} placeholder='a business type' title='Select a Business Type' />
         </div>
         <CustomTextField isEditable={true} label="Business Location"  placeholder='Enter your Business Location'
                   value={formData.location} onChange={(e) => handleChange('location', e.target.value)}/>

@@ -1,8 +1,7 @@
 import React from 'react'
 
-type Props = {}
 
-const SupportPage = (props: Props) => {
+const SupportPage = () => {
   return (
     <div className='w-full h-[700px] border rounded-xl '>
         <div className='flex items-center justify-center h-full'>

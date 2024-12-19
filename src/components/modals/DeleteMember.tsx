@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/shadcn/ui/dialog';
 import { Button } from '@/components/shadcn/ui/button';
-import { Trash2 } from 'lucide-react';
-import { Input } from '@/components/shadcn/ui/input';
+
 import { TeamsType } from '@/constant/types/models';
 
 
@@ -13,24 +12,24 @@ type Props = {
 }
 
 const DeleteMember = ({ open, onClose, data}: Props) => {
-    const [step, setStep] = useState(1);
-    const [confirmText, setConfirmText] = useState("");
+    // const [step, setStep] = useState(1);
+    // const [confirmText, setConfirmText] = useState("");
 
-    const handleDelete = () => {
+    // const handleDelete = () => {
       
-    };
+    // };
 
-    const handleConfirmTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setConfirmText(e.target.value);
-    };
+    // const handleConfirmTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setConfirmText(e.target.value);
+    // };
 
-    const handleNextStep = () => {
-        setStep(2);
-    };
+    // const handleNextStep = () => {
+    //     setStep(2);
+    // };
 
     const handleCancel = () => {
-        setStep(1);
-        setConfirmText("");
+        // setStep(1);
+        // setConfirmText("");
         onClose();
     };
 

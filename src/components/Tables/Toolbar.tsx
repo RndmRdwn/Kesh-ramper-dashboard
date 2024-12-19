@@ -1,6 +1,6 @@
 'use client'
 
-import { ColumnFiltersState, Table } from "@tanstack/react-table";
+import { Table } from "@tanstack/react-table";
 import { Input } from "@/components/shadcn/ui/input";
 import { DataTableFacetedFilter } from "./Faceted-filter";
 import { DataTableViewOptions } from "./View";
@@ -13,26 +13,24 @@ import { TransactionStatus, TransactionTypes } from "./data";
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
   title: string;
-  setFilters: (filters: ColumnFiltersState) => void;
 }
 
 export function DataTableToolbar<TData>({
   table,
   title,
-  setFilters,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
   const [showFilters, setShowFilters] = useState(false); // State to toggle filter visibility
-  const [filters, setFiltersState] = useState({});
+  // const [filters, setFiltersState] = useState({});
 
   const showCustomerFilter = title === "Customers";
   const showTransactionFilter = title === "transactions by currency";
 
 
-  const handleFilterChange = (newFilters: any) => {
-    setFiltersState(newFilters);
-    setFilters(newFilters); // Pass the new filters to the parent component (data table)
-  };
+  // const handleFilterChange = (newFilters: any) => {
+  //   setFiltersState(newFilters);
+  //   setFilters(newFilters); // Pass the new filters to the parent component (data table)
+  // };
 
   const columnToFilter = () => {
     switch (title) {

@@ -1,9 +1,8 @@
 import { Separator } from '@/components/shadcn/ui/separator'
 import React from 'react'
 
-type Props = {}
 
-const APIErrors = (props: Props) => {
+const APIErrors = () => {
   const authErrors = [
     { id: 1, name: '401 Unauthorized', 
       detail: 'Ensure you are using a valid API key.',  

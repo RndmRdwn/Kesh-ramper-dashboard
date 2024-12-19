@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Box, Check, ChevronsUpDown } from "lucide-react"
+import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/shadcn/ui/button"

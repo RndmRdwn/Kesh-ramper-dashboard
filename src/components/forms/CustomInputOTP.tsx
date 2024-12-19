@@ -17,7 +17,7 @@ export function CustomInputOTP({
   
     useEffect(() => {
       handleOtpChange(value);
-    }, [value]);
+    }, [value, handleOtpChange]);
   
     return (
       <div className="space-y-2 flex flex-col items-center">

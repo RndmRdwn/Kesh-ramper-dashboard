@@ -1,5 +1,4 @@
 import { Input } from "@/components/shadcn/ui/input";
-import TeamSwitcher from "./components/team-switcher";
 import { UserNav } from "./components/user-nav";
 import NavLink from "@/components/ui/nav-link";
 
@@ -7,7 +6,6 @@ const Topbar = () => {
     return (
         <div className="border-b">
             <div className="flex h-16 items-center px-4 lg:w-11/12 lg:mx-auto">
-                <TeamSwitcher />
 
                 {/* navigation */}
                 <nav className="flex items-center space-x-4 lg:space-x-6 mx-6">

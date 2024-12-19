@@ -17,10 +17,7 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/shadcn/ui/table";
 import { DataTablePagination } from "./Pagination";
 import { DataTableToolbar } from "./Toolbar";
-import ViewTransaction from "../modals/ViewTransaction";
-import { CustomersType, TeamsType, TransactionType } from "@/constant/types/models";
-import ViewTeamMember from "../modals/ViewTeamMember";
-import ViewCustomers from "../modals/ViewCustomers";
+
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -42,7 +39,7 @@ export function DataTable<TData, TValue>({ columns, data, title, searchTitle, se
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
     const [sorting, setSorting] = React.useState<SortingState>([]);
-
+    const sample = false
     // Manage modal state with a single state object
     const [modalState, setModalState] = React.useState<ModalState<TData>>({
         open: false,
@@ -86,14 +83,14 @@ export function DataTable<TData, TValue>({ columns, data, title, searchTitle, se
         });
     };
 
-    const closeModal = () => {
-        setModalState({ open: false, type: null, rowData: null });
-    };
+    // const closeModal = () => {
+    //     setModalState({ open: false, type: null, rowData: null });
+    // };
 
     return (
         <div className="space-y-4">
             {searchable && (
-                <DataTableToolbar setFilters={setColumnFilters} title={searchTitle} table={table} />
+                <DataTableToolbar  title={searchTitle} table={table} />
             )}
             <div className="rounded-md border">
                 <Table>
@@ -140,6 +137,10 @@ export function DataTable<TData, TValue>({ columns, data, title, searchTitle, se
             </div>
             <DataTablePagination table={table} />
 
+            {sample && 
+                <p> {modalState.open}
+                </p>
+            }
         </div>
     );
 }

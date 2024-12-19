@@ -1,9 +1,8 @@
 import { Separator } from '@/components/shadcn/ui/separator'
 import React from 'react'
 
-type Props = {}
 
-const Overview = (props: Props) => {
+const Overview = () => {
   return (
     <div className='w-full'>
       <h2 className='text-xl font-semibold pb-2'>Overview</h2>

@@ -94,7 +94,6 @@ export function DataTableRowActions<TData>({
             {viewOpen &&  (
                 <>
                     <ViewTeamMember 
-                        editable={false}
                         open={viewOpen}
                         onClose={() => setViewOpen(!viewOpen)} // Explicitly manage close logic to ensure no other modals trigger
                         data={row as TeamsType}

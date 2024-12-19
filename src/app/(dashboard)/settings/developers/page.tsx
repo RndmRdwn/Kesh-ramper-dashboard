@@ -174,7 +174,7 @@ const DevelopersPage = () => {
         {viewApiKey && (
           <ViewApiKey
             selected={permissions}
-            fetchPermissions={(value : string) => setPermissions(value)}
+            
             apiKey={viewApiKey} // Pass the selected key to the modal
             open={true}
             onClose={closeViewApiKey} // Close the modal

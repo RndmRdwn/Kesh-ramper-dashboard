@@ -4,9 +4,8 @@ import React, { useState } from 'react';
 import NewWebhook from '@/components/modals/NewWebhooks';
 import { Button } from '@/components/shadcn/ui/button';
 import { Switch } from '@/components/shadcn/ui/switch';
-import { Pencil, TestTube, Trash, Unplug } from 'lucide-react';
+import { Pencil, Trash, Unplug } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/shadcn/ui/tooltip';
-import EditWebhook from '@/components/modals/EditWebhook';
 
 
 export type webhookType = {
@@ -19,14 +18,14 @@ export type webhookType = {
 const WebHooks = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [webhooks, setWebhooks] = useState<webhookType[]>([]); // State for storing webhooks
-  const [currentWebhook, setCurrentWebhook] = useState<webhookType>([]); // State for storing webhooks
+  // const [currentWebhook, setCurrentWebhook] = useState<webhookType>([]); // State for storing webhooks
 
   const handleAddWebhook = (newWebhook: webhookType) => {
     setWebhooks((prev) => [...prev, newWebhook]); // Add the new webhook to the list
   };
-  const handleEditWebhook = (newWebhook: webhookType) => {
-    setCurrentWebhook(newWebhook); // Add the new webhook to the list
-  };
+  // const handleEditWebhook = (newWebhook: webhookType) => {
+  //   setCurrentWebhook(newWebhook); // Add the new webhook to the list
+  // };
 
   return (
     <div className=' max-w-6xl mx-auto'>
@@ -83,7 +82,7 @@ const WebHooks = () => {
                   <div className="flex gap-2 items-center">
                       <Tooltip>
                       <TooltipTrigger>
-                        <Button onClick={() => handleEditWebhook(webhook)} size='icon' variant='outline'>
+                        <Button  size='icon' variant='outline'>
                           <Pencil />
                         </Button>
                       </TooltipTrigger>
