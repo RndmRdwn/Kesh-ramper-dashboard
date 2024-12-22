@@ -74,6 +74,7 @@ const BoardingStairs = () => {
             </div>
             <div className='lg:py-8 flex gap-4 items-center h-fit'>
                 <Progress value={progress} className="w-[60%]" />
+                {isLoading && isLoading}
                 <Label className='font-normal text-md'>Step - {step} / 4</Label>
             </div>
         </div>

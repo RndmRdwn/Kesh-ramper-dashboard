@@ -96,3 +96,12 @@ body {
         @apply bg-background text-foreground;
     }
 }
+
+.CodeMirror {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }

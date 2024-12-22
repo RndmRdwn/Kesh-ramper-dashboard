@@ -1,0 +1,353 @@
+[
+    {
+      "id": "1",
+      "uuid": "f9a3cd0e-734f-4e8d-b882-d1d5d7e84c9b",
+      "type": "deposit",
+      "date": "2024-11-25T10:15:30Z",
+      "currency_id": "usd",
+      "network_id": "eth-mainnet",
+      "amount": "500.00",
+      "account": "user123",
+      "batch_id": "batch_001",
+      "status": "completed",
+      "meta": "{\"note\": \"Deposit from user123\"}",
+      "user_id": "user123",
+      "wallet_id": "wallet789",
+      "wallet_asset_id": "asset456",
+      "created_at": "2024-11-25T10:10:00Z",
+      "currency": {
+        "id": "usd",
+        "symbol": "$",
+        "name": "US Dollar",
+        "decimals": 2
+      },
+      "user": {
+        "id": "user123",
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "role": "customer"
+      },
+      "wallet": {
+        "id": "wallet789",
+        "name": "John's Wallet",
+        "balance": "1000.00",
+        "currency": "usd"
+      }
+    },
+    {
+      "id": "2",
+      "uuid": "ab12cd34-ef56-78gh-90ij-klmn12opqr",
+      "type": "withdrawal",
+      "date": "2024-11-25T11:00:00Z",
+      "currency_id": "btc",
+      "network_id": "btc-mainnet",
+      "amount": "0.25",
+      "account": "user456",
+      "batch_id": "batch_002",
+      "status": "pending",
+      "meta": "{\"note\": \"Withdrawal request for user456\"}",
+      "user_id": "user456",
+      "wallet_id": "wallet012",
+      "wallet_asset_id": "asset789",
+      "created_at": "2024-11-25T10:50:00Z",
+      "currency": {
+        "id": "btc",
+        "symbol": "₿",
+        "name": "Bitcoin",
+        "decimals": 8
+      },
+      "user": {
+        "id": "user456",
+        "name": "Jane Smith",
+        "email": "janesmith@example.com",
+        "role": "customer"
+      },
+      "wallet": {
+        "id": "wallet012",
+        "name": "Jane's Wallet",
+        "balance": "1.50",
+        "currency": "btc"
+      }
+    },
+    {
+      "id": "3",
+      "uuid": "cd34ef56-gh78-90ij-klmn-12opqrstu",
+      "type": "withdrawal",
+      "date": "2024-11-24T14:30:45Z",
+      "currency_id": "eth",
+      "network_id": "eth-mainnet",
+      "amount": "2.00",
+      "account": "user789",
+      "batch_id": "batch_003",
+      "status": "completed",
+      "meta": "{\"note\": \"Transfer to user987\"}",
+      "user_id": "user789",
+      "wallet_id": "wallet345",
+      "wallet_asset_id": "asset123",
+      "created_at": "2024-11-24T14:00:00Z",
+      "currency": {
+        "id": "eth",
+        "symbol": "Ξ",
+        "name": "Ethereum",
+        "decimals": 18
+      },
+      "user": {
+        "id": "user789",
+        "name": "Alice Johnson",
+        "email": "alicej@example.com",
+        "role": "customer"
+      },
+      "wallet": {
+        "id": "wallet345",
+        "name": "Alice's Wallet",
+        "balance": "10.00",
+        "currency": "eth"
+      }
+    },
+    {
+      "id": "4",
+      "uuid": "ef56gh78-ij90-klmn-opqr-12stuvwx",
+      "type": "deposit",
+      "date": "2024-11-23T09:45:15Z",
+      "currency_id": "usd",
+      "network_id": "stripe",
+      "amount": "1000.00",
+      "account": "user001",
+      "batch_id": "batch_004",
+      "status": "completed",
+      "meta": "{\"note\": \"Deposit from user001\"}",
+      "user_id": "user001",
+      "wallet_id": "wallet567",
+      "wallet_asset_id": "asset890",
+      "created_at": "2024-11-23T09:30:00Z",
+      "currency": {
+        "id": "usd",
+        "symbol": "$",
+        "name": "US Dollar",
+        "decimals": 2
+      },
+      "user": {
+        "id": "user001",
+        "name": "Michael Brown",
+        "email": "michaelb@example.com",
+        "role": "customer"
+      },
+      "wallet": {
+        "id": "wallet567",
+        "name": "Michael's Wallet",
+        "balance": "2500.00",
+        "currency": "usd"
+      }
+    },
+    {
+      "id": "5",
+      "uuid": "gh78ij90-klmn-opqr-12stuvwx-yzabcd34",
+      "type": "withdrawal",
+      "date": "2024-11-22T08:15:10Z",
+      "currency_id": "ltc",
+      "network_id": "ltc-mainnet",
+      "amount": "15.00",
+      "account": "user890",
+      "batch_id": "batch_005",
+      "status": "failed",
+      "meta": "{\"note\": \"Insufficient balance for user890\"}",
+      "user_id": "user890",
+      "wallet_id": "wallet678",
+      "wallet_asset_id": "asset234",
+      "created_at": "2024-11-22T08:00:00Z",
+      "currency": {
+        "id": "ltc",
+        "symbol": "Ł",
+        "name": "Litecoin",
+        "decimals": 8
+      },
+      "user": {
+        "id": "user890",
+        "name": "Emily Davis",
+        "email": "emilyd@example.com",
+        "role": "customer"
+      },
+      "wallet": {
+        "id": "wallet678",
+        "name": "Emily's Wallet",
+        "balance": "14.50",
+        "currency": "ltc"
+      }
+    },
+    {
+      "id": "6",
+      "uuid": "klmnopqr-12st-uvwx-yzabcd34-efghij56",
+      "type": "deposit",
+      "date": "2024-11-21T16:30:25Z",
+      "currency_id": "eur",
+      "network_id": "sepa",
+      "amount": "300.00",
+      "account": "user345",
+      "batch_id": "batch_006",
+      "status": "completed",
+      "meta": "{\"note\": \"SEPA transfer from user345\"}",
+      "user_id": "user345",
+      "wallet_id": "wallet901",
+      "wallet_asset_id": "asset567",
+      "created_at": "2024-11-21T16:15:00Z",
+      "currency": {
+        "id": "eur",
+        "symbol": "€",
+        "name": "Euro",
+        "decimals": 2
+      },
+      "user": {
+        "id": "user345",
+        "name": "Robert Wilson",
+        "email": "robertw@example.com",
+        "role": "merchant"
+      },
+      "wallet": {
+        "id": "wallet901",
+        "name": "Robert's Wallet",
+        "balance": "800.00",
+        "currency": "eur"
+      }
+    },
+    {
+      "id": "7",
+      "uuid": "12stuvwx-yzabcd34-efghij56-klmnopqr",
+      "type": "withdrawal",
+      "date": "2024-11-20T12:10:05Z",
+      "currency_id": "eth",
+      "network_id": "eth-mainnet",
+      "amount": "0.50",
+      "account": "user678",
+      "batch_id": "batch_007",
+      "status": "pending",
+      "meta": "{\"note\": \"Transfer to user456\"}",
+      "user_id": "user678",
+      "wallet_id": "wallet234",
+      "wallet_asset_id": "asset890",
+      "created_at": "2024-11-20T12:00:00Z",
+      "currency": {
+        "id": "eth",
+        "symbol": "Ξ",
+        "name": "Ethereum",
+        "decimals": 18
+      },
+      "user": {
+        "id": "user678",
+        "name": "Karen Martinez",
+        "email": "karenm@example.com",
+        "role": "customer"
+      },
+      "wallet": {
+        "id": "wallet234",
+        "name": "Karen's Wallet",
+        "balance": "1.50",
+        "currency": "eth"
+      }
+    },
+    {
+      "id": "8",
+      "uuid": "yzabcd34-efghij56-klmnopqr-12stuvwx",
+      "type": "deposit",
+      "date": "2024-11-19T09:20:00Z",
+      "currency_id": "usd",
+      "network_id": "stripe",
+      "amount": "200.00",
+      "account": "user567",
+      "batch_id": "batch_008",
+      "status": "completed",
+      "meta": "{\"note\": \"Stripe deposit for user567\"}",
+      "user_id": "user567",
+      "wallet_id": "wallet123",
+      "wallet_asset_id": "asset345",
+      "created_at": "2024-11-19T09:10:00Z",
+      "currency": {
+        "id": "usd",
+        "symbol": "$",
+        "name": "US Dollar",
+        "decimals": 2
+      },
+      "user": {
+        "id": "user567",
+        "name": "David Garcia",
+        "email": "davidg@example.com",
+        "role": "customer"
+      },
+      "wallet": {
+        "id": "wallet123",
+        "name": "David's Wallet",
+        "balance": "600.00",
+        "currency": "usd"
+      }
+    },
+    {
+      "id": "9",
+      "uuid": "efghij56-klmnopqr-12stuvwx-yzabcd34",
+      "type": "withdrawal",
+      "date": "2024-11-18T14:45:10Z",
+      "currency_id": "usd",
+      "network_id": "paypal",
+      "amount": "50.00",
+      "account": "user234",
+      "batch_id": "batch_009",
+      "status": "completed",
+      "meta": "{\"note\": \"PayPal withdrawal for user234\"}",
+      "user_id": "user234",
+      "wallet_id": "wallet678",
+      "wallet_asset_id": "asset901",
+      "created_at": "2024-11-18T14:30:00Z",
+      "currency": {
+        "id": "usd",
+        "symbol": "$",
+        "name": "US Dollar",
+        "decimals": 2
+      },
+      "user": {
+        "id": "user234",
+        "name": "Laura Hernandez",
+        "email": "laurah@example.com",
+        "role": "customer"
+      },
+      "wallet": {
+        "id": "wallet678",
+        "name": "Laura's Wallet",
+        "balance": "500.00",
+        "currency": "usd"
+      }
+    },
+    {
+      "id": "10",
+      "uuid": "klmnopqr-12stuvwx-yzabcd34-efghij56",
+      "type": "deposit",
+      "date": "2024-11-17T17:20:40Z",
+      "currency_id": "eth",
+      "network_id": "eth-mainnet",
+      "amount": "1.00",
+      "account": "user345",
+      "batch_id": "batch_010",
+      "status": "completed",
+      "meta": "{\"note\": \"Internal transfer for user345\"}",
+      "user_id": "user345",
+      "wallet_id": "wallet901",
+      "wallet_asset_id": "asset567",
+      "created_at": "2024-11-17T17:00:00Z",
+      "currency": {
+        "id": "eth",
+        "symbol": "Ξ",
+        "name": "Ethereum",
+        "decimals": 18
+      },
+      "user": {
+        "id": "user345",
+        "name": "Robert Wilson",
+        "email": "robertw@example.com",
+        "role": "merchant"
+      },
+      "wallet": {
+        "id": "wallet901",
+        "name": "Robert's Wallet",
+        "balance": "8.00",
+        "currency": "eth"
+      }
+    }
+  ]
+  

@@ -6,7 +6,7 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/shadcn/ui/button"
 
 export function ModeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => {

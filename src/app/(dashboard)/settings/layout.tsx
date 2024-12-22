@@ -3,7 +3,6 @@ import { Metadata } from "next"
 import { SidebarNav } from "./tabs-sidebar"
 import { settingTabs } from "@/lib/tab-list"
 
-
 export const metadata: Metadata = {
   title: "Settings ",
   description: "Settings Management",
@@ -22,12 +21,12 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
           <h2 className='font-medium'>Settings</h2>
           <p className='text-sm text-muted-foreground'>Manage your account settings and preferences.</p>
         </div>
-        <Separator className="my-6" />
-        <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-          <aside className="-mx-4 lg:w-1/5 px-4">
+        <Separator className="" />
+        <div className="flex flex-col  ">
+          <aside className="-lg:w-full ">
             <SidebarNav items={settingTabs} />
           </aside>
-          <div className="flex-1 lg:max-w-6xl">{children}</div>
+          <div className="flex-1 w-full py-4">{children}</div>
         </div>
       </div>
     </>

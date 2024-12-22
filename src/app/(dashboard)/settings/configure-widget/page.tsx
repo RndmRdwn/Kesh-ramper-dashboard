@@ -1,13 +1,13 @@
 import { Separator } from '@/components/shadcn/ui/separator'
 import React from 'react'
-import { AppearanceForm } from './displayForm'
-import { PreviewWidget } from '@/components/widget/preview-widget'
-import PayWidget from '@/components/widget/pay-widget'
+import Customization from './customization'
+import { Toaster } from 'sonner'
 
 
 const ConfigureWidgetPage = () => {
   return (
     <div className='flex flex-col gap-2'>
+      <Toaster richColors position='top-center'/>
       <div className='grid gap-1'>
         <h3 className="text-lg font-medium">Widget Customization</h3>
         <p className="text-sm text-muted-foreground">
@@ -15,14 +15,7 @@ const ConfigureWidgetPage = () => {
         </p>
       </div>
       <Separator />
-        <div className='flex gap-3 py-4 w-full justify-between'>
-        Preview
-        <div className='flex gap-3'>
-          <PreviewWidget />
-          <PayWidget />
-        </div>
-        </div>
-      <AppearanceForm />
+      <Customization />
      
     </div>
   )
