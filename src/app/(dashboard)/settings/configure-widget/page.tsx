@@ -8,7 +8,7 @@ const ConfigureWidgetPage = () => {
   return (
     <div className='flex flex-col gap-2'>
       <Toaster richColors position='top-center'/>
-      <div className='grid gap-1'>
+      <div className='grid gap-1 '>
         <h3 className="text-lg font-medium">Widget Customization</h3>
         <p className="text-sm text-muted-foreground">
           Customize the appearance of the widget. 

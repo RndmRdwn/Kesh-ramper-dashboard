@@ -38,7 +38,7 @@ const PersonalDetails = () => {
       <Separator />
     </div>
 
-      <div className='flex flex-col gap-5'>
+      <div className='flex flex-col gap-5 w-full'>
         <CustomTextField isEditable={true} label="Account Name"  placeholder='Your Account Name'
             value={formData.name} onChange={(e) => handleChange('name', e.target.value)}/>
         <CustomTextField isEditable={true} label="Account ID"  placeholder='Your Accounnt ID'

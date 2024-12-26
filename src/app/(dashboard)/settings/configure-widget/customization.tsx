@@ -45,9 +45,9 @@ const Customization = () => {
 
   return (
     <div>
-        <div className='w-full flex  h-full gap-5'>
-            <div className=' w-3/12 h-fit'>
-               <div className="grid  py-2 gap-3">
+        <div className='w-full flex lg:flex-row flex-col  h-full gap-5'>
+            <div className=' lg:w-3/12 h-fit '>
+               <div className="grid  py-2  gap-3">
                     <div className="grid gap-0">
                         <Label className="text-base">Brand Element</Label>
                         <p className="text-xs text-muted-foreground pb-3">

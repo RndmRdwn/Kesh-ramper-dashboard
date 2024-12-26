@@ -31,13 +31,13 @@ const Branding = () => {
   return (
     <div className="flex w-full gap-3">
       {/* Logo Upload */}
-      <div className="w-full flex justify-between items-center col-span-2 py-2">
+      <div className="w-full flex lg:flow-row flex-col justify-between gap-4 lg:items-center col-span-2 py-2">
         <Label className="font-normal text-muted-foreground" htmlFor="logo-upload">
           Upload Logo
         </Label>
         <div className="relative w-fit flex gap-3">
           {logo ? (
-            <div className="relative w-14 h-14">
+            <div className="relative lg:w-14 w-24 lg:h-14 h-24">
               <Image
                 src={URL.createObjectURL(logo)}
                 alt="Preview Logo"

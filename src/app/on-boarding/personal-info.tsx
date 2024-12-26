@@ -1,24 +1,35 @@
-import CustomInput from '@/components/shared/CustomInput'
+import { Input } from '@/components/shadcn/ui/input'
+import { Label } from '@/components/shadcn/ui/label'
+import { Textarea } from '@/components/shadcn/ui/textarea'
 import React from 'react'
 
 // type Props = {}
 
 const PersonalInfo = () => {
   return (
-    <div className='w-full grid lg:grid-cols-5 md:grid-cols-5 gap-3'>
-        <div className='w-full col-span-2'>
-            <h2 className=' font-medium'>Personal Infomation</h2>
-            <h2 className='text-muted-foreground text-sm'>Provide your Personal Info</h2>
-            
+      <div className='flex flex-col gap-4'>
+        <div className="grid lg:grid-cols-2 md:grid-cols-2 lg:gap-2 gap-6">
+          <div className="grid gap-2">
+            <Label htmlFor="firstName">Entity Name <span className='text-red-500'>*</span> </Label>
+            <Input id="firstName" type="text" placeholder="Faraax" className='rounded-lg  py-6 border-primary/50 text-sm' required />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="lastName">Project Name<span className='text-red-500'>*</span> </Label>
+            <Input id="lastName" type="text" placeholder="Moos" className='rounded-lg  py-6 border-primary/50 text-sm' required />
+          </div>
         </div>
-        <div className='w-full col-span-3 grid gap-4 max-w-4xl'>
-            <div className=' grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-3 w-full'>
-                <CustomInput label='First Name'  value='' />
-                <CustomInput label='Last Name'  value='' />
-            </div>
-            <CustomInput label='Phone Number'  value='' />
+
+        <div className='grid gap-2'>
+          <Label htmlFor="desc">Project Description<span className='text-red-500'>*</span> </Label>
+          <Textarea placeholder='Write a few sentences about your project' className=' rounded-lg border-primary/50 pt-3 pb-8'/>
         </div>
-    </div>
+
+        
+        <div className="grid gap-2">
+            <Label htmlFor="web">Company Website<span className='text-red-500'>*</span> </Label>
+            <Input id="web" type="text" placeholder="www.company.com" className='rounded-lg  py-6 border-primary/50 text-sm' required />
+          </div>
+      </div>
   )
 }
 

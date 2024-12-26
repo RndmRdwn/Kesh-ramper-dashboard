@@ -1,19 +1,37 @@
+import { Label } from '@/components/shadcn/ui/label'
+import { CustomCommand } from '@/components/shared/custom-Command'
 import CustomInput from '@/components/shared/CustomInput'
+import { CustomSelect } from '@/components/shared/CustomSelect'
 import React from 'react'
+import { SelectCountry, SelectIndustry, SelectLive, SelectVolume } from './SelectionCustom'
 
 // type Props = {}
 
 const CompanyInfo = () => {
+
+
   return (
-    <div className='w-full grid  lg:grid-cols-5 md:grid-cols-5  gap-3'>
-        <div className='w-full col-span-2'>
-            <h2 className=' font-medium'>Company Infomation</h2>
-            <h2 className='text-muted-foreground text-sm'>Provide your Company Info</h2>
-            
+    <div className='w-full grid  lg:grid-cols-2 md:grid-cols-2  gap-6'>
+        <div className='grid gap-2'>
+            <Label>Industry</Label>
+            <SelectIndustry />
+            {/* <CustomCommand data={industryOptions} placeholder='an industry' title='Select an industry' /> */}
         </div>
-        <div className='w-full col-span-3 grid gap-4 max-w-3xl'>
-            <CustomInput label='Company Name' value='' />
-            <CustomInput label='Your Keshflip Handle' value='www.keshlfip.com/handle' />
+        <div className='grid gap-2'>
+            <Label>Country</Label>
+            <SelectCountry />
+        </div>
+        <div className='grid gap-2'>
+            <Label>Expected Volume</Label>
+            <SelectVolume />
+        </div>
+        <div className='grid gap-2'>
+            <Label>Source of funds</Label>
+            <SelectCountry />
+        </div>
+        <div className='grid gap-2'>
+            <Label>Expected to go live</Label>
+            <SelectLive />
         </div>
     </div>
   )

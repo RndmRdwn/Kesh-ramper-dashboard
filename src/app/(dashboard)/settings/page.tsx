@@ -11,7 +11,7 @@ export default function SettingsProfilePage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex lg:flex-row flex-col justify-between lg:items-center gap-3">
         <div>
           <h3 className="text-lg font-medium">Business Setting</h3>
           <p className="text-sm text-muted-foreground">
@@ -23,9 +23,9 @@ export default function SettingsProfilePage() {
         </Button>
       </div>
       <Separator />
-      <div className="w-full grid lg:grid-cols-5 gap-8 ">
+      <div className="w-full grid lg:grid-cols-5 gap-8  ">
 
-        <div className=" p-4 col-span-2 grid gap-4">
+        <div className=" p-4  col-span-2 grid gap-4">
           <PersonalDetails />
         </div>
         <div className=" p-4 lg:border-l lg:border-t-0 md:border-t col-span-3 grid gap-4">

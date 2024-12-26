@@ -66,20 +66,32 @@ const BoardingStairs = () => {
     //  };
 
   return (
-    <div className=' p-2 max-w-4xl m-auto  h-screen relative flex flex-col gap-8 px-4 md:px-0 lg:px-0'>
-        <div className='grid h-full '>
-            <div className='py-8  flex flex-col justify-end'>
-                <h2 className='text-xl font-medium'>Welcome to Keshflip </h2>
-                <h2 className='text-base text-muted-foreground'>Let’s get you started with a secure and personalized experience. </h2>
-            </div>
-            <div className='lg:py-8 flex gap-4 items-center h-fit'>
-                <Progress value={progress} className="w-[60%]" />
+    <div className=' p-2 max-w-4xl m-auto  h-full relative flex flex-col gap-8 px-4 md:px-0 lg:px-0'>
+        <div className='grid h-fit '>
+            {step === 1 && (
+                <div className='py-4  flex  gap-4 flex-col justify-center items-center'>
+                    <h2 className='text-2xl font-medium'>Company Profile</h2>
+                    <h2 className='text-sm text-muted-foreground text-center'>
+                        Please fill in details about your case and legal entity. This information will help us throughly evaluate and determine if we can onboard you as a valued partner.
+                    </h2>
+                </div>
+            )}
+            {step === 2 && (
+                <div className='py-4  flex  gap-4 flex-col justify-center items-center'>
+                    <h2 className='text-2xl font-medium'>Company Details</h2>
+                    <h2 className='text-sm text-muted-foreground text-center'>
+                        Please provide additional details about your company, including revelant information that gives us a comprehensive understanding of your operations and objectives.
+                    </h2>
+                </div>
+            )}
+            <div className='lg:py-2 flex gap-4 items-center h-fit'>
+                <Progress value={progress} className="w-[80%]" />
                 {isLoading && isLoading}
-                <Label className='font-normal text-md'>Step - {step} / 4</Label>
+                <Label className='font-normal text-xs'>{step} / 4</Label>
             </div>
         </div>
         
-        <div className=' w-full h-full grid place-items-start  '>
+        <div className=' w-full h-full   '>
             {step === 1 && (
                 <div className=' grid  w-full'>
                     <PersonalInfo />
@@ -91,22 +103,10 @@ const BoardingStairs = () => {
                 </div>
             )}
 
-            {step === 3 && (
-                <div className=' grid  w-full'>
-                    <p className='font-semibold text-xl'>Step 3</p>
-                </div>
-            )}
-
-            {step === 4 && (
-                <div className=' grid  w-full'>
-                        <p className='font-semibold text-xl'>Step 4</p>
-                </div>
-            )}
-
         </div>
-        <div className=' w-fit grid lg:pb-48 pb-8'>
+        <div className=' w-full grid lg:pb-48 pb-24'>
             <div className='flex gap-4'>
-                {step < 4 ? (
+                {step < 3 ? (
                     <Button onClick={handleNext} size='lg' className='px-12'>Continue</Button>
                 ) : (
                     <Button onClick={handleFinish} size='lg' className='px-12'>Go to Dashboard</Button>

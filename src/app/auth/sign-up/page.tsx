@@ -9,6 +9,8 @@ import { cn } from '@/lib/utils';
 import RightSide from './components/right-side';
 import { useState } from 'react';
 import BoardingStairs from '@/app/on-boarding/boarding-stairs';
+import RegisterForm from './components/registerForm';
+import Sample from './sample';
 
 // export const metadata: Metadata = {
 //     title: 'sign-up',
@@ -21,7 +23,8 @@ const SignUpPage = () => {
 
     return (
         <>
-            <div className={` relative lg:px-0 h-screen grid items-center justify-center 
+            <Sample />
+            {/* <div className={` relative lg:px-0 h-screen grid items-center justify-center 
                     transition-all duration-500 w-full gap-5 ${
                     onBoarding ? 'lg:grid-cols-[1fr_3fr]' : 'lg:grid-cols-[1fr_1fr]'
                     }`}
@@ -58,7 +61,7 @@ const SignUpPage = () => {
                     )}
 
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };

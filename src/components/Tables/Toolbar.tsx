@@ -48,34 +48,6 @@ export function DataTableToolbar<TData>({
         return "name";
       case "transactions by currency":
         return "currency_id";
-      case "KYC":
-        return "name";
-      case "Customers by Id":
-        return "id";
-      case "Transaction Report":
-        return "id";
-      case "Currency Report":
-        return "currency";
-      case "Incoming Report":
-        return "id";
-      case "Ongoing Report":
-        return "id";
-      case "Method Performance":
-        return "method_name";
-      case "Peak Performance":
-        return "payment_method";
-      case "Monthly Statements":
-        return "month";
-      case "Income Statements":
-        return "account_id";
-      case "Ledger Statements":
-        return "due_to_state";
-      case "Trial Balance":
-        return "account_name";
-      case "BlackList":
-        return "name";
-      case "promo code":
-        return "code";
       case "Access":
         return "code";
       default:
@@ -83,12 +55,6 @@ export function DataTableToolbar<TData>({
     }
   };
 
-  // const filterConfigsCurrency = [
-  //   { title: "Currency Status", column: "status", options: Statuses },
-  //   { title: "Currency Type", column: "type", options: CurrencyType },
-  //   { title: "Rate Type", column: "rate_type", options: RateTypes },
-  //   { title: "Position", column: "position", options: CurrencyPosition }
-  // ];
   const filterConfigsTransaction = [
     { title: "Transaction Status", column: "status", options: TransactionStatus },
     { title: "Transaction Type", column: "type", options: TransactionTypes },
@@ -104,7 +70,7 @@ export function DataTableToolbar<TData>({
           onChange={(event) =>
             table.getColumn(columnToFilter())?.setFilterValue(event.target.value)
           }
-          className="h-full w-full md:w-[50%] lg:w-[350px] shadow-sm"
+          className="h-full w-full text-xs p-2 md:w-[50%] lg:w-[350px] shadow-sm"
         />
 
         <div className="">
