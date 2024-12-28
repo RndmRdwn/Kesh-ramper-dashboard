@@ -7,25 +7,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-type Props = {}
 
-const RegisterForm = (props: Props) => {
+const RegisterForm = () => {
   return (
     <div className='flex flex-col gap-6 py-4'> 
       <div className="grid gap-6">
         <div className="grid lg:grid-cols-2 md:grid-cols-2 lg:gap-2 gap-6">
           <div className="grid gap-2">
             <Label htmlFor="firstName">First Name</Label>
-            <Input id="firstName" type="text" placeholder="Full Name" className='rounded-lg border-primary/20 text-sm' required />
+            <Input id="firstName" type="text" placeholder="Full Name" className='rounded-lg border-primary/20 p-5 text-sm' required />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="lastName">Last Name</Label>
-            <Input id="lastName" type="text" placeholder="Last Name" className='rounded-lg border-primary/20 text-sm' required />
+            <Input id="lastName" type="text" placeholder="Last Name" className='rounded-lg border-primary/20 p-5 text-sm' required />
           </div>
         </div>
         <div className="grid gap-2">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" type="email" placeholder="Enter your email address" className='rounded-lg border-primary/20 text-sm' required />
+          <Input id="email" type="email" placeholder="Enter your email address" className='rounded-lg border-primary/20 p-5 text-sm' required />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="companyType">Company Type</Label>
@@ -33,11 +32,11 @@ const RegisterForm = (props: Props) => {
         </div>
         <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" required className='rounded-lg border-primary/20 text-sm'/>
+            <Input id="password" type="password" required className='rounded-lg border-primary/20 p-5 text-sm'/>
         </div>
         <div className="grid gap-2">
             <Label htmlFor="confirmpassword">Confirm Password</Label>
-            <Input id="confirmpassword" type="password" required className='rounded-lg border-primary/20 text-sm'/>
+            <Input id="confirmpassword" type="password" required className='rounded-lg border-primary/20 p-5 text-sm'/>
         </div>
         <div className='text-sm flex gap-2 items-center'>
           <Checkbox id='iAgree'/>

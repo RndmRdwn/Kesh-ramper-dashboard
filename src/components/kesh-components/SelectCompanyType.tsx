@@ -5,7 +5,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/shadcn/ui/select"
@@ -23,13 +22,13 @@ export function SelectCompanyType() {
 
   return (
     <Select>
-      <SelectTrigger className="w-full border-primary/20">
+      <SelectTrigger className="w-full border-primary/20 p-6">
         <SelectValue placeholder="Select comapny type" className="text-muted-foreground" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="">
         <SelectGroup>
             {companyList.map( item => (
-                <SelectItem key={item.value} value={item.value}>{item.name}</SelectItem>
+                <SelectItem key={item.value} className="p-3 px-5" value={item.value}>{item.name}</SelectItem>
             ))}
         </SelectGroup>
       </SelectContent>
