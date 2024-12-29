@@ -13,20 +13,20 @@ const LoginForm = (props: Props) => {
       <div className="grid gap-6">
         <div className="grid gap-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" className='rounded-lg border-primary/20 text-sm' required />
+          <Input id="email" type="email" placeholder="m@example.com" className='rounded-lg border-primary/20 py-6 text-sm' required />
         </div>
         <div className="grid gap-2">
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
           </div>
             <div className='flex flex-col gap-2'>
-                <Input id="password" type="password" required className='rounded-lg border-primary/20 text-sm'/>
+                <Input id="password" type="password" required className='rounded-lg border-primary/20 py-6 text-sm'/>
                 <div className=' flex gap-2 items-center'>
-                    <span className=' text-xs'>
+                    <span className=' text-sm'>
                     Forgot your password?
                     </span>
                     <a href="#"
-                        className=" font-medium text-xs underline-offset-4 hover:underline" >
+                        className=" font-medium text-sm underline-offset-4 hover:underline" >
                         Reset here
                     </a>
                 </div>
@@ -34,7 +34,7 @@ const LoginForm = (props: Props) => {
         </div>
         
           <Link href={'/overview'}>
-            <Button type="submit" className="w-full py-5">
+            <Button type="submit" className="w-full py-6 ">
               Login
             </Button>
           </Link>
@@ -43,7 +43,7 @@ const LoginForm = (props: Props) => {
             Or 
           </span>
         </div>
-        <Button variant="outline" className="w-full py-5">
+        <Button variant="outline" className="w-full py-6">
           <Image src={'/assets/google.svg'} alt='googleSvg' width={15} height={15}/>
           Login with Google
         </Button>
