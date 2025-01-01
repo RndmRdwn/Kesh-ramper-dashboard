@@ -70,7 +70,7 @@ export default function Home() {
           </div>
           <div className="w-full h-full relative  justify-center items-center flex">
             <div className="w-full flex lg:flex-row  h-full flex-col justify-between gap-12 items-center">
-              <div className="flex flex-col lg:items-start items-center  h-full lg:pt-36   pt-8 gap-8">
+              <div className="flex flex-col lg:items-start items-center  h-full lg:pt-48   pt-8 gap-8">
                 <div className="w-full flex flex-col justify-center lg:items-start items-center gap-5  lg:pr-2">
                   <h2 className="text-sm p-2  w-fit px-4 font-medium text-white bg-gradient-to-tr from-[#E59CFF3D]/25 via-[#BA9CFF3D]/25 to-[#9CB2FF3D]/25 rounded-full">Fast, Secure Crypto Trading</h2>
                   <h2 className="lg:text-5xl text-4xl  text-white font-semibold lg:text-start text-center">

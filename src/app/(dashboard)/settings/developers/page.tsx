@@ -94,7 +94,7 @@ const DevelopersPage = () => {
         <div className="grid gap-2">
           <Label className=''>Generate API Keys</Label>
           <div className="flex gap-3">
-            <Input placeholder="Search API Keys..." />
+            <Input placeholder="Search API Keys..." className='py-5' />
             <GenerateApiKey
               open={isOpen}
               onClose={(va) => setIsOpen(va)}

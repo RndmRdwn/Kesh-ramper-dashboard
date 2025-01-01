@@ -5,15 +5,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-type Props = {}
 
-const LoginForm = (props: Props) => {
+const LoginForm = () => {
   return (
     <div className='flex flex-col gap-6 py-4'>
       <div className="grid gap-6">
         <div className="grid gap-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" className='rounded-lg border-primary/20 py-6 text-sm' required />
+          <Input id="email" type="email" className='rounded-lg border-primary/20 py-6 text-sm' required />
         </div>
         <div className="grid gap-2">
           <div className="flex items-center">

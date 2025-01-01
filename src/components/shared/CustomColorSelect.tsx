@@ -31,9 +31,9 @@ export function CustomColorSelect({
   // State to manage the colors list
   const [data, setData] = useState<DefaultSelectType[]>([
     { id: 1, name: "Color 1", value: "#6600CC" },
-    { id: 2, name: "Color 2", value: "#00ff00" },
-    { id: 3, name: "Color 3", value: "#0000ff" },
-    { id: 4, name: "Color 4", value: "#ffff00" },
+    { id: 2, name: "Color 2", value: "#0B6E4F" },
+    { id: 3, name: "Color 3", value: "#FA9F42" },
+    { id: 4, name: "Color 4", value: "#721817" },
   ]);
 
   // State for custom color input

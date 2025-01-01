@@ -4,7 +4,7 @@ import React from 'react'
 
 const BalancePage = () => {
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-2">
       <div>
         <h3 className="text-lg font-medium">Balance</h3>
         <p className="text-sm text-muted-foreground">

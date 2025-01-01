@@ -54,7 +54,7 @@ const GenerateApiKey = ({ open, onClose, fetchApiName, fetchPermissions, fetchAp
     <div>
     <Dialog open={open} onOpenChange={onClose}>
       <DialogTrigger asChild>
-        <Button>Generate API Key</Button>
+        <Button className='p-5'>Generate API Key</Button>
       </DialogTrigger>
       <DialogContent className="max-w-xl">
         <DialogHeader>
