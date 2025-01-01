@@ -66,57 +66,43 @@ const BoardingStairs = () => {
     //  };
 
   return (
-    <div className=' p-2 max-w-4xl m-auto  h-full relative flex flex-col gap-8 px-4 md:px-0 lg:px-0'>
-        <div className='grid h-fit '>
+    <div className=' p-2 m-auto  h-full relative flex flex-col gap-2 md:px-0  '>
+        <div className='grid h-fit  lg:px-9'>
             {step === 1 && (
-                <div className='py-4  flex  gap-4 flex-col justify-center items-center'>
-                    <h2 className='text-2xl font-medium'>Company Profile</h2>
-                    <h2 className='text-sm text-muted-foreground text-center'>
+                <div className='py-4  flex  gap-4 flex-col justify-center items-center '>
+                    <Label className='font-medium text-base text-muted-foreground'>{step} / 2</Label>
+                    <h2 className='text-3xl font-semibold'>Company Profile</h2>
+                    <h2 className='text-sm text-muted-foreground/80 text-center'>
                         Please fill in details about your case and legal entity. This information will help us throughly evaluate and determine if we can onboard you as a valued partner.
                     </h2>
                 </div>
             )}
             {step === 2 && (
                 <div className='py-4  flex  gap-4 flex-col justify-center items-center'>
-                    <h2 className='text-2xl font-medium'>Company Details</h2>
+                    <Label className='font-medium text-base text-muted-foreground'>{step} / 2</Label>
+                    <h2 className='text-3xl font-semibold'>Company Details</h2>
                     <h2 className='text-sm text-muted-foreground text-center'>
                         Please provide additional details about your company, including revelant information that gives us a comprehensive understanding of your operations and objectives.
                     </h2>
                 </div>
             )}
-            <div className='lg:py-2 flex gap-4 items-center h-fit'>
-                <Progress value={progress} className="w-[80%]" />
-                {isLoading && isLoading}
-                <Label className='font-normal text-xs'>{step} / 4</Label>
-            </div>
+
         </div>
         
-        <div className=' w-full h-full   '>
+        <div className=' w-full h-full px-20   '>
             {step === 1 && (
                 <div className=' grid  w-full'>
-                    <PersonalInfo />
+                    <PersonalInfo handleNext={handleNext}/>
                 </div>
             )}
             {step === 2 && (
                 <div className=' grid  w-full'>
-                    <CompanyInfo />
+                    <CompanyInfo handleFinish={handleFinish}/>
                 </div>
             )}
 
         </div>
-        <div className=' w-full grid lg:pb-48 pb-24'>
-            <div className='flex gap-4'>
-                {step < 3 ? (
-                    <Button onClick={handleNext} size='lg' className='px-12'>Continue</Button>
-                ) : (
-                    <Button onClick={handleFinish} size='lg' className='px-12'>Go to Dashboard</Button>
-                )}
-                {step > 1 && (
-                    <Button onClick={handleBack} size='lg' variant='outline' className='px-12'>Back</Button>
-                )}
-            </div>
-        </div>
-        
+                
     </div>
   )
 }

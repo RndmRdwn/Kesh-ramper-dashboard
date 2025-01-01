@@ -5,6 +5,10 @@ import BackgroundGrid  from '../../public/assets/VisualElement.png'
 import WidgetImage  from '../../public/assets/widget02.svg' 
 import Logo  from '../../public/assets/light-logo.png' 
 import { Navig } from "@/components/menu/header";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/shadcn/ui/dropdown-menu";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/shadcn/ui/accordion";
+import FirstWidget from "@/components/kesh-components/FirstWidget";
 
 export default function Home() {
   return (
@@ -13,18 +17,57 @@ export default function Home() {
       <div className="w-full h-full flex justify-center items-center">
         <Image alt="visual" src={BackgroundGrid} width={1600} height={1600}/>
         <div className=" w-full lg:py-12 lg:px-32 px-8 h-screen absolute top-0 flex flex-col">
-          <div className="w-full  flex items-center justify-between ">
+          <div className="w-full  flex items-center py-4 justify-between ">
             <Image alt="Logo" src={Logo} width={150} height={200}/>
             <div className="hidden lg:flex">
                 <Navig />
             </div>
             <div className="lg:flex gap-3 hidden">
-                <Button variant="outline" className="bg-[#fff] text-[#6600DC]   p-5 px-14 ">
-                  Get Started
-                </Button>
-                <Button className="bg-[#FFCC00] text-[#6600DC] hover:bg-[#ffcc00d0]  p-5 px-14 ">
-                  Try Widget
-                </Button>
+                <Link href={'/auth/sign-up'}>
+                  <Button variant="outline" className="bg-[#fff] text-[#6600DC]   p-5 px-14 ">
+                    Get Started
+                  </Button>
+                </Link>
+                <Link href={'/auth/sign-in'}>
+                  <Button className="bg-[#FFCC00] text-[#6600DC] hover:bg-[#ffcc00d0]  p-5 px-14 ">
+                    Try Widget
+                  </Button>
+                </Link>
+            </div>
+            <div className="lg:hidden flex ">
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <HiOutlineMenuAlt3 size={32} className="text-[#FFCC00] hover:text-white"/>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-64">
+                <DropdownMenuItem className="text-lg font-medium">Why Keshflip</DropdownMenuItem>
+                <DropdownMenuGroup>
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger className="text-lg font-medium">Discover</DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                      <DropdownMenuSubContent>
+                        <DropdownMenuItem className="text-base font-normal">Widget Overview </DropdownMenuItem>
+                        <DropdownMenuItem className="text-base font-normal">Features </DropdownMenuItem>
+                        <DropdownMenuItem className="text-base font-normal">Benefits </DropdownMenuItem>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                  </DropdownMenuSub>
+                </DropdownMenuGroup>
+                <DropdownMenuGroup>
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger className="text-lg font-medium">Learn</DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                      <DropdownMenuSubContent>
+                        <DropdownMenuItem className="text-base font-normal">Get Started </DropdownMenuItem>
+                        <DropdownMenuItem className="text-base font-normal">Crypto Basics </DropdownMenuItem>
+                        <DropdownMenuItem className="text-base font-normal">Security and Safety </DropdownMenuItem>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                  </DropdownMenuSub>
+                </DropdownMenuGroup>
+                <DropdownMenuItem className="text-lg font-medium">Support</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             </div>
           </div>
           <div className="w-full h-full relative  justify-center items-center flex">
@@ -49,7 +92,8 @@ export default function Home() {
                 <div className="absolute top-20 right-[-12px] bg-[#CCAAEE]/10 blur-[50px] h-[500px] w-[500px]  rounded-full" />
         
                 <div className="w-full z-40  rounded-lg flex lg:items-end items-center lg:justify-end justify-center">
-                    <Image alt="visual" src={WidgetImage} width={500} height={500}/>
+                    <FirstWidget />
+                    {/* <Image alt="visual" src={WidgetImage} width={500} height={500}/> */}
                 </div>
             </div>
           </div>

@@ -44,7 +44,7 @@ const RegisterForm = () => {
         </div>
         
         <Link href={'/on-boarding'}>
-          <Button type="submit" className="w-full py-5">
+          <Button type="submit" className="w-full py-6">
               Create Account
           </Button>
         </Link>
