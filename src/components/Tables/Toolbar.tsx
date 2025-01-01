@@ -7,7 +7,7 @@ import { DataTableViewOptions } from "./View";
 import { Filter, FilterX, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/shadcn/ui/button";
-import { TransactionStatus, TransactionTypes } from "./data";
+import { CustomerStatus, TeamAuth, TeamRoles, TransactionStatus, TransactionTypes } from "./data";
 
 
 interface DataTableToolbarProps<TData> {
@@ -23,7 +23,8 @@ export function DataTableToolbar<TData>({
   const [showFilters, setShowFilters] = useState(false); // State to toggle filter visibility
   // const [filters, setFiltersState] = useState({});
 
-  const showCustomerFilter = title === "Customers";
+  const showCustomerFilter = title === "customers";
+  const showTeamFilter = title === "teams members";
   const showTransactionFilter = title === "transactions by currency";
 
 
@@ -55,9 +56,17 @@ export function DataTableToolbar<TData>({
     }
   };
 
+  const filterConfigsCustomer = [
+    { title: "Status", column: "status", options: CustomerStatus },
+  ];
+  const filterConfigsTeam = [
+    { title: "Role", column: "role", options: TeamRoles },
+    { title: "Auth", column: "auth", options: TeamAuth },
+  ];
   const filterConfigsTransaction = [
-    { title: "Transaction Status", column: "status", options: TransactionStatus },
-    { title: "Transaction Type", column: "type", options: TransactionTypes },
+    // { title: "Currency", column: "currency", options: TeamRoles },
+    { title: "Type", column: "type", options: TransactionTypes},
+    { title: "Status", column: "status", options: TransactionStatus },
   ];
 
   return (
@@ -70,15 +79,15 @@ export function DataTableToolbar<TData>({
           onChange={(event) =>
             table.getColumn(columnToFilter())?.setFilterValue(event.target.value)
           }
-          className="h-full w-full text-xs p-2 md:w-[50%] lg:w-[350px] shadow-sm"
+          className="h-full w-full text-xs p-2 py-3s md:w-[50%] lg:w-[350px] shadow-sm"
         />
 
         <div className="">
-          <Button variant={'outline'} onClick={() => setShowFilters(!showFilters)} size="sm"
-            className={`px-2 flex gap-1 py-0 ${showFilters ? 'text-red-600 hover:text-red-600 hover:bg-red-600/10' : ''}`} 
+          <Button variant={'outline'} onClick={() => setShowFilters(!showFilters)} 
+            className={` flex gap-1 py-5 ${showFilters ? 'text-red-600 hover:text-red-600 hover:bg-red-600/10' : ''}`} 
             >
             {!showFilters ? 
-              <Filter size={20} /> : <FilterX size={20}  />
+              <Filter size={29} /> : <FilterX size={29}  />
             } Filter 
           </Button>
         </div>
@@ -87,6 +96,18 @@ export function DataTableToolbar<TData>({
 
           <div className="flex flex-col gap-2 lg:flex-row">
           
+
+            {showTeamFilter && filterConfigsTeam.map(
+              ({ title, column, options }) =>
+                table.getColumn(column) && (
+                  <DataTableFacetedFilter 
+                    key={column} 
+                    title={title} 
+                    column={table.getColumn(column)} 
+                    options={options} 
+                  />
+                )
+            )}
             {showTransactionFilter && filterConfigsTransaction.map(
               ({ title, column, options }) =>
                 table.getColumn(column) && (
@@ -99,14 +120,13 @@ export function DataTableToolbar<TData>({
                 )
             )}
 
-            {showCustomerFilter && table.getColumn("status") && (
+            {showCustomerFilter && filterConfigsCustomer && (
               <DataTableFacetedFilter
                 column={table.getColumn("status")}
                 title="Status"
-                options={TransactionStatus}
+                options={CustomerStatus}
               />
             )}
-
             {isFiltered && (
               <Button
                 variant="ghost"

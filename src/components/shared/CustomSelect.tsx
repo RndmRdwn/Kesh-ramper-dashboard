@@ -31,7 +31,7 @@ export function CustomSelect({ data, isEditable, placeholder, label, value, onCh
         <div className="grid gap-1">
           <h2 className='text-xs text-muted-foreground'>{label}</h2>
           <Select value={value} onValueChange={onChange}>
-            <SelectTrigger className="w-full  text-muted-foreground">
+            <SelectTrigger className="w-full py-6 rounded-xl  text-muted-foreground">
               <SelectValue placeholder={placeholder || "Select"} className="" />
             </SelectTrigger>
             <SelectContent>

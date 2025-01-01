@@ -8,33 +8,6 @@ import { customerStatus } from "@/lib/tab-list";
 
 
 export const CustomersColumn: ColumnDef<CustomersType>[] = [
-    // {
-    //     id: "select",
-    //     header: ({ table }) => (
-    //         <Checkbox
-    //             checked={
-    //                 table.getIsAllPageRowsSelected()
-    //                     ? true
-    //                     : table.getIsSomePageRowsSelected()
-    //                     ? "indeterminate"
-    //                     : false
-    //             }
-    //             onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-    //             aria-label="Select all"
-    //             className="translate-y-[2px]"
-    //         />
-    //     ),
-    //     cell: ({ row }) => (
-    //         <Checkbox
-    //             checked={row.getIsSelected() || false}
-    //             onCheckedChange={(value) => row.toggleSelected(!!value)}
-    //             aria-label="Select row"
-    //             className="translate-y-[2px]"
-    //         />
-    //     ),
-    //     enableSorting: false,
-    //     enableHiding: false,
-    // },
     {
         accessorKey: "name",
         header: ({ column }) => (
@@ -70,23 +43,23 @@ export const CustomersColumn: ColumnDef<CustomersType>[] = [
         },
         filterFn: 'includesString',
     },
-    {
-        accessorKey: "role",
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="role" />
-        ),
-        cell: ({ row }) => {
+    // {
+    //     accessorKey: "role",
+    //     header: ({ column }) => (
+    //         <DataTableColumnHeader column={column} title="role" />
+    //     ),
+    //     cell: ({ row }) => {
 
-            return (
-                <div className="flex gap-2 items-center px-4 ">
-                    <span className=" ">
-                        {row.getValue("role")}
-                    </span>
-                </div>
-            )
-        },
-        filterFn: 'includesString',
-    },
+    //         return (
+    //             <div className="flex gap-2 items-center px-4 ">
+    //                 <span className=" ">
+    //                     {row.getValue("role")}
+    //                 </span>
+    //             </div>
+    //         )
+    //     },
+    //     filterFn: 'includesString',
+    // },
     {
         accessorKey: "status",
         header: ({ column }) => (

@@ -31,7 +31,7 @@ const Branding = () => {
   return (
     <div className="flex w-full gap-3">
       {/* Logo Upload */}
-      <div className="w-full flex lg:flow-row flex-col justify-between gap-4 lg:items-center col-span-2 py-2">
+      <div className="w-full flex lg:flow-row flex-col justify-between gap-4 col-span-2 py-2">
         <Label className="font-normal text-muted-foreground" htmlFor="logo-upload">
           Upload Logo
         </Label>

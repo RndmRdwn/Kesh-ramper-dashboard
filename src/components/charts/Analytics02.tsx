@@ -56,7 +56,7 @@ export function Analytics02() {
     <Card>
       <CardHeader>
         <CardTitle>Most Used Currencies</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardDescription>July - Decemeber 2024</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

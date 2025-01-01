@@ -44,7 +44,7 @@ const PersonalDetails = () => {
         <CustomTextField isEditable={true} label="Account ID"  placeholder='Your Accounnt ID'
             value={formData.account_id} onChange={(e) => handleChange('account_id', e.target.value)}/>
         <VerifyPhone value={formData.verifyPhone} onChange={(value) => handleChange('verify_phone', value)}/>
-        <CustomCommandWithIcon data={CountryOptions}  placeholder='www.example.com'
+        <CustomCommandWithIcon data={CountryOptions}  placeholder='countries'
             onChange={(value) => handleChange('Country', value)}/>
       </div>
     </>

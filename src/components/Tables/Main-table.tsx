@@ -39,7 +39,8 @@ export function DataTable<TData, TValue>({ columns, data, title, searchTitle, se
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
     const [sorting, setSorting] = React.useState<SortingState>([]);
-    const sample = false
+    const sample = false;
+    
     // Manage modal state with a single state object
     const [modalState, setModalState] = React.useState<ModalState<TData>>({
         open: false,
@@ -82,10 +83,6 @@ export function DataTable<TData, TValue>({ columns, data, title, searchTitle, se
             rowData: rowData,
         });
     };
-
-    // const closeModal = () => {
-    //     setModalState({ open: false, type: null, rowData: null });
-    // };
 
     return (
         <div className="space-y-4">

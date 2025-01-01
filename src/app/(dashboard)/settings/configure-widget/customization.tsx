@@ -3,7 +3,6 @@
 import { useState } from "react"
 import CustomTools from "./custom-tools"
 import { Label } from "@/components/shadcn/ui/label"
-import CustomWidget from "./custom-widget"
 import Branding from "./branding"
 import { Separator } from "@/components/shadcn/ui/separator"
 import PreviewModes from "./PreviewModes"
@@ -12,6 +11,7 @@ import { Checkbox } from "@/components/shadcn/ui/checkbox"
 import { MonitorDot } from "lucide-react"
 import { TbDeviceMobile } from "react-icons/tb";
 import { Button } from "@/components/shadcn/ui/button"
+import FirstWidget from "@/components/kesh-components/FirstWidget"
 
 const Customization = () => {
 
@@ -46,7 +46,15 @@ const Customization = () => {
   return (
     <div>
         <div className='w-full flex lg:flex-row flex-col  h-full gap-5'>
-            <div className=' lg:w-3/12 h-fit '>
+            <div className=' lg:w-4/12 gap-3 flex flex-col h-fit '>
+                <div className='grid gap-1 '>
+                    <h3 className="text-lg font-medium">Widget Customization</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Customize the appearance of the widget. 
+                    </p>
+                </div>
+                <Separator />
+                
                <div className="grid  py-2  gap-3">
                     <div className="grid gap-0">
                         <Label className="text-base">Brand Element</Label>
@@ -75,7 +83,7 @@ const Customization = () => {
                </div>
 
             </div>
-            <div className=' w-full rounded-lg flex flex-col gap-3 h-[650px] bg-muted/10 p-4'>
+            <div className=' w-full rounded-lg flex flex-col gap-3 h-full bg-muted/10 p-0'>
                 <div className="w-full flex justify-between items-center">
                     <h2 className="text-xs uppercase font-medium text-muted-foreground">Preview</h2>
                     <div className="flex gap-2 items-center">
@@ -94,10 +102,13 @@ const Customization = () => {
                         <PreviewModes mode={setCurrentMode}/>
                     </div>
                 </div>
-                <div className="border h-full border-dashed rounded-lg flex justify-center items-center shadow-md">
+                <div className="border h-full border-dashed rounded-lg flex justify-center  items-center shadow-md">
                     {currentMode == 1 ? 
-                        <div className={`${responsive == 1 ? 'w-[350px]' : 'w-[700px]'} transition-all duration-500 ease-in-out`}>
-                            <CustomWidget responsive={responsive} primary={selectedPrimary} footer={hideFooter}/>
+                        <div className={`${responsive == 1 ? 'w-[450px] h-[650px]' : 'w-full flex justify-center items-center p-4 bg-muted'} flex justify-center items-center transition-all duration-500 ease-in-out`}>
+                            <div className={`${responsive == 1 ? 'w-fit rounded-xl' : 'w-[450px] rounded-3xl'} shadow-lg ` }>
+                                <FirstWidget selectedPrimary={selectedPrimary} />
+                            </div>
+                            {/* <CustomWidget responsive={responsive} primary={selectedPrimary} footer={hideFooter}/> */}
                         </div>
                         : 
                         <EmbeddedCode />

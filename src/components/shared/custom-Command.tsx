@@ -39,7 +39,7 @@ export function CustomCommand({ data, title, placeholder} : commandProps) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={`w-[300px] justify-between`}
+          className={`w-full py-6 rounded-xl justify-between`}
         >
             <span className="flex gap-2">
                 {value
@@ -49,9 +49,9 @@ export function CustomCommand({ data, title, placeholder} : commandProps) {
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0">
-        <Command>
-          <CommandInput placeholder={`Search ${placeholder}...`} className="h-9" />
+      <PopoverContent className="w-full rounded-xl p-0 border-8" align="start">
+        <Command className="w-full">
+          <CommandInput placeholder={`Search ${placeholder}...`} className="h-12 w-full" />
           <CommandList>
             <CommandEmpty>No item found.</CommandEmpty>
             <CommandGroup>

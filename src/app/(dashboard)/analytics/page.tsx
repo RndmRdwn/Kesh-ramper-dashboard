@@ -1,4 +1,3 @@
-import { Analytics01 } from '@/components/charts/Analytics01';
 import { Analytics02 } from '@/components/charts/Analytics02';
 import { Metadata } from 'next';
 import React from 'react'
@@ -17,8 +16,6 @@ const AnalyticsPage = () => {
       </div>
 
       <div className='w-full grid lg:grid-cols-3 gap-6'>
-      <Analytics01 />
-      <Analytics02 />
       <Analytics02 />
 
       </div>

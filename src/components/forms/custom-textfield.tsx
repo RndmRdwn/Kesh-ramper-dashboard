@@ -19,7 +19,7 @@ const CustomTextField = ({ label, value, isEditable, placeholder, type, onChange
             <Input
             type={type}
             placeholder={placeholder}
-            className='placeholder:text-sm'
+            className='placeholder:text-sm py-6 rounded-xl'
             value={value} // Bind the input value
             onChange={onChange} // Attach the onChange handler
         />

@@ -8,7 +8,7 @@ type Props = {
   handleNext : () => void
 }
 
-const PersonalInfo = ({handleNext}) => {
+const PersonalInfo = ({handleNext} : Props) => {
   return (
       <div className='flex flex-col gap-8'>
         <div className="grid lg:grid-cols-2 md:grid-cols-2 lg:gap-6 gap-6 py-4">

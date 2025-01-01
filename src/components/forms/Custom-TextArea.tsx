@@ -20,7 +20,8 @@ const CustomTextArea = ({ label, value, isEditable, placeholder, onChange }: Pro
                 placeholder={placeholder}
                 value={value} // Bind the input value
                 onChange={onChange} // Attach the onChange handler
-            />
+                className='pb-6 pt-3 rounded-xl'
+                />
         : <Label className='text-base'>{value}</Label> }
     </div>
   )

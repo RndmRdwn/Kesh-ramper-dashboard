@@ -12,7 +12,7 @@ const CustomersTable = () => {
   const customerData: CustomersType[] = CustomerDemoData;
   return (
     <div className='w-full overflow-auto px-1'>
-        <DataTable searchTitle='customers ' columns={CustomersColumn} title='Customers' data={customerData} />
+        <DataTable searchTitle='customers' columns={CustomersColumn} title='Customers' data={customerData} />
     </div>
   )
 }

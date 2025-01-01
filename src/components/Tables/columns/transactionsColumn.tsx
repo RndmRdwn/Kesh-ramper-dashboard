@@ -1,43 +1,16 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { Checkbox } from "@/components/shadcn/ui/checkbox";
 import { DataTableColumnHeader } from "./column-header";
 import { TransactionType } from "@/constant/types/models";
 import { TransactionStatus, TransactionTypes } from "../data";
 
 export const transactionColumn: ColumnDef<TransactionType>[] = [
-    {
-        id: "select",
-        header: ({ table }) => (
-            <Checkbox
-                checked={
-                    table.getIsAllPageRowsSelected()
-                        ? true
-                        : table.getIsSomePageRowsSelected()
-                        ? "indeterminate"
-                        : false
-                }
-                onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-                aria-label="Select all"
-                className="translate-y-[2px]"
-            />
-        ),
-        cell: ({ row }) => (
-            <Checkbox
-                checked={row.getIsSelected() || false}
-                onCheckedChange={(value) => row.toggleSelected(!!value)}
-                aria-label="Select row"
-                className="translate-y-[2px]"
-            />
-        ),
-        enableSorting: false,
-        enableHiding: false,
-    },
+   
     {
         accessorKey: "id",
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title="ID" />
         ),
-        cell: ({ row }) => <div className="w-full px-5 text-center">{row.getValue("id")}</div>,
+        cell: ({ row }) => <div className="w-full text-start px-5">{row.getValue("id")}</div>,
         enableSorting: true,
         enableHiding: false,
     },

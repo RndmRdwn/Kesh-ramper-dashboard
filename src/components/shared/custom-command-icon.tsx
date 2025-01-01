@@ -46,7 +46,7 @@ export function CustomCommandWithIcon({data, placeholder,onChange} : WithIconPro
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            className="w-[300px] justify-between"
+            className="w-full py-6 justify-between rounded-xl"
           >
               <span className="flex gap-2">
                 {value ?
@@ -61,12 +61,12 @@ export function CustomCommandWithIcon({data, placeholder,onChange} : WithIconPro
                     }
                   {value
                       ? data.find((item) => item.value === value)?.label
-                      : "Select country"}
+                      : "Select a country"}
               </span>
             <ChevronsUpDown className="opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[300px] p-0">
+        <PopoverContent align="start" className="w-full p-0">
           <Command>
             <CommandInput placeholder={`Search ${placeholder}...`} className="h-9" />
             <CommandList>

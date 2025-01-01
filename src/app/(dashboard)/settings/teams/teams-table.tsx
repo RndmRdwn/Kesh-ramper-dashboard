@@ -9,7 +9,7 @@ const TeamsTable = () => {
 
   return (
     <div className='w-full grid'>
-        <DataTable columns={teamsColumn} title='Teams' searchTitle='teams' data={TeamsData}/>
+        <DataTable columns={teamsColumn} title='Teams' searchTitle='teams members' data={TeamsData}/>
 
     </div>
   )

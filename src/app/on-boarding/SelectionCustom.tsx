@@ -1,10 +1,10 @@
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/shadcn/ui/select'
+import { countries } from '@/lib/country-data'
+import Image from 'next/image'
 import React from 'react'
 
-type Props = {
-}
 
-export function SelectIndustry({}: Props) {
+export function SelectIndustry() {
     const industryOptions = [
         {value : 'tech_industry', label : 'Tech Industry'},
         {value : 'finance_industry', label : 'Finance Industry'},
@@ -33,25 +33,33 @@ export function SelectIndustry({}: Props) {
   )
 }
 
-export function SelectCountry({}: Props) {
-    const industryOptions = [
-        {value : 'country_01', label : 'Country 01'},
-        {value : 'country_02', label : 'Country 02'},
-        {value : 'country_03', label : 'Country 03'},
-        {value : 'country_04', label : 'Country 04'},
-        {value : 'country_05', label : 'Country 05'},
-    ]
+export function SelectCountry() {
+  const CountryOptions=countries.map((country)=>({
+        value:country.name,
+            flag:country.flag,
+            label:country.name
+    }))
+
   return (
     <div>
         <Select >
             <SelectTrigger className="w-full  rounded-lg border-primary/50 py-6  text-muted-foreground">
               <SelectValue placeholder={"Select a country"} className="" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className='w-64'>
               <SelectGroup>
-                {industryOptions.map((item) => (
+                {CountryOptions.map((item) => (
                   <SelectItem key={item.value} value={item.value}>
-                    {item.label}
+                    <span className="flex items-center gap-2">
+                        <Image
+                              width={100}
+                              height={100}
+                              src={item.flag}
+                              alt={`${item.label}`}
+                              className="mr-2 h-4 w-6 object-cover"
+                          />
+                        {item.label}
+                    </span>
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -60,7 +68,7 @@ export function SelectCountry({}: Props) {
     </div>
   )
 }
-export function SelectVolume({}: Props) {
+export function SelectVolume() {
     const industryOptions = [
         {value : 'volume_01', label : 'Volume 01'},
         {value : 'volume_02', label : 'Volume 02'},
@@ -88,7 +96,7 @@ export function SelectVolume({}: Props) {
   )
 }
 
-export function SelectFundsSource({}: Props) {
+export function SelectFundsSource() {
     const industryOptions = [
         {value : 'source_01', label : 'Source 01'},
         {value : 'source_02', label : 'Source 02'},
@@ -116,7 +124,7 @@ export function SelectFundsSource({}: Props) {
   )
 }
 
-export function SelectLive({}: Props) {
+export function SelectLive() {
   return (
     <div>
         <Select defaultValue='days' >

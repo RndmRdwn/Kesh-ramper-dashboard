@@ -1,7 +1,4 @@
 import { Label } from '@/components/shadcn/ui/label'
-import { CustomCommand } from '@/components/shared/custom-Command'
-import CustomInput from '@/components/shared/CustomInput'
-import { CustomSelect } from '@/components/shared/CustomSelect'
 import React from 'react'
 import { SelectCountry, SelectFundsSource, SelectIndustry, SelectLive, SelectVolume } from './SelectionCustom'
 import { Button } from '@/components/shadcn/ui/button'
@@ -11,7 +8,7 @@ type Props = {
     handleFinish: () => void
 }
 
-const CompanyInfo = ({handleFinish}) => {
+const CompanyInfo = ({handleFinish} : Props) => {
 
 
   return (
@@ -25,6 +22,7 @@ const CompanyInfo = ({handleFinish}) => {
             <div className='grid gap-2'>
                 <Label className='font-semibold'>Country <span className='text-red-500'>*</span></Label>
                 <SelectCountry />
+                
             </div>
             <div className='grid gap-2'>
                 <Label className='font-semibold'>Expected Volume <span className='text-red-500'>*</span></Label>

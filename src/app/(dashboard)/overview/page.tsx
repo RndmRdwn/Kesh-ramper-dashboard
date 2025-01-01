@@ -16,12 +16,13 @@ const DashboardPage = () => {
             <div className='w-full h-full py-2'>
                 <h2 className='font-medium text-xl'>Dashboard</h2>
             </div>
-            <div className='w-full grid lg:grid-cols-9 md:grid-cols-3 gap-3'>
-                <DashCard title='Total Active Users' value='0'  />
-                <DashCard title='Total Revenue' value='0'  />
-                <DashCard title='Transaction Volume' value='0'  />
-                <DashCard title='Pending Transactions' value='0'  />
-                
+            <div className='w-full grid  lg:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-3'>
+            <DashCard title='Total Active Users' value='11'  />
+                <DashCard title='Total Revenue' value='$ 14,520'  />
+                <DashCard title='Transaction Volume' value='400'  />
+                <DashCard title='Pending Transactions' value='12'  />
+            </div>
+            <div className='w-full grid lg:grid-cols-9 grid-cols-2 gap-3'>  
                 <div className='col-span-3'>
                     <DashChart />
                 </div>
@@ -68,7 +69,7 @@ type DashCardProps = {
 
 const DashCard = ({ title, value} : DashCardProps) => {
     return (
-        <div className=' col-span-2 w-full p-4 flex flex-col gap-3 border-2 rounded-lg shadow-md border-primary/50'>
+        <div className=' lg:col-span-1 md:col-span-2 col-span-1 w-full p-4 flex flex-col gap-3 border-2 rounded-lg shadow-md border-primary/50'>
             <p className='text-sm text-muted-foreground'>{title}</p>
             <p className='text-xl font-semibold'>{value}</p>
 
