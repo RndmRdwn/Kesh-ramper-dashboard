@@ -1,6 +1,5 @@
 import RegisterForm from "./components/registerForm"
 import Image from "next/image"
-import AuthImage  from '../../../../public/assets/kf-auth.svg'
 
 export default function Sample() {
   return (

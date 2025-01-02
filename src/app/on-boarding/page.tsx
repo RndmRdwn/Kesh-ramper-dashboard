@@ -2,8 +2,6 @@
 
 import React from 'react'
 import BoardingStairs from './boarding-stairs'
-import { AppIcon } from '@/constant/icons'
-import { Button } from '@/components/shadcn/ui/button'
 import Image from 'next/image';
 
 

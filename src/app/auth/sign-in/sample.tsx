@@ -1,9 +1,5 @@
-import { AuthTabs } from "@/components/authTabs"
-import { GalleryVerticalEnd } from "lucide-react"
 import LoginForm from "./components/loginForm"
 import Image from "next/image"
-import AuthImage  from '../../../../public/assets/kf-auth.svg'
-
 
 export default function Sample() {
   return (
