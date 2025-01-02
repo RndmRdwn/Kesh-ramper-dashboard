@@ -92,7 +92,7 @@ export default function Home() {
                   <div className='w-[403px]  h-[670px]  shadow-lg rounded-3xl p-2 border-primary bg-gradient-to-tr from-[#6600CC] via-[#9046DA] to-[#6600CC]' >
                     <iframe
                      className="rounded-3xl overflow-hidden w-[365px] lg:w-[385px] "
-                      src="http://localhost:3000/"
+                      src="https://kesh-ramper-widget.vercel.app/"
                       height={655}
                       style={{ overflow: 'hidden', border: 'none' }}
                     ></iframe>
