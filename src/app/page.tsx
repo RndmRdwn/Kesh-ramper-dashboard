@@ -6,7 +6,6 @@ import Logo  from '../../public/assets/logo2.svg'
 import { Navig } from "@/components/menu/header";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/shadcn/ui/dropdown-menu";
-import FirstWidget from "@/components/kesh-components/FirstWidget";
 
 export default function Home() {
   return (
@@ -14,7 +13,7 @@ export default function Home() {
    <div className="w-full h-screen flex justify-center items-center bg-[#6600DC]">
       <div className="w-full h-full flex justify-center items-center">
         <Image alt="visual" src={BackgroundGrid} width={1600} height={1600}/>
-        <div className=" w-full lg:py-8 lg:px-32 px-8 h-screen absolute top-0 flex flex-col">
+        <div className=" w-full lg:py-8 lg:px-32 px-6 h-screen absolute top-0 flex flex-col">
           <div className="w-full  flex items-center py-4 justify-between ">
             <Image alt="Logo" src={Logo} width={120} height={120}/>
             <div className="hidden lg:flex">
@@ -89,9 +88,14 @@ export default function Home() {
                 
                 <div className="absolute top-20 right-[-12px] bg-[#CCAAEE]/10 blur-[50px] h-[500px] w-[500px]  rounded-full" />
         
-                <div className="w-full z-40  rounded-lg flex lg:items-end items-center lg:justify-end justify-center">
-                  <div className='w-[450px] h-[650px]  shadow-lg rounded-3xl p-2 border-primary bg-gradient-to-tr from-[#6600CC] via-[#9046DA] to-[#6600CC]' >
-                    <FirstWidget />
+                <div className="w-full z-40  lg:pb-0 pb-12   rounded-lg flex lg:items-end items-center lg:justify-end justify-center">
+                  <div className='w-[403px]  h-[670px]  shadow-lg rounded-3xl p-2 border-primary bg-gradient-to-tr from-[#6600CC] via-[#9046DA] to-[#6600CC]' >
+                    <iframe
+                     className="rounded-3xl overflow-hidden w-[365px] lg:w-[385px] "
+                      src="http://localhost:3000/"
+                      height={655}
+                      style={{ overflow: 'hidden', border: 'none' }}
+                    ></iframe>
                   </div>
                 </div>
             </div>

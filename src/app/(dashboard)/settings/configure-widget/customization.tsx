@@ -8,10 +8,6 @@ import { Separator } from "@/components/shadcn/ui/separator"
 import PreviewModes from "./PreviewModes"
 import EmbeddedCode from "./EmbeddedCode"
 import { Checkbox } from "@/components/shadcn/ui/checkbox"
-import { MonitorDot } from "lucide-react"
-import { TbDeviceMobile } from "react-icons/tb";
-import { Button } from "@/components/shadcn/ui/button"
-import FirstWidget from "@/components/kesh-components/FirstWidget"
 
 const Customization = () => {
 
@@ -40,12 +36,10 @@ const Customization = () => {
     }
 
 
-    const [responsive, setResponsive] = useState(1);
-
 
   return (
     <div>
-        <div className='w-full flex lg:flex-row flex-col  h-full gap-5'>
+        <div className='w-full flex lg:flex-row flex-col   h-full gap-5'>
             <div className=' lg:w-4/12 gap-3 flex flex-col h-fit '>
                 <div className='grid gap-1 '>
                     <h3 className="text-lg font-medium">Widget Customization</h3>
@@ -87,26 +81,21 @@ const Customization = () => {
                 <div className="w-full flex justify-between items-center">
                     <h2 className="text-xs uppercase font-medium text-muted-foreground">Preview</h2>
                     <div className="flex gap-2 items-center">
-                        <div className="flex gap-1 items-center ">
-                            <Button onClick={() => setResponsive(1)} variant="outline" className={`p-0 px-2 ${responsive == 1 && 'border-r-0 border-b-0 border-primary bg-primary/5'}`}>
-                                <TbDeviceMobile 
-                                    className={`${responsive == 2 && 'text-primary'}`}
-                                    size={20}/>
-                            </Button>
-                            <Button onClick={() => setResponsive(2)} variant="outline" className={`p-0 px-2 ${responsive == 2 && 'border-l-0 border-t-0 border-primary bg-primary/5'}`}>
-                                <MonitorDot  
-                                    className={`${responsive == 1 && 'text-primary'}`}
-                                    size={20} />
-                            </Button>
-                        </div>
+                        <h1 className="hidden">{selectedPrimary}</h1>
                         <PreviewModes mode={setCurrentMode}/>
                     </div>
                 </div>
-                <div className="border h-full border-dashed rounded-lg flex justify-center  items-center shadow-md">
+                <div className="border h-full border-dashed rounded-lg flex justify-center  items-center ">
                     {currentMode == 1 ? 
-                        <div className={`${responsive == 1 ? 'w-[450px] h-[650px]' : 'w-full flex justify-center items-center p-4 bg-muted'} flex justify-center items-center transition-all duration-500 ease-in-out`}>
-                            <div className={`${responsive == 1 ? 'w-fit rounded-xl' : 'w-[450px] rounded-3xl'} shadow-lg ` }>
-                                <FirstWidget selectedPrimary={selectedPrimary} />
+                        <div className={`w-fit   flex justify-center h-fit items-center transition-all duration-500 ease-in-out`}>
+                            <div className={`w-fit rounded-3xl shadow-lg overflow-hidden ` }>
+                                {/* <FirstWidget selectedPrimary={selectedPrimary} /> */}
+                                <iframe
+                                    className="rounded-3xl overflow-hidden w-[365px] lg:w-[385px] "
+                                    src="http://localhost:3000/"
+                                    height={660}
+                                    style={{ overflow: 'hidden', border: 'none' }}
+                                    ></iframe>
                             </div>
                             {/* <CustomWidget responsive={responsive} primary={selectedPrimary} footer={hideFooter}/> */}
                         </div>
