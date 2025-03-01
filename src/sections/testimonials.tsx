@@ -1,5 +1,4 @@
 import Reveal from '@/components/animations/reveal'
-import TypingAnimation from '@/components/animations/TypingAnimation'
 import { Avatar, AvatarFallback } from '@/components/shadcn/ui/avatar'
 import React from 'react'
 

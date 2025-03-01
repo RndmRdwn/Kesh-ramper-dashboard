@@ -11,9 +11,12 @@ import FlipFill from '../../public/assets/icons/flipFill.svg'
 import RocketFill from '../../public/assets/icons/rocketFill.svg'
 import Image from "next/image";
 
-import Wallet from '../../public/assets/payments/mockup/wallet.svg'
-import Head from '../../public/assets/payments/mockup/head.svg'
-import Status from '../../public/assets/payments/mockup/status.svg'
+import Sample05 from '../../public/assets/sample/sample05.jpg'
+import Sample06 from '../../public/assets/sample/sample06.jpg'
+import Sample07 from '../../public/assets/sample/sample07.jpg'
+import TypingAnimation from "@/components/animations/TypingAnimation";
+import Fade from "@/components/animations/fade";
+import Reveal from "@/components/animations/reveal";
 
 
 const WhyChoose = () => {
@@ -34,6 +37,7 @@ const WhyChoose = () => {
         { id: 2, title: "Best Rates", subtitle: "Enjoy competitive pricing with low fees." },
         { id: 3, title: "Secure Payments", subtitle: "Seamlessly deposit and withdraw using local currency." },
       ],
+      image: Sample05
     },
     {
       id: "payments",
@@ -48,6 +52,7 @@ const WhyChoose = () => {
         { id: 2, title: "Global Reach", subtitle: "Transact with businesses and individuals worldwide." },
         { id: 3, title: "Flexible Options", subtitle: "Choose from multiple cryptocurrencies for payments." },
       ],
+      image: Sample06
     },
     {
       id: "send-money",
@@ -62,6 +67,7 @@ const WhyChoose = () => {
         { id: 2, title: "Multiple Currencies", subtitle: "Support for various digital assets and local currencies." },
         { id: 3, title: "Reliable & Secure", subtitle: "Your transactions are protected with top-tier security." },
       ],
+      image: Sample07
     },
   ];
 
@@ -70,11 +76,15 @@ const WhyChoose = () => {
   return (
     <div className="w-full h-fit bg-gradient-to-b from-[#101219] to-black text-white">
       <div className="w-full max-w-7xl mx-auto h-full py-12 flex flex-col gap-6 items-center">
-        <h2 className="bg-muted-foreground/15 shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-1 px-4 rounded-full">
-          Features
+        <h2 className="bg-muted-foreground/15 shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-2 px-4 rounded-full">
+          <TypingAnimation color='gray' content={'Features'} size='medium' delay={0.098} speed={2}/>
+
         </h2>
-        <h2 className="text-5xl font-semibold">Why Choose Keshflip?</h2>
-        <p className="lg:max-w-4xl text-center mx-auto text-muted-foreground">{content}</p>
+        <TypingAnimation color='white' content={'Why Choose Keshflip?'} size='large2' delay={0.058} speed={1.5}/>
+
+        <Reveal>
+          <p className="lg:max-w-4xl text-center mx-auto text-muted-foreground">{content}</p>
+        </Reveal>
 
         <div className="w-full px-6">
           <div className="w-full border border-white/20 rounded-xl  p-6">
@@ -82,10 +92,10 @@ const WhyChoose = () => {
               {/* Tab List */}
               <TabsList className="grid grid-cols-3 bg-transparent gap-3 h-full w-fit rounded-lg">
                 {items.map((item) => (
-                  <TabsTrigger key={item.id} value={item.id} className={`text-white/50 flex hover:bg-gradient-to-br from-muted/10 items-center gap-3 data-[state=active]:text-primary data-[state=active]:bg-[#fcfcfc] p-3 rounded-lg
+                  <TabsTrigger key={item.id} value={item.id} className={`text-white/50 flex hover:border-white border border-transparent items-center gap-3 data-[state=active]:text-primary data-[state=active]:bg-[#fcfcfc] p-3 rounded-lg
                     `}>
                     <Image src={item.id == selected ? item.iconSelected : item.icon} alt="image" width={20} height={20} />
-                    <p className="font-semibold text-lg">{item.label}</p>
+                    <p className="font-semibold text-base">{item.label}</p>
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -97,7 +107,7 @@ const WhyChoose = () => {
                     <div>
                       <div className="flex flex-col gap-3 w-fit">
                         <span className="text-sm  w-fit bg-gradient-to-br from-primary/20 to-muted/10 px-5 py-2 rounded-full">{item.badge}</span>
-                        <h3 className="text-4xl font-semibold mt-3">{item.heading}</h3>
+                        <h3 className="text-3xl font-semibold mt-3">{item.heading}</h3>
                         <p className="text-muted-foreground mt-2">{item.desc}</p>
                       </div>
                       <div className="mt-6 flex flex-col gap-4">
@@ -114,14 +124,10 @@ const WhyChoose = () => {
                         ))}
                       </div>
                     </div>
-                    <div className="w-full h-full flex items-center lg:justify-end justify-center lg:border-l">
-                      <div className="w-fit h-fit pt-3 px-3 rounded-t-[8%] bg-gradient-to-tr from-[#6600CC] to-[#5600AC]/80">
-                        <div className="grid gap-6  px-4 py-2 bg-white w-fit rounded-t-[7%]">
-                          <Image src={Status} alt="image" width={400} height={300} />
-                          <Image src={Head} alt="image" width={400} height={300} />
-                          <Image src={Wallet} alt="image" width={400} height={300} />
+                    <div className="w-full h-full flex items-center lg:justify-end justify-center ">
+                        <div className="grid gap-6  px-4 py-2 ">
+                          <Image src={item.image} alt="image" className="rounded-xl" width={500} height={500} />
                         </div>
-                      </div>
                     </div>
                   </div>
                 </TabsContent>

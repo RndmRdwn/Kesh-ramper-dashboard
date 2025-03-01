@@ -36,16 +36,13 @@ const Integration = () => {
     <div className=' w-full'>
       <div className='py-12 w-full flex flex-col gap-3 items-center justify-center'>
         <div className='max-w-7xl mx-auto w-full flex flex-col gap-8 items-center justify-center'>
-          <h2 className="bg-muted-foreground/15 w-fit  shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-1 px-4 rounded-full">
-            <TypingAnimation color='white' content={'Extensive Integration'} size='medium' delay={0.098} speed={2}/>
+          <h2 className="bg-muted-foreground/15 w-fit  shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-2 px-4 rounded-full">
+            <TypingAnimation color='gray' content={'Extensive Integration'} size='medium' delay={0.098} speed={2}/>
           </h2>
             <h2 className='max-w-4xl mx-auto w-full text-5xl text-center font-semibold'>
-            <TypingAnimation color='white' content={'Integrated with Trusted Payment Platforms'} size='xlarge' delay={0.068} speed={2}/>
-                
+              <TypingAnimation color='white' content={'Integrated with Trusted Payment Platforms'} size='xlarge' delay={0.068} speed={2}/>
             </h2>
-
-          {/* <AnimateGradientText content='Integrated with Trusted Payment Platforms' duration={0.9} size='normal' delay={1} /> */}
-
+            {/* <AnimateGradientText content='Integrated with Trusted Payment Platforms' duration={0.9} size='normal' delay={1} /> */}
           <Fade>
           <p className='max-w-3xl mx-auto w-full text-lg text-center font-normal text-muted-foreground'>
             Enjoy seamless transactions with Keshflip, integrated with trusted platforms for your

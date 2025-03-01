@@ -16,15 +16,13 @@ const UserStatisfaction = () => {
     <div className=' w-full px-5'>
       <div className='max-w-7xl mx-auto w-full py-12 '>
       <div className='w-full flex flex-col gap-5'>
-        <h2 className="bg-muted-foreground/15 w-fit  shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-1 px-4 rounded-full">
-          
-          {/* <AnimateText delay={1} duration={1.8} size='' content='User Satisfaction'  /> */}
+        <h2 className="bg-muted-foreground/15 w-fit  shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-2 px-4 rounded-full">
           <TypingAnimation color='gray' content={'User Satisfaction'} size='medium' delay={0.118} speed={1}/>
         </h2>
         <div>
 
           <div className='grid lg:grid-cols-2 md:grid-cols-2 gap-4'>
-          <TypingAnimation color='white' content={'Here are some key metrics We are proudly achieved since our launch.'} size='semixxlarge' delay={0.058} speed={1.5}/>
+          <TypingAnimation color='white' content={'Here are some key metrics we are proudly achieved since our launch.'} size='semixxlarge' delay={0.058} speed={1.5}/>
             <div className='flex flex-col gap-4'>
               <Reveal delay={0.4}>
                 <div className='border w-full items-center p-8 flex gap-4 rounded-xl'>

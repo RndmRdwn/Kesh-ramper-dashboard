@@ -1,3 +1,4 @@
+import Landing from "@/sections/landing";
 import Banner from "../sections/banner";
 import FAQ from "../sections/faq";
 import Footer from "../sections/footer";
@@ -11,7 +12,7 @@ export default function Home() {
   return (
    
     <div>
-      {/* <Landing /> */}
+      <Landing />
       <WhyChoose />
       <Testimonials />
       <div className="bg-gradient-to-bl from-[#101219] text-white to-black">
