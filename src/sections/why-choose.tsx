@@ -68,7 +68,7 @@ const WhyChoose = () => {
   const [selected, setSelected] = useState('buy-sell')
 
   return (
-    <div className="w-full h-screen bg-gradient-to-b from-[#101219] to-black text-white">
+    <div className="w-full h-fit bg-gradient-to-b from-[#101219] to-black text-white">
       <div className="w-full max-w-7xl mx-auto h-full py-12 flex flex-col gap-6 items-center">
         <h2 className="bg-muted-foreground/15 shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-1 px-4 rounded-full">
           Features
@@ -76,56 +76,58 @@ const WhyChoose = () => {
         <h2 className="text-5xl font-semibold">Why Choose Keshflip?</h2>
         <p className="lg:max-w-4xl text-center mx-auto text-muted-foreground">{content}</p>
 
-        <div className="w-full border border-white/20 rounded-xl p-6">
-          <Tabs defaultValue={items[0].id} onValueChange={(value) => setSelected(value)} className="w-full flex flex-col gap-3  items-center justify-center">
-            {/* Tab List */}
-            <TabsList className="grid grid-cols-3 bg-transparent gap-3 h-full w-fit rounded-lg">
-              {items.map((item) => (
-                <TabsTrigger key={item.id} value={item.id} className={`text-white/50 flex hover:bg-gradient-to-br from-muted/10 items-center gap-3 data-[state=active]:text-primary data-[state=active]:bg-[#fcfcfc] p-3 rounded-lg
-                  `}>
-                  <Image src={item.id == selected ? item.iconSelected : item.icon} alt="image" width={20} height={20} />
-                  <p className="font-semibold text-lg">{item.label}</p>
-                </TabsTrigger>
-              ))}
-            </TabsList>
+        <div className="w-full px-6">
+          <div className="w-full border border-white/20 rounded-xl  p-6">
+            <Tabs defaultValue={items[0].id} onValueChange={(value) => setSelected(value)} className="w-full flex flex-col gap-3  items-center justify-center">
+              {/* Tab List */}
+              <TabsList className="grid grid-cols-3 bg-transparent gap-3 h-full w-fit rounded-lg">
+                {items.map((item) => (
+                  <TabsTrigger key={item.id} value={item.id} className={`text-white/50 flex hover:bg-gradient-to-br from-muted/10 items-center gap-3 data-[state=active]:text-primary data-[state=active]:bg-[#fcfcfc] p-3 rounded-lg
+                    `}>
+                    <Image src={item.id == selected ? item.iconSelected : item.icon} alt="image" width={20} height={20} />
+                    <p className="font-semibold text-lg">{item.label}</p>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
 
-            {/* Tab Content */}
-            {items.filter(it => it.id == selected).map((item) => (
-              <TabsContent key={item.id} value={item.id} className=" w-full">
-                <div className=" grid grid-cols-2 gap-4">
-                  <div>
-                    <div className="flex flex-col gap-3 w-fit">
-                      <span className="text-sm  w-fit bg-gradient-to-br from-primary/20 to-muted/10 px-5 py-2 rounded-full">{item.badge}</span>
-                      <h3 className="text-4xl font-semibold mt-3">{item.heading}</h3>
-                      <p className="text-muted-foreground mt-2">{item.desc}</p>
+              {/* Tab Content */}
+              {items.filter(it => it.id == selected).map((item) => (
+                <TabsContent key={item.id} value={item.id} className=" w-full">
+                  <div className=" lg:grid flex flex-col grid-cols-2 px-2 gap-8">
+                    <div>
+                      <div className="flex flex-col gap-3 w-fit">
+                        <span className="text-sm  w-fit bg-gradient-to-br from-primary/20 to-muted/10 px-5 py-2 rounded-full">{item.badge}</span>
+                        <h3 className="text-4xl font-semibold mt-3">{item.heading}</h3>
+                        <p className="text-muted-foreground mt-2">{item.desc}</p>
+                      </div>
+                      <div className="mt-6 flex flex-col gap-4">
+                        {item.points.map((point) => (
+                          <div key={point.id} className="flex gap-2 items-start">
+                              <Check className="text-primary" /> 
+                              <div className="flex items-start flex-col ">
+                                <p className=" font-medium  items-center">
+                                  {point.title} 
+                                </p>
+                                  <span className="text-muted-foreground flex flex-wrap">{point.subtitle}</span>
+                              </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="mt-6 flex flex-col gap-4">
-                      {item.points.map((point) => (
-                        <div key={point.id} className="flex gap-2 items-start">
-                            <Check className="text-primary" /> 
-                            <div className="flex items-start flex-col ">
-                              <p className=" font-medium  items-center">
-                                {point.title} 
-                              </p>
-                                <span className="text-muted-foreground flex flex-wrap">{point.subtitle}</span>
-                            </div>
+                    <div className="w-full h-full flex items-center lg:justify-end justify-center lg:border-l">
+                      <div className="w-fit h-fit pt-3 px-3 rounded-t-[8%] bg-gradient-to-tr from-[#6600CC] to-[#5600AC]/80">
+                        <div className="grid gap-6  px-4 py-2 bg-white w-fit rounded-t-[7%]">
+                          <Image src={Status} alt="image" width={400} height={300} />
+                          <Image src={Head} alt="image" width={400} height={300} />
+                          <Image src={Wallet} alt="image" width={400} height={300} />
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="w-full h-full border">
-                    <div className="w-fit h-fit pt-3 px-3 rounded-t-[8%] bg-gradient-to-tr from-[#6600CC] to-[#5600AC]/80">
-                      <div className="grid gap-6  px-4 py-2 bg-white w-fit rounded-t-[7%]">
-                        <Image src={Status} alt="image" width={400} height={300} />
-                        <Image src={Head} alt="image" width={400} height={300} />
-                        <Image src={Wallet} alt="image" width={400} height={300} />
                       </div>
                     </div>
                   </div>
-                </div>
-              </TabsContent>
-            ))}
-          </Tabs>
+                </TabsContent>
+              ))}
+            </Tabs>
+          </div>
         </div>
       </div>
     </div>

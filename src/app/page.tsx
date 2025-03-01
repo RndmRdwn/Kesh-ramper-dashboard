@@ -14,10 +14,12 @@ export default function Home() {
       {/* <Landing /> */}
       <WhyChoose />
       <Testimonials />
-      <Integration />
-      <UserStatisfaction />
-      <Banner />
-      <FAQ />
+      <div className="bg-gradient-to-bl from-[#101219] text-white to-black">
+        <Integration />
+        <UserStatisfaction />
+        <Banner />
+        <FAQ />
+      </div>
       <Footer/>
     </div>
   );
