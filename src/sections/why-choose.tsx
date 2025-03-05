@@ -106,19 +106,26 @@ const WhyChoose = () => {
                   <div className=" lg:grid flex flex-col grid-cols-2 px-2 gap-8">
                     <div>
                       <div className="flex flex-col gap-3 w-fit">
-                        <span className="text-sm  w-fit bg-gradient-to-br from-primary/20 to-muted/10 px-5 py-2 rounded-full">{item.badge}</span>
-                        <h3 className="text-3xl font-semibold mt-3">{item.heading}</h3>
-                        <p className="text-muted-foreground mt-2">{item.desc}</p>
+                        {/* <Fade> */}
+                          <span className="text-sm  w-fit bg-gradient-to-br from-primary/20 to-muted/10 px-5 py-2 rounded-full">
+                            <TypingAnimation color='gray' content={item.badge} size='medium' delay={0.098} speed={2}/>
+                          </span>
+                        <TypingAnimation color='white' content={item.heading} size='xlarge' delay={0.098} speed={2}/>
+
+                        {/* <TypingAnimation color='lightgray' content={item.desc} size='normalLight' delay={0.098} speed={2}/> */}
+                        <Fade delay={1}>
+                          <p className="text-muted-foreground mt-2">{item.desc}</p>
+                        </Fade>
                       </div>
                       <div className="mt-6 flex flex-col gap-4">
                         {item.points.map((point) => (
                           <div key={point.id} className="flex gap-2 items-start">
                               <Check className="text-primary" /> 
-                              <div className="flex items-start flex-col ">
-                                <p className=" font-medium  items-center">
-                                  {point.title} 
+                              <div className="flex   items-center gap-2">
+                                <p className=" font-medium   items-center ">
+                                  {point.title}:
+                                  <span className="text-muted-foreground text-sm px-1">{point.subtitle}</span>
                                 </p>
-                                  <span className="text-muted-foreground flex flex-wrap">{point.subtitle}</span>
                               </div>
                           </div>
                         ))}
@@ -126,7 +133,9 @@ const WhyChoose = () => {
                     </div>
                     <div className="w-full h-full flex items-center lg:justify-end justify-center ">
                         <div className="grid gap-6  px-4 py-2 ">
-                          <Image src={item.image} alt="image" className="rounded-xl" width={500} height={500} />
+                          <Fade>
+                            <Image src={item.image} alt="image" className="rounded-xl" width={500} height={500} />
+                          </Fade>
                         </div>
                     </div>
                   </div>

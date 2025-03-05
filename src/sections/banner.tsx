@@ -16,7 +16,7 @@ const Banner = () => {
   return (
     <div className='max-w-7xl lg:py-24 py-12 px-5 mx-auto w-full'>
       <AnimateZoomIn  delay={0.5}>
-        <div className=' w-full border bg-[#1B013E] rounded-2xl lg:p-16 p-10'>
+        <div className=' w-full  bg-[#1B013E] rounded-2xl lg:p-16 p-10'>
           <div className='grid lg:grid-cols-2 gap-3'>
             <div className='w-full flex flex-col gap-6'>
               <h2 className="bg-muted-foreground/15 w-fit  shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-2 px-4 rounded-full">

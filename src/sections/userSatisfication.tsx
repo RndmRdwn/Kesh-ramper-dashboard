@@ -1,7 +1,7 @@
 import Reveal from '@/components/animations/reveal'
 import TypingAnimation from '@/components/animations/TypingAnimation'
-import { Star } from 'lucide-react'
 import React from 'react'
+import { FaStar } from 'react-icons/fa'
 
 const UserStatisfaction = () => {
 
@@ -25,17 +25,21 @@ const UserStatisfaction = () => {
           <TypingAnimation color='white' content={'Here are some key metrics we are proudly achieved since our launch.'} size='semixxlarge' delay={0.058} speed={1.5}/>
             <div className='flex flex-col gap-4'>
               <Reveal delay={0.4}>
-                <div className='border w-full items-center p-8 flex gap-4 rounded-xl'>
-                  <h2 className='font-medium text-6xl flex items-center gap-2 bg-gradient-to-br from-primary/60 to-white text-transparent bg-clip-text'>
-                    15K+</h2>
-                  <h2>Downloads on all platforms</h2>
+                <div className=' w-full bg-gradient-to-br from-[#fcfcfc]/20 to-[#cfd1f3]/60 p-2 rounded-3xl'>
+                  <div className='border w-full bg-gradient-to-br from-[#fcfcfc] to-[#cfd1f3] items-center p-8 flex gap-4 rounded-3xl'>
+                    <h2 className='font-medium text-6xl flex items-center gap-2 bg-primary text-transparent bg-clip-text'>
+                      15K+</h2>
+                    <h2 className='text-black text-xl'>Downloads on all platforms</h2>
+                  </div>
                 </div>
               </Reveal>
               <Reveal delay={1.2}>
-              <div className='border w-full p-8 flex items-center gap-4 rounded-xl'>
-                <h2 className='font-medium text-6xl flex items-center gap-2 bg-gradient-to-br from-primary/60 to-white text-transparent bg-clip-text'>
-                  4.9 <Star size={32}/></h2>
-                <h2>Ratings out of 5.0</h2>
+              <div className=' w-full bg-gradient-to-br from-[#fcfcfc]/20 to-[#cfd1f3]/60 p-2 rounded-3xl'>
+                <div className='border w-full bg-gradient-to-br from-[#fcfcfc] to-[#cfd1f3] items-center p-8 flex gap-4 rounded-3xl'>
+                  <h2 className='font-medium text-6xl flex items-center gap-2 bg-primary text-transparent bg-clip-text'>
+                    4.9 <FaStar  className='text-primary' size={60}/></h2>
+                  <h2 className='text-black text-xl'>Ratings out of 5.0</h2>
+                </div>
               </div>
               </Reveal>
             </div>

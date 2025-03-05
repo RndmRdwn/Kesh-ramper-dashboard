@@ -5,9 +5,10 @@ import { motion, useInView, useAnimation } from 'framer-motion'
 
 type Props = {
     children: React.ReactNode,
+    delay?: number
 }
 
-const Fade = ( { children } : Props) => {
+const Fade = ( { children, delay } : Props) => {
 
     const target = useRef(null)
     const controls = useAnimation()
@@ -27,7 +28,7 @@ const Fade = ( { children } : Props) => {
        <motion.div variants={{
             hidden: {opacity: 0},
             visible: {opacity: 1}
-        }} initial= "hidden" animate={controls} transition={{delay: 0.5, ease:'easeInOut', duration: 0.7}}>
+        }} initial= "hidden" animate={controls} transition={{delay: 0.5 + delay, ease:'easeInOut', duration: 0.7}}>
             {children}
         </motion.div>
     </div>

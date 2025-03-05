@@ -15,9 +15,9 @@ type Props = {
 const sizeClasses2: { [key: string]: string } = {
     small: ' text-sm font-regular',
     smallX: 'lg:text-lg text-sm font-regular',
-    medium: 'lg:text-xs text-base font-medium',
+    medium: 'lg:text-sm text-base font-medium',
     mediumBold: 'lg:text-lg text-base font-semibold',
-    normalLight: 'text-lg text-base font-medium',
+    normalLight: 'text-base text-base font-normal',
     normal: 'text-lg text-base lg:font-bold font-bold',
     semi: 'lg:text-2xl md:text-xl text-lg font-semibold',
     large: 'lg:text-3xl text-3xl font-bold',
@@ -34,6 +34,7 @@ const colorClasses: { [key: string]: string } = {
     primary: 'text-[#033F63]',
     white: 'text-white',
     gray: 'text-white/60',
+    lightgray: 'text-white/40',
     black: 'text-black dark:text-white',
 };
 
