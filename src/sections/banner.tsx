@@ -5,6 +5,11 @@ import Image from 'next/image'
 import { AnimateZoomIn } from '@/components/animations/ZoomIn'
 import TypingAnimation from '@/components/animations/TypingAnimation'
 import Reveal from '@/components/animations/reveal'
+import Fade from '@/components/animations/fade'
+
+import Wallet from '../../public/assets/payments/mockup/wallet.svg'
+import Head from '../../public/assets/payments/mockup/head.svg'
+import Status from '../../public/assets/payments/mockup/status.svg'
 
 
 const Banner = () => {
@@ -32,7 +37,22 @@ const Banner = () => {
                 <AppStore />
               </div>
             </div>
-            <div className='w-full border'>
+            <div className='w-full  flex items-end justify-end'>
+            <Fade>
+              <div className="w-fit h-fit pt-3 px-3 rounded-t-[8%] bg-gradient-to-tr from-[#6600CC] to-[#5600AC]/80">
+                  <div className="grid gap-6  px-4 py-2 bg-white w-fit rounded-t-[7%]">
+                    <Reveal delay={2}>
+                      <Image src={Status} alt="image" width={400} height={300} />
+                    </Reveal>
+                    <Reveal delay={3.5}>
+                      <Image src={Head} alt="image" width={400} height={300} />
+                    </Reveal>
+                    <Reveal delay={4}>
+                      <Image src={Wallet} alt="image" width={400} height={300} />
+                    </Reveal>
+                  </div>
+                </div>
+              </Fade>
             </div>
           </div>
         </div>

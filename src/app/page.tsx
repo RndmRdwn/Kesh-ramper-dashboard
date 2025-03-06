@@ -11,11 +11,11 @@ import WhyChoose from "../sections/why-choose";
 export default function Home() {
   return (
    
-    <div>
+    <div className="bg-[#070C14] text-white">
       <Landing />
       <WhyChoose />
+      <div className="pt-8">
       <Testimonials />
-      <div className="bg-gradient-to-bl from-[#101219] text-white to-black">
         <Integration />
         <UserStatisfaction />
         <Banner />

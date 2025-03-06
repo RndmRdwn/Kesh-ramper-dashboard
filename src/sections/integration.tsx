@@ -3,11 +3,17 @@ import { useScroll, useTransform, motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react'
 import Picture1 from '../../public/assets/sample/image01.svg'
 import Picture2 from '../../public/assets/sample/image02.svg'
-import Picture3 from '../../public/assets/sample/image03.svg'
-// import Picture4 from '../../public/assets/sample/image04.svg'
-import Picture5 from '../../public/assets/sample/image05.svg'
-import Picture6 from '../../public/assets/sample/image06.svg'
-import Picture7 from '../../public/assets/sample/image07.svg'
+
+import fireblocks from '../../public/assets/clients/fireblocks.svg'
+import hcash from '../../public/assets/clients/h-cash.svg'
+import mastercard from '../../public/assets/clients/mastercard.svg'
+import techtricks from '../../public/assets/clients/techtricks.svg'
+import marketpro from '../../public/assets/clients/marketpro.svg'
+import mtn from '../../public/assets/clients/mtn.png'
+import mpesa from '../../public/assets/clients/mpesa.svg'
+import codify from '../../public/assets/clients/codify.svg'
+import preimer from '../../public/assets/clients/preimer.svg'
+
 import Lenis from 'lenis';
 import Image from 'next/image';
 import Fade from '@/components/animations/fade';
@@ -70,31 +76,23 @@ const SlideLeft = (props) => {
   const translateX = useTransform(props.progress, [0, 1], [150 * direction, -150 * direction])
   return (
     <motion.div style={{x: translateX, left: props.left}} className="relative gap-8 grid lg:grid-cols-6 grid-cols-3 w-full whitespace-nowrap">
-      <div className='h-full p-3 flex justify-center items-center bg-sky-200 rounded-2xl w-full'>
-        <span className="relative h-[40px] lg:aspect-[calc(4*3+9)/3] aspect-[calc(4*3+1)/2] rounded-full overflow-hidden">
-         <Image style={{objectFit: "fill"}} src={Picture1} alt="image" fill/>
-        </span>
+      <div className='h-fit flex justify-center items-center  rounded-2xl w-full'>
+        <Image src={codify} alt="image" height={255} width={255}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-gray-100 rounded-2xl w-full'>
-        <span className="relative h-[50px] lg:aspect-[calc(4*3+9)/3] aspect-[calc(4*3+1)/2] rounded-full overflow-hidden">
-          <Image src={Picture3} alt="image" style={{objectFit: "fill"}} fill/>
-        </span>
+      <div className='h-full bg-[#E5EEF2] flex justify-center items-center  rounded-2xl w-full'>
+        <Image src={techtricks} alt="image" height={300} width={300}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-teal-400 rounded-2xl w-full'>
-        <Image src={Picture2} alt="image" height={100} width={100}/>
+      <div className='h-full bg-[#F6B331] flex justify-center items-center  rounded-2xl w-full'>
+        <Image src={hcash} alt="image" className='rounded-3xl' height={300} width={300}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-[#ff6b6b] rounded-2xl w-full'>
-        <Image src={Picture5} alt="image" height={100} width={100}/>
+      <div className='h-full flex justify-center bg-white items-center rounded-2xl w-full'>
+        <Image src={fireblocks} alt="image" height={300} width={300}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-green-300 rounded-2xl w-full'>
-        <span className="relative h-[35px] lg:aspect-[calc(4*3+9)/3] aspect-[calc(4*3+1)/2] rounded-full overflow-hidden">
-          <Image src={Picture6} alt="image" style={{objectFit: "fill"}} fill/>
-        </span>
+      <div className='h-full flex justify-center bg-[#1B4474] items-center  rounded-2xl w-full'>
+        <Image src={preimer} alt="image" className='rounded-3xl' height={370} width={370}/>
       </div>
-       <div className='h-full p-3 flex justify-center items-center bg-gray-500 rounded-2xl w-full'>
-        <span className="relative h-[25px] lg:aspect-[calc(4*3+9)/3] aspect-[calc(4*3+1)/2] rounded-full overflow-hidden">
-          <Image src={Picture7} alt="image" style={{objectFit: "fill"}} fill/>
-        </span>
+      <div className='h-full flex justify-center bg-white items-center rounded-2xl w-full'>
+        <Image src={mastercard} alt="image" height={300} width={300}/>
       </div>
     </motion.div>
   )
@@ -104,31 +102,23 @@ const SlideRight = (props) => {
   const translateX = useTransform(props.progress, [0, 1], [150 * direction, -150 * direction])
   return (
     <motion.div style={{x: translateX, left: props.left}} className="relative gap-8 grid lg:grid-cols-6 grid-cols-3 w-full whitespace-nowrap">
-      <div className='h-full p-3 flex justify-center items-center bg-gray-500 rounded-2xl w-full'>
-        <span className="relative h-[25px] lg:aspect-[calc(4*3+9)/3] aspect-[calc(4*3+1)/2] rounded-full overflow-hidden">
-          <Image src={Picture7} alt="image" style={{objectFit: "fill"}} fill/>
-        </span>
+      <div className='h-fit flex justify-center items-center  rounded-2xl w-full'>
+        <Image src={mpesa} alt="image" height={255} width={255}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-green-300 rounded-2xl w-full'>
-        <span className="relative h-[35px] lg:aspect-[calc(4*3+9)/3] aspect-[calc(4*3+1)/2] rounded-full overflow-hidden">
-          <Image src={Picture6} alt="image" style={{objectFit: "fill"}} fill/>
-        </span>
+      <div className='h-full bg-[#FFCB04] flex justify-center items-center  rounded-2xl w-full'>
+        <Image src={mtn} alt="image" className='rounded-3xl' height={300} width={300}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-[#ff6b6b] rounded-2xl w-full'>
-        <Image src={Picture5} alt="image" height={100} width={100}/>
+      <div className='h-full flex justify-center bg-white items-center rounded-2xl w-full'>
+        <Image src={fireblocks} alt="image" height={300} width={300}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-teal-400 rounded-2xl w-full'>
-        <Image src={Picture2} alt="image" height={100} width={100}/>
+      <div className='h-full flex justify-center bg-[#1B4474] items-center  rounded-2xl w-full'>
+        <Image src={preimer} alt="image" className='rounded-3xl' height={370} width={370}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-gray-100 rounded-2xl w-full'>
-        <span className="relative h-[50px] lg:aspect-[calc(4*3+9)/3] aspect-[calc(4*3+1)/2] rounded-full overflow-hidden">
-          <Image src={Picture3} alt="image" style={{objectFit: "fill"}} fill/>
-        </span>
+      <div className='h-full bg-[#EFF7E0] flex justify-center items-center  rounded-2xl w-full'>
+        <Image src={codify} alt="image" className='rounded-3xl' height={300} width={300}/>
       </div>
-      <div className='h-full p-3 flex justify-center items-center bg-sky-200 rounded-2xl w-full'>
-        <span className="relative h-[40px] lg:aspect-[calc(4*3+9)/3] aspect-[calc(4*3+1)/2] rounded-full overflow-hidden">
-         <Image style={{objectFit: "fill"}} src={Picture1} alt="image" fill/>
-        </span>
+      <div className='h-full flex justify-center bg-[#FFF6E9] items-center rounded-2xl w-full'>
+        <Image src={marketpro} alt="image" height={300} width={300}/>
       </div>
     </motion.div>
   )
