@@ -13,7 +13,7 @@ const AboutInfo = () => {
   const desc = `Keshflip is a digital exchange platform that offers secure and seamless currency exchange across East Africa. We provide a reliable and user-friendly experience for both individuals and businesses, making it easy to exchange local and international currencies.`
 
   return (
-        <div className='w-full grid lg:grid-cols-2 gap-4 h-full lg:p-0 p-5'>
+        <div className='w-full grid lg:grid-cols-2 gap-4 h-full '>
             <div className='h-full flex  items-center w-full '>
               <div className='flex flex-col gap-6 items-start justify-center lg:pt-0 pt-24 pb-12'>
                 <Reveal >

@@ -12,14 +12,10 @@ import Reveal4mTop from '@/components/animations/reveal4mTop';
 
 const Landing = () => {
   return (
-    
    <div className="w-full h-screen flex justify-center items-center bg-[#6600DC]">
    <div className="w-full h-full flex justify-center items-center">
      <Image alt="visual" src={BackgroundGrid} width={1600} height={1600}/>
-     <div className=" w-full px-5 max-w-7xl mx-auto  h-screen absolute top-0 flex flex-col">
-      <Reveal4mTop>
-        <Header isTry/>
-      </Reveal4mTop>
+     <div className=" w-full lg:px-0 px-5 max-w-7xl mx-auto  h-screen absolute lg:top-0 top-32 flex flex-col">
        <div className="w-full h-full relative  justify-center items-center flex">
          <div className="w-full flex lg:flex-row  h-full flex-col justify-between gap-12 items-center">
            <div className="flex flex-col lg:items-start   h-full lg:pt-48   pt-8 gap-8">

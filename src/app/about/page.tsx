@@ -13,12 +13,11 @@ const AboutPage = () => {
   return (
     <div className='bg-[#6600CC] text-white w-full h-full'>
         <div className=' max-w-7xl mx-auto w-full'>
-            <div className='lg:h-screen h-full w-full'>
-            <Reveal4mTop>
+            <div className='lg:h-screen h-full w-full lg:p-0 px-5'>
+              <Reveal4mTop>
                 <Header isTry={false}/>
-            </Reveal4mTop>
-
-                <AboutInfo />
+              </Reveal4mTop>
+              <AboutInfo />
             </div>
 
             <MissionSection />

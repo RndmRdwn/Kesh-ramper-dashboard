@@ -67,8 +67,24 @@ export function Navig() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+        
+        <NavigationMenuItem className="">
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={`${navigationMenuTriggerStyle()}  bg-transparent hover:bg-transparent hover:text-yellow-400 text-white`}>
+              Discover
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        
+        <NavigationMenuItem className="">
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={`${navigationMenuTriggerStyle()}  bg-transparent hover:bg-transparent hover:text-yellow-400 text-white`}>
+              Learn
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
 
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger className=" bg-transparent hover:bg-transparent hover:text-yellow-400 text-white">Discover</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[350px] gap-0 p-4  ">
@@ -100,10 +116,8 @@ export function Navig() {
               ))}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
 
-    
-       
         <NavigationMenuItem>
           <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink className={`${navigationMenuTriggerStyle()}  bg-transparent hover:bg-transparent hover:text-yellow-400 text-white`}>

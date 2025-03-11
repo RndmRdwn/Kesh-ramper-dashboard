@@ -3,7 +3,6 @@ import { Button } from '@/components/shadcn/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import Logo  from '../../public/assets/logo2.svg' 
 import HomeNavbar from '@/components/menu/home-navbar'
 
@@ -14,7 +13,7 @@ type Props = {
 
 const Header = ({isTry}: Props) => {
   return (
-    <div className="w-full  flex items-center py-4 lg:px-0  justify-between ">
+    <div className="w-full  flex items-center py-4   justify-between ">
          <Link href={'/'}>
           <Image alt="Logo" src={Logo} width={120} height={120}/>
          </Link>
@@ -36,7 +35,6 @@ const Header = ({isTry}: Props) => {
              }
          </div>
          <div className="lg:hidden flex ">
-             <HiOutlineMenuAlt3 size={32} className="text-[#FFCC00] hover:text-white"/>
              <HomeNavbar />
          {/* <DropdownMenu>
            <DropdownMenuTrigger>

@@ -10,8 +10,8 @@ export const navItems = [
 export const homeNavItems = [
     { name: 'Home', path : '/'},
     { name: 'About', path : '/about'},
+    { name: 'Discover', path : '/discover'},
+    { name: 'Learn', path : '/learn'},
     { name: 'Features', path : '/features'},
     { name: 'Support', path : '/contact'},
-    { name: 'Discover', path : '/'},
-    { name: 'Learn', path : '/'},
 ]
