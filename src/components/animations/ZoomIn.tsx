@@ -67,7 +67,7 @@ export const AnimateDown = ({children, delay, width = "fit-content"} : RevealPro
         slideControls.start("hidden")
       }
 
-    }, [mainControls, inView])
+    }, [mainControls, slideControls, inView])
   return (
     <div ref={ref} className={`relative overflow-hidden h-full ${width}`}>
         <m.div variants={mainVariant2}

@@ -6,54 +6,52 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/shadcn/ui/navigation-menu"
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Widget Overview",
-    href: "/docs/widget-overview",
-    description:
-      "Keshflip Pay offers a fast, secure, and user-friendly platform for easily accessing and managing cryptocurrencies.",
-  },
-  {
-    title: "Features",
-    href: "/docs/features",
-    description:
-      "Explore the key features that make Keshflip Pay the best choice for crypto enthusiasts, from seamless onboarding to fast transactions",
-  },
-  {
-    title: "Benefits",
-    href: "/docs/benefits",
-    description:
-      "Enjoy the benefits of a secure, efficient, and globally accessible platform that prioritizes your convenience and safety.",
-  },
-]
-const learnComponents: { title: string; href: string; description: string }[] = [
-  {
-    title: "Get Started",
-    href: "/docs/get-started",
-    description:
-      "Follow simple steps to create your account, fund it, and start buying crypto in minutes.",
-  },
-  {
-    title: "Crypto Basics",
-    href: "/docs/crypto-basics",
-    description:
-      "Learn the fundamentals of cryptocurrencies, blockchain technology, and how they are transforming the financial landscape.",
-  },
-  {
-    title: "Security and Safety",
-    href: "/docs/security-and-safety",
-    description:
-      "Discover how Ramper keeps your crypto assets safe with top-tier security measures like two-factor authentication and cold storage.",
-  },
-]
+// const components: { title: string; href: string; description: string }[] = [
+//   {
+//     title: "Widget Overview",
+//     href: "/docs/widget-overview",
+//     description:
+//       "Keshflip Pay offers a fast, secure, and user-friendly platform for easily accessing and managing cryptocurrencies.",
+//   },
+//   {
+//     title: "Features",
+//     href: "/docs/features",
+//     description:
+//       "Explore the key features that make Keshflip Pay the best choice for crypto enthusiasts, from seamless onboarding to fast transactions",
+//   },
+//   {
+//     title: "Benefits",
+//     href: "/docs/benefits",
+//     description:
+//       "Enjoy the benefits of a secure, efficient, and globally accessible platform that prioritizes your convenience and safety.",
+//   },
+// ]
+// const learnComponents: { title: string; href: string; description: string }[] = [
+//   {
+//     title: "Get Started",
+//     href: "/docs/get-started",
+//     description:
+//       "Follow simple steps to create your account, fund it, and start buying crypto in minutes.",
+//   },
+//   {
+//     title: "Crypto Basics",
+//     href: "/docs/crypto-basics",
+//     description:
+//       "Learn the fundamentals of cryptocurrencies, blockchain technology, and how they are transforming the financial landscape.",
+//   },
+//   {
+//     title: "Security and Safety",
+//     href: "/docs/security-and-safety",
+//     description:
+//       "Discover how Ramper keeps your crypto assets safe with top-tier security measures like two-factor authentication and cold storage.",
+//   },
+// ]
 
 export function Navig() {
   return (
