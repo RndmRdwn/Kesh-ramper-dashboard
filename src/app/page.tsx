@@ -1,7 +1,6 @@
 import Landing from "@/sections/landing";
 import Banner from "../sections/banner";
 import FAQ from "../sections/faq";
-import Footer from "../sections/footer";
 import Integration from "../sections/integration";
 // import Landing from "../sections/landing";
 import Testimonials from "../sections/testimonials";

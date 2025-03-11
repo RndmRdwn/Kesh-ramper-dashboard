@@ -1,9 +1,6 @@
 'use client'
 import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import React, { useEffect, useRef } from 'react'
-import Picture1 from '../../public/assets/sample/image01.svg'
-import Picture2 from '../../public/assets/sample/image02.svg'
-
 import BankETH from '../../public/assets/clients/new/bank-eth.svg'
 import preimerB from '../../public/assets/clients/new/preimer-bank.svg'
 import Equity from '../../public/assets/clients/new/equity.svg'
