@@ -11,6 +11,9 @@ import FlipFill from '../../public/assets/icons/flipFill.svg'
 import RocketFill from '../../public/assets/icons/rocketFill.svg'
 import Image from "next/image";
 
+import EthCoin from '../../public/assets/currencies/crypto/eth.svg'
+import SolCoin from '../../public/assets/currencies/crypto/sol.svg'
+import Feature01 from '../../public/assets/features/buy-crypto.svg'
 import Sample05 from '../../public/assets/sample/sample05.jpg'
 import Sample06 from '../../public/assets/sample/sample06.jpg'
 import Sample07 from '../../public/assets/sample/sample07.jpg'
@@ -80,9 +83,7 @@ const WhyChoose = () => {
       <div className="w-full max-w-7xl mx-auto h-full lg:pt-32 pt-72 px-8 flex flex-col gap-8 items-center">
         <h2 className="bg-muted-foreground/15 shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-2 px-4 rounded-full">
           <TypingAnimation color='gray' content={'Features'} size='medium' delay={0.098} speed={2}/>
-
         </h2>
-        <TypingAnimation color='white' content={'Why Choose Keshflip?'} size='large2' delay={0.058} speed={1.5}/>
 
         <Reveal>
           <p className="lg:max-w-4xl text-center mx-auto text-muted-foreground">{content}</p>
@@ -105,7 +106,7 @@ const WhyChoose = () => {
               {/* Tab Content */}
               {items.filter(it => it.id == selected).map((item) => (
                 <TabsContent key={item.id} value={item.id} className=" w-full">
-                  <div className=" lg:grid flex flex-col grid-cols-2 px-2 gap-8">
+                  <div className=" lg:grid flex flex-col grid-cols-2 px-12 pb-12 gap-8">
                     <div>
                       <div className="flex flex-col gap-3 w-fit">
                         {/* <Fade> */}
@@ -115,29 +116,65 @@ const WhyChoose = () => {
                         <TypingAnimation color='white' content={item.heading} size='xlarge' delay={0.098} speed={2}/>
 
                         {/* <TypingAnimation color='lightgray' content={item.desc} size='normalLight' delay={0.098} speed={2}/> */}
-                        <Fade delay={1}>
+                        <Fade delay={1.2}>
                           <p className="text-muted-foreground mt-2">{item.desc}</p>
                         </Fade>
                       </div>
                       <div className="mt-6 flex flex-col gap-4">
-                        {item.points.map((point) => (
-                          <div key={point.id} className="flex gap-2 items-start">
-                              <Check className="text-primary" /> 
-                              <div className="flex   items-center gap-2">
-                                <p className=" font-medium   items-center ">
-                                  {point.title}:
-                                  <span className="text-muted-foreground text-sm px-1">{point.subtitle}</span>
-                                </p>
+                        {item.points.map((point, index) => (
+                          <div key={point.id} className="">
+                            <Reveal delay={index + 0.5}>
+                              <div className="flex gap-2 items-start">
+                                  <Check className="text-primary" /> 
+                                  <div className="flex items-center gap-2">
+                                    <p className=" font-medium text-sm items-center ">
+                                      {point.title}:
+                                      <span className="text-muted-foreground text-sm px-1">{point.subtitle}</span>
+                                    </p>
+                                  </div>
                               </div>
+                            </Reveal>
                           </div>
                         ))}
                       </div>
+                      <div className="flex pt-12 gap-5">
+                        <Reveal delay={3.5}>
+                          <Image src={GPlay} alt="image" width={150} height={150} />
+                        </Reveal>
+                        <Reveal delay={3.8}>
+                          <Image src={AStore} alt="image" width={150} height={150} />
+                        </Reveal>
                     </div>
-                    <div className="w-full h-full flex items-center lg:justify-end justify-center ">
-                        <div className="grid gap-6  px-4 py-2 ">
-                          <Fade>
-                            <Image src={item.image} alt="image" className="rounded-xl" width={500} height={500} />
-                          </Fade>
+                    </div>
+                    <div className="w-full h-[480px] flex items-center justify-center ">
+                        <div className="flex relative w-[90%] overflow-hidden h-full rounded-xl bg-[#8540CA]  gap-6  px-4 py-2  ">
+                          <div className="absolute top-6 z-10 -right-10">
+                            <Fade delay={1}>
+                              <Image src={EthCoin} alt="image" className="rounded-xl" width={110} height={110} />
+                            </Fade>
+                          </div>
+                          <div className="absolute bottom-10 -left-8 z-10">
+                            <Fade delay={1}>
+                              <Image src={SolCoin} alt="image" className="rounded-xl" width={110} height={110} />
+                            </Fade>
+                          </div>
+                          <div className=" w-full absolute bottom-0 left-16">
+                            <Reveal>
+                              <Image src={Feature01} alt="image" className="rounded-xl" width={340} height={340} />
+                            </Reveal>
+                          </div>
+                          <div className="w-full flex justify-center pt-8">
+                            <h2 className="text-3xl font-light flex flex-col w-80 text-center">
+                              Experience 
+                              <span className="font-semibold">
+                                <span className="">Seamless</span>
+                                <span className="font-light px-1.5">&</span>
+                                <span className="">Secure </span>
+                              </span>
+                                <span className="">Crypto Transactions</span>
+                            </h2>
+                          </div>
+                            {/* <Image src={item.image} alt="image" className="rounded-xl" width={500} height={500} /> */}
                         </div>
                     </div>
                   </div>

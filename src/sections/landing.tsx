@@ -3,12 +3,9 @@ import { Button } from "@/components/shadcn/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import BackgroundGrid  from '../../public/assets/VisualElement.png' 
-import Logo  from '../../public/assets/logo2.svg' 
-import { Navig } from "@/components/menu/header";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/shadcn/ui/dropdown-menu";
 import Reveal from '@/components/animations/reveal';
 import TypingAnimation from '@/components/animations/TypingAnimation';
+import Header from './header';
 
 
 const Landing = () => {
@@ -18,59 +15,7 @@ const Landing = () => {
    <div className="w-full h-full flex justify-center items-center">
      <Image alt="visual" src={BackgroundGrid} width={1600} height={1600}/>
      <div className=" w-full lg:py-8 lg:px-32 px-6 h-screen absolute top-0 flex flex-col">
-       <div className="w-full  flex items-center py-4 justify-between ">
-         <Image alt="Logo" src={Logo} width={120} height={120}/>
-         <div className="hidden lg:flex">
-             <Navig />
-         </div>
-         <div className="lg:flex gap-3 hidden">
-             <Link href={'/auth/sign-up'}>
-               <Button variant="outline" className="bg-[#fff] text-[#6600DC]   p-5 px-14 ">
-                 Get Started
-               </Button>
-             </Link>
-             <Link href={'/auth/sign-in'}>
-               <Button className="bg-[#FFCC00] text-[#6600DC] hover:bg-[#ffcc00d0]  p-5 px-14 ">
-                 Try Widget
-               </Button>
-             </Link>
-         </div>
-         <div className="lg:hidden flex ">
-         <DropdownMenu>
-           <DropdownMenuTrigger>
-             <HiOutlineMenuAlt3 size={32} className="text-[#FFCC00] hover:text-white"/>
-           </DropdownMenuTrigger>
-           <DropdownMenuContent align="end" className="w-64">
-             <DropdownMenuItem className="text-lg font-medium">Why Keshflip</DropdownMenuItem>
-             <DropdownMenuGroup>
-               <DropdownMenuSub>
-                 <DropdownMenuSubTrigger className="text-lg font-medium">Discover</DropdownMenuSubTrigger>
-                 <DropdownMenuPortal>
-                   <DropdownMenuSubContent>
-                     <DropdownMenuItem className="text-base font-normal">Widget Overview </DropdownMenuItem>
-                     <DropdownMenuItem className="text-base font-normal">Features </DropdownMenuItem>
-                     <DropdownMenuItem className="text-base font-normal">Benefits </DropdownMenuItem>
-                   </DropdownMenuSubContent>
-                 </DropdownMenuPortal>
-               </DropdownMenuSub>
-             </DropdownMenuGroup>
-             <DropdownMenuGroup>
-               <DropdownMenuSub>
-                 <DropdownMenuSubTrigger className="text-lg font-medium">Learn</DropdownMenuSubTrigger>
-                 <DropdownMenuPortal>
-                   <DropdownMenuSubContent>
-                     <DropdownMenuItem className="text-base font-normal">Get Started </DropdownMenuItem>
-                     <DropdownMenuItem className="text-base font-normal">Crypto Basics </DropdownMenuItem>
-                     <DropdownMenuItem className="text-base font-normal">Security and Safety </DropdownMenuItem>
-                   </DropdownMenuSubContent>
-                 </DropdownMenuPortal>
-               </DropdownMenuSub>
-             </DropdownMenuGroup>
-             <DropdownMenuItem className="text-lg font-medium">Support</DropdownMenuItem>
-           </DropdownMenuContent>
-         </DropdownMenu>
-         </div>
-       </div>
+      <Header isTry/>
        <div className="w-full h-full relative  justify-center items-center flex">
          <div className="w-full flex lg:flex-row  h-full flex-col justify-between gap-12 items-center">
            <div className="flex flex-col lg:items-start   h-full lg:pt-48   pt-8 gap-8">

@@ -61,7 +61,7 @@ export function Navig() {
       <NavigationMenuList>
         
         <NavigationMenuItem className="">
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/about" legacyBehavior passHref>
             <NavigationMenuLink className={`${navigationMenuTriggerStyle()}  bg-transparent hover:bg-transparent hover:text-yellow-400 text-white`}>
               Why Keshflip
             </NavigationMenuLink>
@@ -105,7 +105,7 @@ export function Navig() {
     
        
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink className={`${navigationMenuTriggerStyle()}  bg-transparent hover:bg-transparent hover:text-yellow-400 text-white`}>
               Support
             </NavigationMenuLink>

@@ -22,9 +22,9 @@ const sizeClasses2: { [key: string]: string } = {
     semi: 'lg:text-2xl md:text-xl text-lg font-semibold',
     large: 'lg:text-3xl text-3xl font-bold',
     large2: 'lg:text-4xl md:tex-3xl text-2xl font-semibold',
-    xlarge: 'lg:text-5xl text-3xl font-semibold',
+    xlarge: 'lg:text-5xl md:tex-4xl text-3xl font-semibold',
     xxxlarge: 'lg:text-5xl md:text-4xl text-3xl font-semibold',
-    semixxlarge: 'font-semibold lg:text-6xl md:text-5xl text-4xl',
+    semixxlarge: 'font-semibold lg:text-5xl md:text-5xl text-4xl',
     xxlarge: 'text-4xl font-bold',
     Big: 'lg:text-6xl md:text-5xl text-5xl font-bold',
 };
@@ -54,11 +54,12 @@ const TypingAnimation = ({ speed, content, delay, color,  size}: Props) => {
             initial='hidden'
             whileInView='visible'
             transition={{ staggerChildren: delay }}
-            className={`${sizeClasses2[size] || 'text-base font-regular'} ${colorClasses[color] || 'dark:text-white  text-black'}`}
+            className={`${sizeClasses2[size] || 'text-base font-regular'} ${colorClasses[color] || 'dark:text-white   text-black'}`}
         >
             {text.map((char, index) => (
                 <motion.span
                     key={`${char}-${index}`}
+                    className='leading-tight'
                     variants={characterVariant} 
                     transition={{ duration: 0.3 * speed}}
                 >

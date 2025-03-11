@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import React from 'react'
-import { BsTwitterX } from "react-icons/bs";
-import { FaYoutube } from "react-icons/fa";
-import { IoLogoInstagram } from "react-icons/io5";
 import LOG02 from '../../public/assets/logo/LOG02.png'
 import Fade from '@/components/animations/fade';
 import Reveal from '@/components/animations/reveal';
+import { SocailsItems } from '@/app/contact/page';
+import GPlay from '../../public/assets/sample/g-play.svg'
+import AStore from '../../public/assets/sample/a-store.svg'
 
-const Footer = () => {
+
+const Footer2 = () => {
 
   const QuickLinks = [
     {id: 1, title: 'Features', 
@@ -33,26 +34,31 @@ const Footer = () => {
     },
   ]
 
-  const socials = [
-    { id: 1, name: 'Twitter', icon: <BsTwitterX size={20}/>},
-    { id: 2, name: 'Instagram', icon: <IoLogoInstagram size={20}/>},
-    { id: 3, name: 'Youtube', icon: <FaYoutube size={20}/>},
-  ]
 
   return (
     <div className='h-full w-full flex flex-col '>
-    <div className='bg-[#1B013E] w-full py-8 px-8'>
+    <div className='bg-[#140029] flex flex-col gap-8 lg:px-0 px-5 w-full py-8 '>
       <div className='max-w-7xl py-5 mx-auto w-full '>
-        <div className='w-full flex flex-wrap justify-between items-center'>
-          <div className='flex flex-col gap-6 text-white'>
+        <div className='w-full flex flex-wrap justify-between items-start'>
+          <div className='flex flex-col gap-6 text-white '>
             <Fade>
-              <Image src={LOG02} alt='' width={190} height={190} />
+              <Image src={LOG02} alt='' width={170} height={170} />
             </Fade>
             <Reveal>
               <h2 className='max-w-lg text-muted-foreground mx-auto w-full'>Keshflip is a digital exchange platform that facilitates the secure and seamless exchange of fiat and cryptocurrencies.</h2>
             </Reveal>
+            
+            <div className='flex gap-6'>
+              {SocailsItems.map( item => (
+                  <div key={item.id} className='flex hover:text-white cursor-pointer gap-3 items-center '>
+                      <Reveal delay={0.5 + item.id}>
+                          <Image src={item.icon} alt={item.name} width={30} height={30} className='' />
+                      </Reveal>
+                  </div>
+              ))}
+            </div>
           </div>
-          <div className='lg:flex grid grid-cols-2  gap-16 lg:pt-0 pt-8'>
+          <div className='lg:flex grid grid-cols-2  gap-16 lg:pt-0 pt-8 '>
             {QuickLinks.map( item => (
               <div key={item.id} className='flex flex-col gap-4'>
                 <Fade>
@@ -72,28 +78,27 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
-      <div className='w-full p-8 bg-[#080C12]'>
+      <div>
+        <div className='w-full bg-gradient-to-l to-muted-foreground/0 via-muted/5 from-muted-foreground/0 p-[1px] mt-2' />
+      </div>
+      <div className='w-full  '>
         <div className='w-full text-muted-foreground max-w-7xl mx-auto flex lg:flex-row flex-col-reverse gap-4 lg:justify-between justify-center items-center'>
             <Fade>
-              <h2>Copyright Keshflip. All rights reserved.</h2>
+              <h2>© 2024 Keshflip. All rights reserved.</h2>
             </Fade>
-            <div className='flex gap-6'>
-              {socials.map( item => (
-                  <div key={item.id} className='flex hover:text-white cursor-pointer gap-3 items-center'>
-                      <Fade>
-                        <span>{item.icon}</span>
-                      </Fade>
-                      <Reveal>
-                        <h2 className='font-medium'>{item.name}</h2>
-                      </Reveal>
-                  </div>
-              ))}
+            <div className="flex gap-5">
+                <Reveal delay={3.5}>
+                  <Image src={GPlay} alt="image" className='hover:cursor-pointer' width={130} height={130} />
+                </Reveal>
+                <Reveal delay={3.8}>
+                  <Image src={AStore} alt="image" className='hover:cursor-pointer' width={120} height={120} />
+                </Reveal>
             </div>
         </div>
       </div>
     </div>
+    </div>
   )
 }
 
-export default Footer
+export default Footer2

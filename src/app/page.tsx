@@ -18,7 +18,7 @@ export default function Home() {
       <Testimonials />
         <Integration />
         <UserStatisfaction />
-        <Banner />
+        <Banner contain/>
         <FAQ />
       </div>
       <Footer/>
