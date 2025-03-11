@@ -33,6 +33,7 @@
     "@radix-ui/react-tooltip": "^1.1.4",
     "@tanstack/react-table": "^8.20.5",
     "@uiw/react-codemirror": "^4.23.6",
+    "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",

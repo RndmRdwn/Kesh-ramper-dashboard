@@ -3,6 +3,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google"; // Import Poppins font
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/shadcn/ui/tooltip";
+import { Analytics } from '@vercel/analytics/next';
 
 const poppins = Poppins({
   weight: ["100", "300", "400", "500", "600", "700", "800", "900"], // Define the font weights you want to use
@@ -28,6 +29,7 @@ export default function RootLayout({
                 <Toaster position="bottom-center" richColors/>
                 <main>
                   {children}
+                  <Analytics />
                 </main>
             </TooltipProvider>
       </body>
