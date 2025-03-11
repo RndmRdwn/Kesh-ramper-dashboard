@@ -5,9 +5,7 @@ import Link from "next/link";
 import BackgroundGrid  from '../../public/assets/VisualElement.png' 
 import Reveal from '@/components/animations/reveal';
 import TypingAnimation from '@/components/animations/TypingAnimation';
-import Header from './header';
 import Fade from '@/components/animations/fade';
-import Reveal4mTop from '@/components/animations/reveal4mTop';
 
 
 const Landing = () => {
