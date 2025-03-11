@@ -1,18 +1,24 @@
 'use client'
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import React, { useEffect, useRef } from 'react'
 import Picture1 from '../../public/assets/sample/image01.svg'
 import Picture2 from '../../public/assets/sample/image02.svg'
 
-import fireblocks from '../../public/assets/clients/fireblocks.svg'
-import hcash from '../../public/assets/clients/h-cash.svg'
-import mastercard from '../../public/assets/clients/mastercard.svg'
-import techtricks from '../../public/assets/clients/techtricks.svg'
-import marketpro from '../../public/assets/clients/marketpro.svg'
-import mtn from '../../public/assets/clients/mtn.png'
-import mpesa from '../../public/assets/clients/mpesa.svg'
-import codify from '../../public/assets/clients/codify.svg'
-import preimer from '../../public/assets/clients/preimer.svg'
+import BankETH from '../../public/assets/clients/new/bank-eth.svg'
+import preimerB from '../../public/assets/clients/new/preimer-bank.svg'
+import Equity from '../../public/assets/clients/new/equity.svg'
+import HCash from '../../public/assets/clients/new/hcash.svg'
+import Airtel from '../../public/assets/clients/new/airtel.svg'
+import mtn from '../../public/assets/clients/new/mtn.svg'
+import Mpesa from '../../public/assets/clients/new/mpesa.svg'
+import Evc from '../../public/assets/clients/new/evc-plus.svg'
+import visa from '../../public/assets/clients/new/visa.svg'
+import Mastercard from '../../public/assets/clients/new/mstrcard.svg'
+import Portal from '../../public/assets/clients/new/portal.svg'
+import preimerW from '../../public/assets/clients/new/preimer-wallet.svg'
+import Zaad from '../../public/assets/clients/new/zaad.svg'
+import Edahab from '../../public/assets/clients/new/edahab.svg'
+import Jeeb from '../../public/assets/clients/new/jeeb.svg'
 
 import Lenis from 'lenis';
 import Image from 'next/image';
@@ -38,6 +44,30 @@ const Integration = () => {
     requestAnimationFrame(raf)
   }, [])
 
+  const imageData = [
+    {img: Jeeb, name: 'Jeeb'},
+    {img: Mastercard, name: 'MasterCard'},
+    {img: visa, name: 'Visa'},
+    {img: mtn, name: 'MTN'},
+    {img: Portal, name: 'Portal'},
+  ]
+
+  const imageData2 = [
+    {img: HCash, name: 'H-Cash'},
+    {img: Equity, name: 'Equity'},
+    {img: Airtel, name: 'Airtel'},
+    {img: BankETH, name: 'BankETH'},
+    {img: preimerW, name: 'Preimer Wallet'},
+  ]
+  
+  const imageData3 = [
+    {img: Zaad, name: 'Zaad'},
+    {img: Edahab, name: 'Edahab'},
+    {img: preimerB, name: 'Preimer Bank'},
+    {img: Mpesa, name: 'M-Pesa'},
+    {img: Evc, name: 'EVC'},
+  ]
+
   return (
     <div className=' w-full'>
       <div className='py-12 w-full flex flex-col gap-3 items-center justify-center'>
@@ -60,8 +90,11 @@ const Integration = () => {
         <main className="max-w-8xl px-5 mx-auto overflow-hidden w-full">
           <div className='h-[10vh] overflow-hidden w-full'/>
           <div ref={container} className='w-full flex flex-col gap-8'>
-            <SlideLeft src={Picture1} direction={'left'} left={"0%"} progress={scrollYProgress}/>
-            <SlideRight src={Picture2} direction={'right'} left={"0%"} progress={scrollYProgress}/>
+            <SlideLeft data={imageData} Direction={'left'} left={"0%"} progress={scrollYProgress}/>
+            <SlideLeft data={imageData2} Direction={'right'} left={"0%"} progress={scrollYProgress}/>
+            <SlideLeft data={imageData3} Direction={'left'} left={"0%"} progress={scrollYProgress}/>
+            {/* <SlideRight src={Picture2} direction={'right'} left={"0%"} progress={scrollYProgress}/> */}
+            {/* <SlideLeft2 src={Picture1} direction={'left'} left={"0%"} progress={scrollYProgress}/> */}
             {/* <Slide src={Picture3} direction={'left'}  left={"0%"} progress={scrollYProgress}/> */}
           </div>
           <div className='h-[10vh]' />
@@ -71,68 +104,19 @@ const Integration = () => {
     </div>
   )
 }
-const SlideLeft = (props) => {
-  const direction = props.direction == 'left' ? -1 : 1;
-  const translateX = useTransform(props.progress, [0, 1], [150 * direction, -150 * direction])
+const SlideLeft = ({ data, Direction, progress, left }: { data: { img: string, name: string }[], Direction: string, progress: MotionValue<number>, left: string }) => {
+  const direction = Direction == 'left' ? -1 : 1;
+  const translateX = useTransform(progress, [0, 1], [150 * direction, -150 * direction])
   return (
-    <motion.div style={{x: translateX, left: props.left}} className="relative gap-8 grid lg:grid-cols-6 grid-cols-3 w-full whitespace-nowrap">
-      <div className='h-fit flex justify-center items-center  rounded-2xl w-full'>
-        <Image src={codify} alt="image" height={255} width={255}/>
-      </div>
-      <div className='h-full bg-[#E5EEF2] flex justify-center items-center  rounded-2xl w-full'>
-        <Image src={techtricks} alt="image" height={300} width={300}/>
-      </div>
-      <div className='h-full bg-[#F6B331] flex justify-center items-center  rounded-2xl w-full'>
-        <Image src={hcash} alt="image" className='rounded-3xl' height={300} width={300}/>
-      </div>
-      <div className='h-full flex justify-center bg-white items-center rounded-2xl w-full'>
-        <Image src={fireblocks} alt="image" height={300} width={300}/>
-      </div>
-      <div className='h-full flex justify-center bg-[#1B4474] items-center  rounded-2xl w-full'>
-        <Image src={preimer} alt="image" className='rounded-3xl' height={370} width={370}/>
-      </div>
-      <div className='h-full flex justify-center bg-white items-center rounded-2xl w-full'>
-        <Image src={mastercard} alt="image" height={300} width={300}/>
-      </div>
-    </motion.div>
-  )
-}
-const SlideRight = (props) => {
-  const direction = props.direction == 'left' ? -1 : 1;
-  const translateX = useTransform(props.progress, [0, 1], [150 * direction, -150 * direction])
-  return (
-    <motion.div style={{x: translateX, left: props.left}} className="relative gap-8 grid lg:grid-cols-6 grid-cols-3 w-full whitespace-nowrap">
-      <div className='h-fit flex justify-center items-center  rounded-2xl w-full'>
-        <Image src={mpesa} alt="image" height={255} width={255}/>
-      </div>
-      <div className='h-full bg-[#FFCB04] flex justify-center items-center  rounded-2xl w-full'>
-        <Image src={mtn} alt="image" className='rounded-3xl' height={300} width={300}/>
-      </div>
-      <div className='h-full flex justify-center bg-white items-center rounded-2xl w-full'>
-        <Image src={fireblocks} alt="image" height={300} width={300}/>
-      </div>
-      <div className='h-full flex justify-center bg-[#1B4474] items-center  rounded-2xl w-full'>
-        <Image src={preimer} alt="image" className='rounded-3xl' height={370} width={370}/>
-      </div>
-      <div className='h-full bg-[#EFF7E0] flex justify-center items-center  rounded-2xl w-full'>
-        <Image src={codify} alt="image" className='rounded-3xl' height={300} width={300}/>
-      </div>
-      <div className='h-full flex justify-center bg-[#FFF6E9] items-center rounded-2xl w-full'>
-        <Image src={marketpro} alt="image" height={300} width={300}/>
-      </div>
+    <motion.div style={{x: translateX, left: left}} className="relative gap-0 grid lg:grid-cols-5 grid-cols-3 w-full whitespace-nowrap">
+      {data.map( item => (
+        <div key={item.name} className='h-fit flex justify-center items-center  w-full'>
+          <Image src={item.img} alt="image" height={255} width={255} className='rounded-2xl'/>
+        </div>
+      ))}
     </motion.div>
   )
 }
 
-// const Phrase = ({src}) => {
-
-//   return (
-//     <div className={'px-5 flex gap-5 items-center'}>
-//       <span className="relative h-[7.5vw] aspect-[4/2] rounded-full overflow-hidden">
-//         <Image style={{objectFit: "cover"}} src={src} alt="image" fill/>
-//       </span>
-//     </div>
-//   )
-// }
 
 export default Integration

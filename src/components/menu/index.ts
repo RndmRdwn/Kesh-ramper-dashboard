@@ -6,3 +6,12 @@ export const navItems = [
     { name: 'Assets', path : '/assets'},
     { name: 'Settings', path : '/settings'},
 ]
+
+export const homeNavItems = [
+    { name: 'Home', path : '/'},
+    { name: 'About', path : '/about'},
+    { name: 'Features', path : '/features'},
+    { name: 'Support', path : '/contact'},
+    { name: 'Discover', path : '/'},
+    { name: 'Learn', path : '/'},
+]

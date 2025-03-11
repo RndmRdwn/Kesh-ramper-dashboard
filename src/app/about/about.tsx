@@ -26,7 +26,7 @@ const AboutInfo = () => {
                   <h2 className='leading-loose lg:pr-24'>{desc}</h2>
                 </Reveal>
                 <Reveal delay={4}>
-                  <Button className='bg-white font-semibold text-primary p-6'>Explore Our Journey</Button>
+                  <Button className='bg-white hover:bg-primary hover:text-white hover:shadow-xl font-semibold text-primary p-6'>Explore Our Journey</Button>
                 </Reveal>
               </div>
             </div>

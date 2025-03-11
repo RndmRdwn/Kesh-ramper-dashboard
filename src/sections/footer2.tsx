@@ -68,7 +68,7 @@ const Footer2 = () => {
                   {item.items.map(it => (
                     <div key={it.id}>
                       <Reveal>
-                        <a href='#' className='hover:text-white duration-200 ease-in-out text-muted-foreground'>{it.name}</a>
+                        <a href={it.name == 'Contact' ?  '/contact' : it.name == 'About Us' ? '/about' : '#'} className='hover:text-white duration-200 ease-in-out text-muted-foreground'>{it.name}</a>
                       </Reveal>
                     </div>
                   ))}

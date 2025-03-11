@@ -16,6 +16,9 @@ import TwitterX from '../../../public/assets/socials/x.svg'
 import Image, { StaticImageData } from 'next/image'
 import Banner from '@/sections/banner'
 import Footer2 from '@/sections/footer2'
+import Reveal from '@/components/animations/reveal'
+import Fade from '@/components/animations/fade'
+import Reveal4mTop from '@/components/animations/reveal4mTop'
 
 const info = [
     {id: 1, icon: Location, name: 'Head Quarter', value: 'Makka Almukarama Road, 505 Suites, Adani Towers 2, Hodan, Mogadishu, Somalia'},
@@ -35,11 +38,13 @@ const ContactPage = () => {
 
   return (
     <div className='bg-[#6600CC] text-white w-full h-full'>
-        <div className=' max-w-7xl mx-auto w-full pb-8'>
+        <div className=' max-w-7xl mx-auto w-full pb-8 p-5'>
             <div className='  h-full w-full'>
-                <Header isTry={false}/>
+                <Reveal4mTop>
+                    <Header isTry={false}/>
+                </Reveal4mTop>
 
-                <div className='flex lg:px-0 px-5 flex-col gap-14'>
+                <div className='flex lg:px-0  flex-col gap-14'>
                     <div className='w-full flex flex-col justify-center items-center pt-24 pb-12'>
                         <div className='flex flex-col gap-4 items-center justify-center'>
                             <h2 className="bg-white/15 w-fit  uppercase text-white font-medium tracking-wide text-sm p-2 px-6 rounded-full">
@@ -48,58 +53,78 @@ const ContactPage = () => {
                             <div className='text-center'>
                                 <TypingAnimation color='white' content={'Contact Our Support Team'} size='xlarge' delay={0.058} speed={1.5}/>
                             </div>
-                            <div className='text-base max-w-lg mx-auto w-full text-center  '>
-                                Reach out to us for any questions, assistance, or feedback. We’re just a message away!
-                            </div>
+                            <Reveal delay={1.9}>
+                                <div className='text-base max-w-lg mx-auto w-full text-center  '>
+                                    Reach out to us for any questions, assistance, or feedback. We’re just a message away!
+                                </div>
+                            </Reveal>
                         </div>
                         
                         <div className='flex justify-center items-center gap-6 py-8'>
                             {SocailsItems.map( item => (
                                 <div key={item.id}>
-                                    <Image src={item.icon} alt={item.name} width={30} height={30} />
+                                    <Reveal delay={item.id * 0.5 + 2}>
+                                        <Image src={item.icon} alt={item.name} width={30} height={30} />
+                                    </Reveal>
                                 </div>
                             ))}
                         </div>
-                    </div>
-
-                    <div className='w-full bg-black/10 rounded-lg flex flex-col gap-8 lg:p-16 p-8'>
-                        <div className='w-full flex flex-col lg:grid grid-cols-2 gap-8 '>
-                            <div className='flex flex-col gap-2'>
-                                <h2>Full Name</h2>
-                                <Input className='border-muted/30 placeholder:text-white/50 p-6' placeholder='Enter your full name' />
-                            </div>
-                            <div className='flex flex-col gap-2'>
-                                <h2>Email Address</h2>
-                                <Input className='border-muted/30 placeholder:text-white/50 p-6' placeholder='Enter your email address' />
-                            </div>
-                            <div className='flex flex-col gap-2'>
-                                <h2>Mobile Number</h2>
-                                <Input className='border-muted/30 placeholder:text-white/50 p-6' placeholder='Enter your mobile number' />
-                            </div>
-                            <div className='flex flex-col gap-2'>
-                                <h2>Subject</h2>
-                                <Input className='border-muted/30 placeholder:text-white/50 p-6' placeholder='Enter your mobile number' />
-                            </div>
-                            <div className='flex flex-col col-span-2 gap-2'>
-                                <h2>Message</h2>
-                                <Textarea className='border-muted/30 placeholder:text-white/50 p-6 h-56' placeholder='Write your message here' />
-                            </div>
-                        </div>
-                        <div className='w-full flex justify-center items-center'>
-                            <Button className='w-72 py-6 text-base font-semibold hover:bg-gradient-to-br from-[#6600CC] to-[#6600CC]/75 hover:shadow-lg hover:text-white bg-white text-primary'>Send Message</Button>
-                        </div>
-                        
                     </div>
                     
-                    <div className='w-full bg-black/10  rounded-lg flex flex-col lg:gap-8 lg:px-16 px-5 py-12'>
-                        <div className='w-full grid lg:grid-cols-3 gap-4'>
-                            {info.map( item => (
-                                <div key={item.id}>
-                                    <InfoStats idx={item.id} border={item.id == info.length  ? false : true} label={item.name} value={item.value} icon={item.icon} />
-                                </div>
-                            ))}
+                    <Fade>
+                        <div className='w-full bg-black/10 rounded-lg flex flex-col gap-8 lg:p-16 p-8'>
+                            <div className='w-full flex flex-col lg:grid grid-cols-2 gap-8 '>
+                                <Reveal delay={1}>
+                                    <div className='flex flex-col gap-2'>
+                                        <h2>Full Name</h2>
+                                        <Input className='border-muted/30 placeholder:text-white/50 p-6' placeholder='Enter your full name' />
+                                    </div>
+                                </Reveal>
+                                <Reveal delay={1.5}>
+                                    <div className='flex flex-col gap-2'>
+                                        <h2>Email Address</h2>
+                                        <Input className='border-muted/30 placeholder:text-white/50 p-6' placeholder='Enter your email address' />
+                                    </div>
+                                </Reveal>
+                                <Reveal delay={2.0}>
+                                    <div className='flex flex-col gap-2'>
+                                        <h2>Mobile Number</h2>
+                                        <Input className='border-muted/30 placeholder:text-white/50 p-6' placeholder='Enter your mobile number' />
+                                    </div>
+                                </Reveal>
+                                <Reveal delay={2.5}>
+                                    <div className='flex flex-col gap-2'>
+                                        <h2>Subject</h2>
+                                        <Input className='border-muted/30 placeholder:text-white/50 p-6' placeholder='Enter your mobile number' />
+                                    </div>
+                                </Reveal>
+                                <Reveal delay={3.0}>
+                                    <div className='flex flex-col col-span-2 gap-2'>
+                                        <h2>Message</h2>
+                                        <Textarea className='border-muted/30 placeholder:text-white/50 p-6 h-56' placeholder='Write your message here' />
+                                    </div>
+                                </Reveal>
+                            </div>
+                            <div className='w-full flex justify-center items-center'>
+                                <Button className='w-72 py-6 text-base font-semibold hover:bg-gradient-to-br from-[#6600CC] to-[#6600CC]/75 hover:shadow-lg hover:text-white bg-white text-primary'>Send Message</Button>
+                            </div>
+                            
                         </div>
-                    </div>
+                    </Fade>
+                    
+                    <Fade >
+                        <div className='w-full bg-black/10  rounded-lg flex flex-col lg:gap-8 lg:px-16 px-5 py-12'>
+                            <div className='w-full grid lg:grid-cols-3 gap-4'>
+                                {info.map( item => (
+                                    <div key={item.id}>
+                                        <Reveal delay={item.id * 0.5}>
+                                                <InfoStats idx={item.id} border={item.id == info.length  ? false : true} label={item.name} value={item.value} icon={item.icon} />
+                                        </Reveal>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </Fade>
                 </div>
             
                 <Banner contain={false}/>

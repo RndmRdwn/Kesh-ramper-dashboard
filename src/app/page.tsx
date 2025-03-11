@@ -7,6 +7,7 @@ import Integration from "../sections/integration";
 import Testimonials from "../sections/testimonials";
 import UserStatisfaction from "../sections/userSatisfication";
 import WhyChoose from "../sections/why-choose";
+import Footer2 from "@/sections/footer2";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
         <Banner contain/>
         <FAQ />
       </div>
-      <Footer/>
+      <Footer2/>
     </div>
   );
 }
