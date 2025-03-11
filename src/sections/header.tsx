@@ -15,7 +15,9 @@ type Props = {
 const Header = ({isTry}: Props) => {
   return (
     <div className="w-full  flex items-center py-4 lg:px-0 px-5 justify-between ">
-         <Image alt="Logo" src={Logo} width={120} height={120}/>
+         <Link href={'/'}>
+          <Image alt="Logo" src={Logo} width={120} height={120}/>
+         </Link>
          <div className="hidden lg:flex">
              <Navig />
          </div>
