@@ -23,6 +23,7 @@ import Reveal from "@/components/animations/reveal";
 
 import GPlay from '../../public/assets/sample/g-play.svg'
 import AStore from '../../public/assets/sample/a-store.svg'
+import FinancialAppSlider from "./feature-slider";
 
 const WhyChoose = () => {
   const content =
@@ -79,12 +80,12 @@ const WhyChoose = () => {
   const [selected, setSelected] = useState('buy-sell')
 
   return (
-    <div className="w-full lg:h-screen h-fit text-white">
-      <div className="w-full max-w-7xl mx-auto h-full lg:pt-32 pt-72 px-8 flex flex-col gap-8 items-center">
+    <div className="w-full lg:h-full h-fit text-white">
+      <div className="w-full max-w-7xl mx-auto h-full lg:pt-32 pt-72 px-8 flex flex-col gap-6 items-center">
         <h2 className="bg-muted-foreground/15 shadow-lg uppercase text-white/60 font-medium tracking-wide text-sm p-2 px-4 rounded-full">
           <TypingAnimation color='gray' content={'Features'} size='medium' delay={0.098} speed={2}/>
         </h2>
-
+        <TypingAnimation color='white' content={'Why Choose Us?'} size='xlarge' delay={0.028} speed={3}/>
         <Reveal>
           <p className="lg:max-w-4xl text-center mx-auto text-muted-foreground">{content}</p>
         </Reveal>
@@ -179,54 +180,14 @@ const WhyChoose = () => {
                     </div>
                   </div>
                 </TabsContent>
-              ))}
+              ))} 
             </Tabs>
           </div>
 
-          <div className="flex lg:hidden  flex-col gap-6 ">
-            {items.map(item => (
-              <div key={item.id} className="flex  gap-4 items-center flex-col">
-                <div className="w-full  flex  items-center gap-4">
-                  <Image src={item.id == selected ? item.icon : item.icon} alt="image" width={40} height={40} />
-                  <h2 className="font-medium text-xl">{item.label}</h2>
-                </div>
-                <div className="w-full border border-white/10 h-full bg-muted/5 backdrop-blur-sm rounded-xl p-6">
-                  <div>
-                    <div className="flex flex-col gap-3 w-fit">
-                      {/* <Fade> */}
-                        <span className="text-sm  w-fit shadow-md bg-gradient-to-br from-primary/50 to-white/20 px-5 py-2 rounded-full">
-                          <TypingAnimation color='gray' content={item.badge} size='medium' delay={0.098} speed={2}/>
-                        </span>
-                      <TypingAnimation color='white' content={item.heading} size='xlarge' delay={0.098} speed={2}/>
-
-                      {/* <TypingAnimation color='lightgray' content={item.desc} size='normalLight' delay={0.098} speed={2}/> */}
-                      <Fade delay={1}>
-                        <p className="text-muted-foreground mt-2">{item.desc}</p>
-                      </Fade>
-                    </div>
-                    <div className="mt-6 flex flex-col gap-4">
-                      {item.points.map((point) => (
-                        <div key={point.id} className="flex gap-2 items-start">
-                            <Check className="text-primary" /> 
-                            <div className="flex   items-center gap-2">
-                              <p className=" font-medium   items-center ">
-                                {point.title}:
-                                <span className="text-muted-foreground text-sm px-1">{point.subtitle}</span>
-                              </p>
-                            </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="flex pt-12 gap-5">
-                      <Image src={GPlay} alt="image" width={150} height={150} />
-                      <Image src={AStore} alt="image" width={150} height={150} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            <div className="lg:hidden flex">
+                <FinancialAppSlider />
+            </div>
+          
         </div>
       </div>
     </div>

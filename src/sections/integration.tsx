@@ -90,9 +90,6 @@ const Integration = () => {
             <SlideLeft data={imageData} Direction={'left'} left={"0%"} progress={scrollYProgress}/>
             <SlideLeft data={imageData2} Direction={'right'} left={"0%"} progress={scrollYProgress}/>
             <SlideLeft data={imageData3} Direction={'left'} left={"0%"} progress={scrollYProgress}/>
-            {/* <SlideRight src={Picture2} direction={'right'} left={"0%"} progress={scrollYProgress}/> */}
-            {/* <SlideLeft2 src={Picture1} direction={'left'} left={"0%"} progress={scrollYProgress}/> */}
-            {/* <Slide src={Picture3} direction={'left'}  left={"0%"} progress={scrollYProgress}/> */}
           </div>
           <div className='h-[10vh]' />
         </main>
@@ -105,7 +102,7 @@ const SlideLeft = ({ data, Direction, progress, left }: { data: { img: string, n
   const direction = Direction == 'left' ? -1 : 1;
   const translateX = useTransform(progress, [0, 1], [150 * direction, -150 * direction])
   return (
-    <motion.div style={{x: translateX, left: left}} className="relative gap-0 grid lg:grid-cols-5 grid-cols-3 w-full whitespace-nowrap">
+    <motion.div style={{x: translateX, left: left}} className="relative gap-4 grid lg:grid-cols-5 grid-cols-2 w-full whitespace-nowrap">
       {data.map( item => (
         <div key={item.name} className='h-fit flex justify-center items-center  w-full'>
           <Image src={item.img} alt="image" height={255} width={255} className='rounded-2xl'/>
