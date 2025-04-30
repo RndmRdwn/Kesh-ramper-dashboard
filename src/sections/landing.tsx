@@ -6,7 +6,7 @@ import BackgroundGrid  from '../../public/assets/VisualElement.png'
 import Reveal from '@/components/animations/reveal';
 import TypingAnimation from '@/components/animations/TypingAnimation';
 import Fade from '@/components/animations/fade';
-
+import KeshflipApp from '../../public/assets/features/mockup.svg' 
 
 const Landing = () => {
   return (
@@ -40,19 +40,25 @@ const Landing = () => {
              </Reveal>
            </div>
               <div className="absolute top-20 right-[-24px] bg-[#CCAAEE]/10 blur-[50px] h-[500px] w-[500px]  rounded-full" />
-              <div className="w-full z-40  lg:pb-0 pb-12   rounded-lg flex lg:items-end items-center lg:justify-end justify-center">
-             <Reveal delay={1}>
-                <div className='w-[405px] lg:h-[680px] h-[680px]  shadow-lg rounded-3xl p-2 border-primary bg-gradient-to-tr from-[#6600CC] via-[#9046DA] to-[#6600CC]' >
-                  <iframe
-                    className="rounded-3xl overflow-hidden h-[665px] w-[390px] lg:w-[390px] "
-                    src="https://kesh-ramper-widget.vercel.app/"
-                    style={{ overflow: 'hidden', border: 'none' }}
-                  ></iframe>
+                <div className="w-full z-40  lg:pb-0 pb-12   rounded-lg flex lg:items-end items-center lg:justify-end justify-center">
+              <Reveal delay={1}>
+                  <div className='w-[405px] lg:h-[680px] h-[680px]  shadow-lg rounded-3xl p-2 border-primary bg-gradient-to-tr from-[#6600CC] via-[#9046DA] to-[#6600CC]' >
+                    <iframe
+                      className="rounded-3xl overflow-hidden h-[665px] w-[390px] lg:w-[390px] "
+                      src="https://kesh-ramper-widget.vercel.app/"
+                      style={{ overflow: 'hidden', border: 'none' }}
+                    ></iframe>
+                  </div>
+              </Reveal>
                 </div>
-             </Reveal>
-              </div>
          </div>
        </div>
+     </div>
+
+     <div className=' absolute lg:left-[20%] bottom-[-80] lg:block hidden'>
+      <Reveal delay={3}>
+        <Image alt="visual" className='' src={KeshflipApp} width={800} height={800}/>
+      </Reveal>
      </div>
    </div>
 </div>

@@ -11,12 +11,10 @@ import FlipFill from '../../public/assets/icons/flipFill.svg'
 import RocketFill from '../../public/assets/icons/rocketFill.svg'
 import Image from "next/image";
 
-import EthCoin from '../../public/assets/currencies/crypto/eth.svg'
-import SolCoin from '../../public/assets/currencies/crypto/sol.svg'
-import Feature01 from '../../public/assets/features/buy-crypto.svg'
-import Sample05 from '../../public/assets/sample/sample05.jpg'
-import Sample06 from '../../public/assets/sample/sample06.jpg'
-import Sample07 from '../../public/assets/sample/sample07.jpg'
+import BuySell from '../../public/assets/features/3. Frame-en-3.png'
+import Securely from '../../public/assets/features/4. Frame-en-4.png'
+import SendMoney from '../../public/assets/features/5. Frame-en-5.png'
+
 import TypingAnimation from "@/components/animations/TypingAnimation";
 import Fade from "@/components/animations/fade";
 import Reveal from "@/components/animations/reveal";
@@ -43,7 +41,7 @@ const WhyChoose = () => {
         { id: 2, title: "Best Rates", subtitle: "Enjoy competitive pricing with low fees." },
         { id: 3, title: "Secure Payments", subtitle: "Seamlessly deposit and withdraw using local currency." },
       ],
-      image: Sample05
+      image: BuySell
     },
     {
       id: "payments",
@@ -58,7 +56,7 @@ const WhyChoose = () => {
         { id: 2, title: "Global Reach", subtitle: "Transact with businesses and individuals worldwide." },
         { id: 3, title: "Flexible Options", subtitle: "Choose from multiple cryptocurrencies for payments." },
       ],
-      image: Sample06
+      image: Securely
     },
     {
       id: "send-money",
@@ -73,7 +71,7 @@ const WhyChoose = () => {
         { id: 2, title: "Multiple Currencies", subtitle: "Support for various digital assets and local currencies." },
         { id: 3, title: "Reliable & Secure", subtitle: "Your transactions are protected with top-tier security." },
       ],
-      image: Sample07
+      image: SendMoney
     },
   ];
 
@@ -147,9 +145,9 @@ const WhyChoose = () => {
                         </Reveal>
                     </div>
                     </div>
-                    <div className="w-full h-[480px] flex items-center justify-center ">
-                        <div className="flex relative w-[90%] overflow-hidden h-full rounded-xl bg-[#8540CA]  gap-6  px-4 py-2  ">
-                          <div className="absolute top-6 z-10 -right-10">
+                    <div className="w-full h-[580px] flex items-center justify-center ">
+                        <div className="flex relative w-full overflow-hidden h-full rounded-xl   ">
+                          {/* <div className="absolute top-6 z-10 -right-10">
                             <Fade delay={1}>
                               <Image src={EthCoin} alt="image" className="rounded-xl" width={110} height={110} />
                             </Fade>
@@ -158,13 +156,13 @@ const WhyChoose = () => {
                             <Fade delay={1}>
                               <Image src={SolCoin} alt="image" className="rounded-xl" width={110} height={110} />
                             </Fade>
-                          </div>
-                          <div className=" w-full absolute bottom-0 left-16">
+                          </div> */}
+                          <div className=" w-full ">
                             <Reveal>
-                              <Image src={Feature01} alt="image" className="rounded-xl" width={340} height={340} />
+                              <Image src={item.image} alt="image" className="rounded-xl" width={400} height={400} />
                             </Reveal>
                           </div>
-                          <div className="w-full flex justify-center pt-8">
+                          {/* <div className="w-full flex justify-center pt-8">
                             <h2 className="text-3xl font-light flex flex-col w-80 text-center">
                               Experience 
                               <span className="font-semibold">
@@ -174,7 +172,7 @@ const WhyChoose = () => {
                               </span>
                                 <span className="">Crypto Transactions</span>
                             </h2>
-                          </div>
+                          </div> */}
                             {/* <Image src={item.image} alt="image" className="rounded-xl" width={500} height={500} /> */}
                         </div>
                     </div>
