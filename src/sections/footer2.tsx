@@ -13,23 +13,24 @@ const Footer2 = () => {
   const QuickLinks = [
     {id: 1, title: 'Features', 
       items: [
-        {id: 1, name: 'Buy & Sell Crypto'},
-        {id: 2, name: 'Payments'},
-        {id: 3, name: 'Send Money'},
+        {id: 1, path: '#', name: 'Buy & Sell Crypto'},
+        {id: 2, path: '#', name: 'Payments'},
+        {id: 3, path: '#', name: 'Send Money'},
       ]
     },
     {id: 2, title: 'Company', 
       items: [
-        {id: 1, name: 'About Us'},
-        {id: 3, name: 'Blog'},
-        {id: 4, name: 'Contact'},
+        {id: 1, path:'/about', name: 'About Us'},
+        {id: 3, path:'/#', name: 'Blog'},
+        {id: 4, path:'/contact', name: 'Contact'},
       ]
     },
     {id: 3, title: 'Support', 
       items: [
-        {id: 1, name: 'Help Center'},
-        {id: 2, name: 'Terms and Conditions'},
-        {id: 3, name: 'Privacy Policy'},
+        {id: 1, path: '/contact', name: 'Help Center'},
+        {id: 2, path: '/terms-of-service', name: 'Terms of service'},
+        {id: 3, path: '/privacy-policy', name: 'Privacy Policy'},
+        {id: 4, path: '/aml-kyc-policy', name: 'AML KYC Policy'},
       ]
     },
   ]
@@ -68,7 +69,7 @@ const Footer2 = () => {
                   {item.items.map(it => (
                     <div key={it.id}>
                       <Reveal>
-                        <a href={it.name == 'Contact' ?  '/contact' : it.name == 'About Us' ? '/about' : '#'} className='hover:text-white duration-200 ease-in-out text-muted-foreground'>{it.name}</a>
+                        <a href={it.path} className='hover:text-white duration-200 ease-in-out text-muted-foreground'>{it.name}</a>
                       </Reveal>
                     </div>
                   ))}
