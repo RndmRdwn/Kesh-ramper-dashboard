@@ -55,7 +55,7 @@ const Landing = () => {
        </div>
      </div>
 
-     <div className=' absolute lg:left-[20%] bottom-[-80] lg:block hidden'>
+     <div className=' absolute lg:left-[20%] bottom-[-90] lg:block hidden'>
       <Reveal delay={3}>
         <Image alt="visual" className='' src={KeshflipApp} width={800} height={800}/>
       </Reveal>
