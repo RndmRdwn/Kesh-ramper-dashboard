@@ -16,7 +16,7 @@ const Landing = () => {
      <div className=" w-full lg:px-0 px-5 max-w-7xl mx-auto  h-full absolute lg:top-0 top-32 flex flex-col">
        <div className="w-full h-full relative  justify-center items-center flex">
          <div className="w-full flex lg:flex-row  h-full flex-col justify-between gap-12 items-center">
-           <div className="flex flex-col lg:items-start   h-full lg:pt-48   pt-8 gap-8">
+           <div className="flex flex-col lg:items-start   h-full lg:pt-32   pt-8 gap-8">
              <div className="w-full flex flex-col   justify-start lg:items-start items-start gap-5  lg:pr-2">
                <Fade>
                 <div className="text-sm p-2  w-fit px-4 font-medium text-white bg-gradient-to-tr from-[#E59CFF3D]/25 via-[#BA9CFF3D]/25 to-[#9CB2FF3D]/25 rounded-full">
@@ -55,9 +55,9 @@ const Landing = () => {
        </div>
      </div>
 
-     <div className=' absolute lg:left-[20%] bottom-[-90] lg:block hidden'>
+     <div className=' absolute lg:left-[20%]  lg:block hidden'>
       <Reveal delay={3}>
-        <Image alt="visual" className='' src={KeshflipApp} width={800} height={800}/>
+        <Image alt="visual" className='mt-48 ' src={KeshflipApp} width={800} height={800}/>
       </Reveal>
      </div>
    </div>
